@@ -1,12 +1,12 @@
 import pandas as pd
 
-def carica_dati(df: pd.DataFrame):
+def trasformazione(df: pd.DataFrame, value_vars=["Italiani", "Stranieri"]):
     # --------------------------------------------------
     # 2. Trasformazione WIDE -> LONG
     # --------------------------------------------------
     df_long = df.melt(
         id_vars=["Metrica", "Ambito", "Periodo"],
-        value_vars=["Italiani", "Stranieri"],
+        value_vars=value_vars,
         var_name="Nazionalita",
         value_name="Valore"
     )

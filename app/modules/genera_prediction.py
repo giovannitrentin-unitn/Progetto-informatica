@@ -1,7 +1,7 @@
 import pandas as pd
 from chronos import BaseChronosPipeline
 
-def genera_prediction(df_long: pd.DataFrame, prediction_length: int = 36, quantile_levels: [] = [0.0, 0.25, 0.5, 0.75, 1.0]):
+def genera_prediction(df_long: pd.DataFrame, prediction_length: int = 36, quantile_levels=[0.0, 0.25, 0.5, 0.75, 1.0]):
     # --------------------------------------------------
     # 4. Caricamento modello Chronos
     # --------------------------------------------------
