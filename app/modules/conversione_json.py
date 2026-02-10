@@ -8,7 +8,7 @@ def conversione_json(df: pd.DataFrame):
     Inserisce solo le colonne di provenienza (Italiani/Stranieri) effettivamente presenti.
     """
     # Definiamo quali colonne vogliamo mappare nel JSON se presenti
-    provenienze_target = ["Italiani", "Stranieri"]
+    provenienze_target = ["Italiani", "Stranieri", "Totale Strutture", "Totale Luoghi"]
     # Filtriamo solo quelle che esistono davvero nel df
     colonne_presenti = [c for c in provenienze_target if c in df.columns]
 
