@@ -1,0 +1,15 @@
+{
+  "filters": {
+    "generation": {
+      "precisione_min_generazione": "0",
+      "precisione_max_generazione": "10",
+      "quantita_min_previsione": "1",
+      "quantita_max_previsione": "1024",
+      "ambito": [],
+      "colonne": ["Stranieri", "Italiani"],
+      "periodo": ["Annuale", "Mensile"],
+      "target": ["Presenze", "Arrivi"]
+    },
+    "data": {}
+  }
+}

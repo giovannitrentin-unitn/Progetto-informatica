@@ -2,6 +2,16 @@
   "Arrivi": {
     "2013-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 188732,
+        "stranieri": 88403
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 21924,
+        "stranieri": 12323
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 10843,
         "stranieri": 3902
@@ -63,6 +73,16 @@
       }
     ],
     "2013-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 173896,
+        "stranieri": 106651
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 21545,
+        "stranieri": 15288
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 10614,
@@ -126,6 +146,16 @@
     ],
     "2013-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 158386,
+        "stranieri": 102270
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 22199,
+        "stranieri": 17044
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 13038,
         "stranieri": 4974
@@ -187,6 +217,16 @@
       }
     ],
     "2013-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 45116,
+        "stranieri": 44470
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 14476,
+        "stranieri": 9086
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 7673,
@@ -250,6 +290,16 @@
     ],
     "2013-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 40436,
+        "stranieri": 87237
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 13318,
+        "stranieri": 39781
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 9064,
         "stranieri": 8663
@@ -311,6 +361,16 @@
       }
     ],
     "2013-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 111086,
+        "stranieri": 93646
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 33012,
+        "stranieri": 39313
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 9275,
@@ -374,6 +434,16 @@
     ],
     "2013-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 225400,
+        "stranieri": 124185
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 77923,
+        "stranieri": 84416
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 13804,
         "stranieri": 12968
@@ -435,6 +505,16 @@
       }
     ],
     "2013-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 329257,
+        "stranieri": 112690
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 114607,
+        "stranieri": 76308
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 16766,
@@ -498,6 +578,16 @@
     ],
     "2013-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 104723,
+        "stranieri": 121092
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 29108,
+        "stranieri": 43715
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 10891,
         "stranieri": 10621
@@ -559,6 +649,16 @@
       }
     ],
     "2013-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 42955,
+        "stranieri": 63992
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 11668,
+        "stranieri": 11586
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 9792,
@@ -622,6 +722,16 @@
     ],
     "2013-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 46560,
+        "stranieri": 10627
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 10650,
+        "stranieri": 1531
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 13317,
         "stranieri": 2410
@@ -683,6 +793,16 @@
       }
     ],
     "2013-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 203639,
+        "stranieri": 54736
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 41428,
+        "stranieri": 8186
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 19612,
@@ -746,6 +866,16 @@
     ],
     "2014-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 198587,
+        "stranieri": 90119
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 26239,
+        "stranieri": 13001
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 12008,
         "stranieri": 3753
@@ -807,6 +937,16 @@
       }
     ],
     "2014-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 168772,
+        "stranieri": 113584
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 20819,
+        "stranieri": 17525
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 10581,
@@ -870,6 +1010,16 @@
     ],
     "2014-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 166417,
+        "stranieri": 108449
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 24911,
+        "stranieri": 15365
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 13590,
         "stranieri": 4785
@@ -931,6 +1081,16 @@
       }
     ],
     "2014-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 61080,
+        "stranieri": 68374
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 20018,
+        "stranieri": 22925
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 11170,
@@ -994,6 +1154,16 @@
     ],
     "2014-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 57164,
+        "stranieri": 79244
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 19714,
+        "stranieri": 28179
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 10608,
         "stranieri": 7033
@@ -1055,6 +1225,16 @@
       }
     ],
     "2014-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 101618,
+        "stranieri": 106850
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 31083,
+        "stranieri": 50710
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 8894,
@@ -1118,6 +1298,16 @@
     ],
     "2014-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 208048,
+        "stranieri": 122083
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 68516,
+        "stranieri": 78488
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 13630,
         "stranieri": 14486
@@ -1179,6 +1369,16 @@
       }
     ],
     "2014-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 295008,
+        "stranieri": 119660
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 93622,
+        "stranieri": 81184
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 15517,
@@ -1242,6 +1442,16 @@
     ],
     "2014-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 95929,
+        "stranieri": 115449
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 26866,
+        "stranieri": 40666
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 10341,
         "stranieri": 10610
@@ -1303,6 +1513,16 @@
       }
     ],
     "2014-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 50154,
+        "stranieri": 69458
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 15464,
+        "stranieri": 14120
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 10674,
@@ -1366,6 +1586,16 @@
     ],
     "2014-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 40640,
+        "stranieri": 13177
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 9303,
+        "stranieri": 1411
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 12719,
         "stranieri": 3502
@@ -1427,6 +1657,16 @@
       }
     ],
     "2014-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 222496,
+        "stranieri": 51601
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 46168,
+        "stranieri": 8060
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 23500,
@@ -1490,6 +1730,16 @@
     ],
     "2015-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 209416,
+        "stranieri": 101046
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 28332,
+        "stranieri": 17114
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 12597,
         "stranieri": 4507
@@ -1551,6 +1801,16 @@
       }
     ],
     "2015-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 190851,
+        "stranieri": 112398
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 24987,
+        "stranieri": 18041
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 11729,
@@ -1614,6 +1874,16 @@
     ],
     "2015-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 154251,
+        "stranieri": 100629
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 20974,
+        "stranieri": 20147
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 13805,
         "stranieri": 6232
@@ -1675,6 +1945,16 @@
       }
     ],
     "2015-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 81017,
+        "stranieri": 67450
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 21375,
+        "stranieri": 21397
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 11677,
@@ -1738,6 +2018,16 @@
     ],
     "2015-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 67334,
+        "stranieri": 88809
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 22883,
+        "stranieri": 41978
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 12514,
         "stranieri": 7684
@@ -1799,6 +2089,16 @@
       }
     ],
     "2015-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 100508,
+        "stranieri": 107233
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 32915,
+        "stranieri": 44695
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 8421,
@@ -1862,6 +2162,16 @@
     ],
     "2015-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 249844,
+        "stranieri": 135481
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 88193,
+        "stranieri": 87612
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 13546,
         "stranieri": 15995
@@ -1923,6 +2233,16 @@
       }
     ],
     "2015-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 346513,
+        "stranieri": 127198
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 117593,
+        "stranieri": 84543
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 18420,
@@ -1986,6 +2306,16 @@
     ],
     "2015-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 104556,
+        "stranieri": 126696
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 29746,
+        "stranieri": 46924
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 11220,
         "stranieri": 13378
@@ -2047,6 +2377,16 @@
       }
     ],
     "2015-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 46650,
+        "stranieri": 66544
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 14204,
+        "stranieri": 13766
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 9840,
@@ -2110,6 +2450,16 @@
     ],
     "2015-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 40016,
+        "stranieri": 15013
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 9998,
+        "stranieri": 2796
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 12420,
         "stranieri": 3624
@@ -2171,6 +2521,16 @@
       }
     ],
     "2015-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 231779,
+        "stranieri": 43536
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 51520,
+        "stranieri": 7415
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 25358,
@@ -2234,6 +2594,16 @@
     ],
     "2016-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 220148,
+        "stranieri": 102355
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 30831,
+        "stranieri": 17631
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 13430,
         "stranieri": 5372
@@ -2295,6 +2665,16 @@
       }
     ],
     "2016-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 200542,
+        "stranieri": 119357
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 28995,
+        "stranieri": 20025
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 12845,
@@ -2358,6 +2738,16 @@
     ],
     "2016-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 197535,
+        "stranieri": 121247
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 31941,
+        "stranieri": 26411
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 15209,
         "stranieri": 6679
@@ -2419,6 +2809,16 @@
       }
     ],
     "2016-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 61305,
+        "stranieri": 53899
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 17907,
+        "stranieri": 14750
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 12108,
@@ -2482,6 +2882,16 @@
     ],
     "2016-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 49544,
+        "stranieri": 99453
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 17141,
+        "stranieri": 51454
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 10126,
         "stranieri": 9985
@@ -2543,6 +2953,16 @@
       }
     ],
     "2016-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 107814,
+        "stranieri": 104030
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 33931,
+        "stranieri": 40699
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 10798,
@@ -2606,6 +3026,16 @@
     ],
     "2016-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 283235,
+        "stranieri": 153986
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 98017,
+        "stranieri": 101650
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 14851,
         "stranieri": 18754
@@ -2667,6 +3097,16 @@
       }
     ],
     "2016-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 342744,
+        "stranieri": 126383
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 120608,
+        "stranieri": 91948
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 18927,
@@ -2730,6 +3170,16 @@
     ],
     "2016-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 132342,
+        "stranieri": 135450
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 40525,
+        "stranieri": 56031
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 12695,
         "stranieri": 14301
@@ -2791,6 +3241,16 @@
       }
     ],
     "2016-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 63735,
+        "stranieri": 77604
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 17876,
+        "stranieri": 19289
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 12491,
@@ -2854,6 +3314,16 @@
     ],
     "2016-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 40778,
+        "stranieri": 16012
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 10055,
+        "stranieri": 2573
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 12863,
         "stranieri": 3242
@@ -2915,6 +3385,16 @@
       }
     ],
     "2016-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 235364,
+        "stranieri": 45521
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 52312,
+        "stranieri": 7588
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 26457,
@@ -2978,6 +3458,16 @@
     ],
     "2017-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 223928,
+        "stranieri": 95112
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 33476,
+        "stranieri": 17229
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 13990,
         "stranieri": 4712
@@ -3039,6 +3529,16 @@
       }
     ],
     "2017-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 192409,
+        "stranieri": 129781
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 27885,
+        "stranieri": 22529
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 12442,
@@ -3102,6 +3602,16 @@
     ],
     "2017-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 176122,
+        "stranieri": 102066
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 25964,
+        "stranieri": 18266
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 14467,
         "stranieri": 6212
@@ -3163,6 +3673,16 @@
       }
     ],
     "2017-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 89384,
+        "stranieri": 86886
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 30146,
+        "stranieri": 36473
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 14469,
@@ -3226,6 +3746,16 @@
     ],
     "2017-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 50580,
+        "stranieri": 85452
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 17232,
+        "stranieri": 32990
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 10901,
         "stranieri": 8957
@@ -3287,6 +3817,16 @@
       }
     ],
     "2017-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 137606,
+        "stranieri": 124998
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 50691,
+        "stranieri": 70058
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 12325,
@@ -3350,6 +3890,16 @@
     ],
     "2017-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 307469,
+        "stranieri": 154780
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 109047,
+        "stranieri": 110471
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 17788,
         "stranieri": 18711
@@ -3411,6 +3961,16 @@
       }
     ],
     "2017-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 364050,
+        "stranieri": 125199
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 132713,
+        "stranieri": 96432
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 21185,
@@ -3474,6 +4034,16 @@
     ],
     "2017-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 131631,
+        "stranieri": 135471
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 34094,
+        "stranieri": 58528
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 14204,
         "stranieri": 14762
@@ -3535,6 +4105,16 @@
       }
     ],
     "2017-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 59601,
+        "stranieri": 77311
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 17900,
+        "stranieri": 24395
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 11902,
@@ -3598,6 +4178,16 @@
     ],
     "2017-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 45526,
+        "stranieri": 16191
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 11699,
+        "stranieri": 3089
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 13942,
         "stranieri": 3074
@@ -3659,6 +4249,16 @@
       }
     ],
     "2017-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 275592,
+        "stranieri": 50264
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 61951,
+        "stranieri": 9531
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 27776,
@@ -3722,6 +4322,16 @@
     ],
     "2018-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 239144,
+        "stranieri": 108408
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 35859,
+        "stranieri": 19524
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 16086,
         "stranieri": 5103
@@ -3783,6 +4393,16 @@
       }
     ],
     "2018-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 214351,
+        "stranieri": 131848
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 32604,
+        "stranieri": 24070
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 14132,
@@ -3846,6 +4466,16 @@
     ],
     "2018-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 198454,
+        "stranieri": 127549
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 31476,
+        "stranieri": 28437
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 15271,
         "stranieri": 7730
@@ -3907,6 +4537,16 @@
       }
     ],
     "2018-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 72193,
+        "stranieri": 65132
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 25896,
+        "stranieri": 21768
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 12639,
@@ -3970,6 +4610,16 @@
     ],
     "2018-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 70834,
+        "stranieri": 97783
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 23709,
+        "stranieri": 55990
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 15410,
         "stranieri": 10227
@@ -4031,6 +4681,16 @@
       }
     ],
     "2018-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 143460,
+        "stranieri": 121345
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 52690,
+        "stranieri": 55534
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 13140,
@@ -4094,6 +4754,16 @@
     ],
     "2018-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 290610,
+        "stranieri": 151504
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 105482,
+        "stranieri": 107921
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 16200,
         "stranieri": 18746
@@ -4155,6 +4825,16 @@
       }
     ],
     "2018-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 366165,
+        "stranieri": 120491
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 138807,
+        "stranieri": 93651
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 21690,
@@ -4218,6 +4898,16 @@
     ],
     "2018-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 147105,
+        "stranieri": 136172
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 47145,
+        "stranieri": 64985
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 13476,
         "stranieri": 15243
@@ -4279,6 +4969,16 @@
       }
     ],
     "2018-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 61828,
+        "stranieri": 69201
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 19091,
+        "stranieri": 20831
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 13209,
@@ -4342,6 +5042,16 @@
     ],
     "2018-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 54338,
+        "stranieri": 17584
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 14428,
+        "stranieri": 3013
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 15429,
         "stranieri": 3325
@@ -4403,6 +5113,16 @@
       }
     ],
     "2018-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 258954,
+        "stranieri": 56126
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 61358,
+        "stranieri": 11003
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 27748,
@@ -4466,6 +5186,16 @@
     ],
     "2019-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 217566,
+        "stranieri": 106392
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 32670,
+        "stranieri": 19344
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 16499,
         "stranieri": 5281
@@ -4527,6 +5257,16 @@
       }
     ],
     "2019-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 206312,
+        "stranieri": 131602
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 30080,
+        "stranieri": 24467
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 15329,
@@ -4590,6 +5330,16 @@
     ],
     "2019-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 187026,
+        "stranieri": 117622
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 32384,
+        "stranieri": 22505
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 17491,
         "stranieri": 7116
@@ -4651,6 +5401,16 @@
       }
     ],
     "2019-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 80100,
+        "stranieri": 73999
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 27618,
+        "stranieri": 33358
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 14435,
@@ -4714,6 +5474,16 @@
     ],
     "2019-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 59603,
+        "stranieri": 91203
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 18998,
+        "stranieri": 37476
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 13486,
         "stranieri": 10391
@@ -4775,6 +5545,16 @@
       }
     ],
     "2019-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 156685,
+        "stranieri": 138321
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 56207,
+        "stranieri": 80828
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 14139,
@@ -4838,6 +5618,16 @@
     ],
     "2019-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 290847,
+        "stranieri": 150715
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 103889,
+        "stranieri": 112230
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 18682,
         "stranieri": 19788
@@ -4899,6 +5689,16 @@
       }
     ],
     "2019-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 389471,
+        "stranieri": 125862
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 153273,
+        "stranieri": 102247
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 24730,
@@ -4962,6 +5762,16 @@
     ],
     "2019-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 145883,
+        "stranieri": 139032
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 43612,
+        "stranieri": 65445
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 15096,
         "stranieri": 15792
@@ -5023,6 +5833,16 @@
       }
     ],
     "2019-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 73989,
+        "stranieri": 79424
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 23325,
+        "stranieri": 30531
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 16036,
@@ -5086,6 +5906,16 @@
     ],
     "2019-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 67408,
+        "stranieri": 19146
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 19027,
+        "stranieri": 3313
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 18158,
         "stranieri": 3796
@@ -5147,6 +5977,16 @@
       }
     ],
     "2019-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 266280,
+        "stranieri": 64964
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 62594,
+        "stranieri": 13306
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 29705,
@@ -5210,6 +6050,16 @@
     ],
     "2020-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 264886,
+        "stranieri": 113956
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 42790,
+        "stranieri": 21277
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 20742,
         "stranieri": 6668
@@ -5271,6 +6121,16 @@
       }
     ],
     "2020-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 223491,
+        "stranieri": 157415
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 38080,
+        "stranieri": 28766
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 16239,
@@ -5334,6 +6194,16 @@
     ],
     "2020-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 51451,
+        "stranieri": 7952
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 6765,
+        "stranieri": 1284
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 0,
         "stranieri": 0
@@ -5395,6 +6265,16 @@
       }
     ],
     "2020-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 704,
+        "stranieri": 68
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 129,
+        "stranieri": 23
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 0,
@@ -5458,6 +6338,16 @@
     ],
     "2020-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 4586,
+        "stranieri": 287
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 5862,
+        "stranieri": 179
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 0,
         "stranieri": 0
@@ -5519,6 +6409,16 @@
       }
     ],
     "2020-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 59392,
+        "stranieri": 15584
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 32588,
+        "stranieri": 14409
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 4768,
@@ -5582,6 +6482,16 @@
     ],
     "2020-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 258881,
+        "stranieri": 61818
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 98139,
+        "stranieri": 49458
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 12613,
         "stranieri": 5453
@@ -5643,6 +6553,16 @@
       }
     ],
     "2020-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 417253,
+        "stranieri": 72197
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 152636,
+        "stranieri": 62612
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 24516,
@@ -5706,6 +6626,16 @@
     ],
     "2020-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 154050,
+        "stranieri": 78348
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 48743,
+        "stranieri": 56933
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 12590,
         "stranieri": 7785
@@ -5767,6 +6697,16 @@
       }
     ],
     "2020-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 55608,
+        "stranieri": 27779
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 16778,
+        "stranieri": 14249
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 8643,
@@ -5830,6 +6770,16 @@
     ],
     "2020-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 13190,
+        "stranieri": 1899
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 3724,
+        "stranieri": 756
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 0,
         "stranieri": 0
@@ -5891,6 +6841,16 @@
       }
     ],
     "2020-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 17944,
+        "stranieri": 2131
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 4603,
+        "stranieri": 408
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 3618,
@@ -5954,6 +6914,16 @@
     ],
     "2021-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 12986,
+        "stranieri": 2768
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 2895,
+        "stranieri": 382
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 0,
         "stranieri": 0
@@ -6015,6 +6985,16 @@
       }
     ],
     "2021-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 17383,
+        "stranieri": 2179
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 3900,
+        "stranieri": 346
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 0,
@@ -6078,6 +7058,16 @@
     ],
     "2021-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 11972,
+        "stranieri": 1961
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 2280,
+        "stranieri": 261
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 0,
         "stranieri": 0
@@ -6139,6 +7129,16 @@
       }
     ],
     "2021-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 12627,
+        "stranieri": 1670
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 3467,
+        "stranieri": 370
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 0,
@@ -6202,6 +7202,16 @@
     ],
     "2021-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 55062,
+        "stranieri": 18329
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 20990,
+        "stranieri": 19103
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 8358,
         "stranieri": 1917
@@ -6263,6 +7273,16 @@
       }
     ],
     "2021-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 148529,
+        "stranieri": 57334
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 57620,
+        "stranieri": 41296
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 10852,
@@ -6326,6 +7346,16 @@
     ],
     "2021-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 334066,
+        "stranieri": 118106
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 115486,
+        "stranieri": 91320
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 19725,
         "stranieri": 13525
@@ -6387,6 +7417,16 @@
       }
     ],
     "2021-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 410487,
+        "stranieri": 113342
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 148589,
+        "stranieri": 97645
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 26481,
@@ -6450,6 +7490,16 @@
     ],
     "2021-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 172810,
+        "stranieri": 116540
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 53202,
+        "stranieri": 73856
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 15572,
         "stranieri": 12836
@@ -6511,6 +7561,16 @@
       }
     ],
     "2021-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 94068,
+        "stranieri": 59510
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 31185,
+        "stranieri": 29313
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 17694,
@@ -6574,6 +7634,16 @@
     ],
     "2021-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 52634,
+        "stranieri": 12379
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 13283,
+        "stranieri": 3557
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 0,
         "stranieri": 0
@@ -6635,6 +7705,16 @@
       }
     ],
     "2021-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 244163,
+        "stranieri": 49902
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 50659,
+        "stranieri": 8938
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 23922,
@@ -6698,6 +7778,16 @@
     ],
     "2022-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 227564,
+        "stranieri": 66306
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 37951,
+        "stranieri": 11549
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 15044,
         "stranieri": 3375
@@ -6759,6 +7849,16 @@
       }
     ],
     "2022-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 204692,
+        "stranieri": 97178
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 30286,
+        "stranieri": 18369
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 15428,
@@ -6822,6 +7922,16 @@
     ],
     "2022-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 141905,
+        "stranieri": 77576
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 22241,
+        "stranieri": 14537
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 13538,
         "stranieri": 5617
@@ -6883,6 +7993,16 @@
       }
     ],
     "2022-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 76489,
+        "stranieri": 68763
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 26212,
+        "stranieri": 35195
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 13317,
@@ -6946,6 +8066,16 @@
     ],
     "2022-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 71379,
+        "stranieri": 81071
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 26435,
+        "stranieri": 41115
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 13291,
         "stranieri": 9736
@@ -7007,6 +8137,16 @@
       }
     ],
     "2022-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 176153,
+        "stranieri": 133256
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 65465,
+        "stranieri": 85994
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 14162,
@@ -7070,6 +8210,16 @@
     ],
     "2022-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 355983,
+        "stranieri": 157126
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 125621,
+        "stranieri": 119901
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 20411,
         "stranieri": 20455
@@ -7131,6 +8281,16 @@
       }
     ],
     "2022-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 374184,
+        "stranieri": 120541
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 134885,
+        "stranieri": 105191
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 24061,
@@ -7194,6 +8354,16 @@
     ],
     "2022-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 165551,
+        "stranieri": 138825
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 49722,
+        "stranieri": 81885
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 14921,
         "stranieri": 16883
@@ -7255,6 +8425,16 @@
       }
     ],
     "2022-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 89896,
+        "stranieri": 71397
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 32515,
+        "stranieri": 34078
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 16521,
@@ -7318,6 +8498,16 @@
     ],
     "2022-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 48064,
+        "stranieri": 16394
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 14821,
+        "stranieri": 4487
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 16794,
         "stranieri": 4143
@@ -7379,6 +8569,16 @@
       }
     ],
     "2022-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 265527,
+        "stranieri": 66204
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 61155,
+        "stranieri": 12367
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 29851,
@@ -7442,6 +8642,16 @@
     ],
     "2023-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 291685,
+        "stranieri": 107969
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 50223,
+        "stranieri": 20537
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 22544,
         "stranieri": 6679
@@ -7503,6 +8713,16 @@
       }
     ],
     "2023-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 214930,
+        "stranieri": 141246
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 37099,
+        "stranieri": 27640
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 17551,
@@ -7566,6 +8786,16 @@
     ],
     "2023-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 159086,
+        "stranieri": 104344
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 27362,
+        "stranieri": 23177
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 17238,
         "stranieri": 7836
@@ -7627,6 +8857,16 @@
       }
     ],
     "2023-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 90273,
+        "stranieri": 83926
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 35938,
+        "stranieri": 46031
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 15145,
@@ -7690,6 +8930,16 @@
     ],
     "2023-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 61265,
+        "stranieri": 96133
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 21607,
+        "stranieri": 51864
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 14228,
         "stranieri": 13140
@@ -7751,6 +9001,16 @@
       }
     ],
     "2023-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 166472,
+        "stranieri": 136792
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 60704,
+        "stranieri": 79099
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 14095,
@@ -7814,6 +9074,16 @@
     ],
     "2023-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 324564,
+        "stranieri": 164670
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 122465,
+        "stranieri": 136159
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 18757,
         "stranieri": 21077
@@ -7875,6 +9145,16 @@
       }
     ],
     "2023-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 350547,
+        "stranieri": 129318
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 135680,
+        "stranieri": 119835
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 23056,
@@ -7938,6 +9218,16 @@
     ],
     "2023-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 178470,
+        "stranieri": 154857
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 59463,
+        "stranieri": 94113
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 14681,
         "stranieri": 17834
@@ -7999,6 +9289,16 @@
       }
     ],
     "2023-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 76242,
+        "stranieri": 77290
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 24802,
+        "stranieri": 31297
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 14145,
@@ -8062,6 +9362,16 @@
     ],
     "2023-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 55345,
+        "stranieri": 18295
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 17643,
+        "stranieri": 4857
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 18243,
         "stranieri": 4146
@@ -8123,6 +9433,16 @@
       }
     ],
     "2023-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 288050,
+        "stranieri": 75823
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 69706,
+        "stranieri": 14569
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 32748,
@@ -8186,6 +9506,16 @@
     ],
     "2024-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 273983,
+        "stranieri": 127310
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 47130,
+        "stranieri": 24200
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 21191,
         "stranieri": 7034
@@ -8247,6 +9577,16 @@
       }
     ],
     "2024-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 212825,
+        "stranieri": 150744
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 38375,
+        "stranieri": 30513
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 18299,
@@ -8310,6 +9650,16 @@
     ],
     "2024-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 180522,
+        "stranieri": 131547
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 32742,
+        "stranieri": 31750
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 18556,
         "stranieri": 8531
@@ -8371,6 +9721,16 @@
       }
     ],
     "2024-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 71833,
+        "stranieri": 61033
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 27029,
+        "stranieri": 28092
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 14481,
@@ -8434,6 +9794,16 @@
     ],
     "2024-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 66143,
+        "stranieri": 111972
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 25190,
+        "stranieri": 69893
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 13994,
         "stranieri": 14668
@@ -8495,6 +9865,16 @@
       }
     ],
     "2024-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 166843,
+        "stranieri": 144670
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 55419,
+        "stranieri": 82724
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 13993,
@@ -8558,6 +9938,16 @@
     ],
     "2024-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 297658,
+        "stranieri": 168519
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 112418,
+        "stranieri": 145216
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 18425,
         "stranieri": 20756
@@ -8619,6 +10009,16 @@
       }
     ],
     "2024-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 388516,
+        "stranieri": 143095
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 154053,
+        "stranieri": 131399
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 23399,
@@ -8682,6 +10082,16 @@
     ],
     "2024-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 165917,
+        "stranieri": 154034
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 49775,
+        "stranieri": 89945
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 15805,
         "stranieri": 17342
@@ -8743,6 +10153,16 @@
       }
     ],
     "2024-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 76461,
+        "stranieri": 83060
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 24379,
+        "stranieri": 34194
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 15904,
@@ -8806,6 +10226,16 @@
     ],
     "2024-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 75696,
+        "stranieri": 20448
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 25883,
+        "stranieri": 5641
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 21368,
         "stranieri": 4534
@@ -8867,6 +10297,16 @@
       }
     ],
     "2024-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 260685,
+        "stranieri": 85833
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 66431,
+        "stranieri": 18660
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 31030,
@@ -8932,6 +10372,16 @@
   "Presenze": {
     "2013-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 788767,
+        "stranieri": 528589
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 132210,
+        "stranieri": 81678
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 29081,
         "stranieri": 15039
@@ -8993,6 +10443,16 @@
       }
     ],
     "2013-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 704745,
+        "stranieri": 652632
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 102998,
+        "stranieri": 100300
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 26001,
@@ -9056,6 +10516,16 @@
     ],
     "2013-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 610852,
+        "stranieri": 529443
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 101977,
+        "stranieri": 102871
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 28344,
         "stranieri": 16788
@@ -9117,6 +10587,16 @@
       }
     ],
     "2013-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 118543,
+        "stranieri": 174233
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 62950,
+        "stranieri": 41595
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 15865,
@@ -9180,6 +10660,16 @@
     ],
     "2013-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 91981,
+        "stranieri": 288925
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 59517,
+        "stranieri": 180565
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 18273,
         "stranieri": 14208
@@ -9241,6 +10731,16 @@
       }
     ],
     "2013-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 367175,
+        "stranieri": 325375
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 131592,
+        "stranieri": 187509
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 20737,
@@ -9304,6 +10804,16 @@
     ],
     "2013-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1268305,
+        "stranieri": 482588
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 435787,
+        "stranieri": 510975
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 46507,
         "stranieri": 26533
@@ -9365,6 +10875,16 @@
       }
     ],
     "2013-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1789024,
+        "stranieri": 433494
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 680474,
+        "stranieri": 469435
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 56701,
@@ -9428,6 +10948,16 @@
     ],
     "2013-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 431174,
+        "stranieri": 441034
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 125062,
+        "stranieri": 197161
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 26299,
         "stranieri": 26531
@@ -9489,6 +11019,16 @@
       }
     ],
     "2013-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 101531,
+        "stranieri": 229735
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 53693,
+        "stranieri": 53969
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 21096,
@@ -9552,6 +11092,16 @@
     ],
     "2013-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 94161,
+        "stranieri": 33237
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 48205,
+        "stranieri": 11078
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 22626,
         "stranieri": 4998
@@ -9613,6 +11163,16 @@
       }
     ],
     "2013-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 658212,
+        "stranieri": 264159
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 157385,
+        "stranieri": 45682
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 42728,
@@ -9676,6 +11236,16 @@
     ],
     "2014-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 807364,
+        "stranieri": 542838
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 146753,
+        "stranieri": 88165
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 28964,
         "stranieri": 13902
@@ -9737,6 +11307,16 @@
       }
     ],
     "2014-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 670050,
+        "stranieri": 685575
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 95503,
+        "stranieri": 117060
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 22033,
@@ -9800,6 +11380,16 @@
     ],
     "2014-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 626583,
+        "stranieri": 575094
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 109576,
+        "stranieri": 92464
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 30176,
         "stranieri": 15615
@@ -9861,6 +11451,16 @@
       }
     ],
     "2014-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 140771,
+        "stranieri": 256219
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 76024,
+        "stranieri": 102491
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 19893,
@@ -9924,6 +11524,16 @@
     ],
     "2014-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 117698,
+        "stranieri": 269693
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 71484,
+        "stranieri": 119709
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 19957,
         "stranieri": 13052
@@ -9985,6 +11595,16 @@
       }
     ],
     "2014-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 339657,
+        "stranieri": 378730
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 131486,
+        "stranieri": 257827
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 19709,
@@ -10048,6 +11668,16 @@
     ],
     "2014-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1197887,
+        "stranieri": 459366
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 411523,
+        "stranieri": 459400
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 37809,
         "stranieri": 28532
@@ -10109,6 +11739,16 @@
       }
     ],
     "2014-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1609498,
+        "stranieri": 441895
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 595908,
+        "stranieri": 482915
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 49723,
@@ -10172,6 +11812,16 @@
     ],
     "2014-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 403408,
+        "stranieri": 434273
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 119233,
+        "stranieri": 198946
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 24720,
         "stranieri": 23767
@@ -10233,6 +11883,16 @@
       }
     ],
     "2014-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 106453,
+        "stranieri": 241299
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 59097,
+        "stranieri": 60239
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 19002,
@@ -10296,6 +11956,16 @@
     ],
     "2014-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 74608,
+        "stranieri": 33672
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 43471,
+        "stranieri": 8989
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 21622,
         "stranieri": 6835
@@ -10357,6 +12027,16 @@
       }
     ],
     "2014-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 667945,
+        "stranieri": 235917
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 159859,
+        "stranieri": 45305
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 47836,
@@ -10420,6 +12100,16 @@
     ],
     "2015-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 848661,
+        "stranieri": 549070
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 150566,
+        "stranieri": 101359
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 32165,
         "stranieri": 16047
@@ -10481,6 +12171,16 @@
       }
     ],
     "2015-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 719643,
+        "stranieri": 690208
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 102295,
+        "stranieri": 120590
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 24852,
@@ -10544,6 +12244,16 @@
     ],
     "2015-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 606027,
+        "stranieri": 546605
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 96899,
+        "stranieri": 115528
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 28321,
         "stranieri": 20841
@@ -10605,6 +12315,16 @@
       }
     ],
     "2015-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 198714,
+        "stranieri": 262455
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 74788,
+        "stranieri": 92296
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 20553,
@@ -10668,6 +12388,16 @@
     ],
     "2015-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 138980,
+        "stranieri": 292266
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 76543,
+        "stranieri": 177441
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 21165,
         "stranieri": 13724
@@ -10729,6 +12459,16 @@
       }
     ],
     "2015-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 337546,
+        "stranieri": 380565
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 139800,
+        "stranieri": 221222
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 17684,
@@ -10792,6 +12532,16 @@
     ],
     "2015-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1292325,
+        "stranieri": 489409
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 457332,
+        "stranieri": 479694
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 38635,
         "stranieri": 34790
@@ -10853,6 +12603,16 @@
       }
     ],
     "2015-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1778507,
+        "stranieri": 462679
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 671677,
+        "stranieri": 474841
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 57322,
@@ -10916,6 +12676,16 @@
     ],
     "2015-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 424185,
+        "stranieri": 462847
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 131539,
+        "stranieri": 210985
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 23104,
         "stranieri": 27706
@@ -10977,6 +12747,16 @@
       }
     ],
     "2015-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 103338,
+        "stranieri": 226227
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 61162,
+        "stranieri": 55996
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 17326,
@@ -11040,6 +12820,16 @@
     ],
     "2015-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 74560,
+        "stranieri": 39773
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 49028,
+        "stranieri": 14302
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 20410,
         "stranieri": 6769
@@ -11101,6 +12891,16 @@
       }
     ],
     "2015-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 667369,
+        "stranieri": 192831
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 170476,
+        "stranieri": 39422
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 49954,
@@ -11164,6 +12964,16 @@
     ],
     "2016-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 890460,
+        "stranieri": 498180
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 167732,
+        "stranieri": 93685
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 32626,
         "stranieri": 16386
@@ -11225,6 +13035,16 @@
       }
     ],
     "2016-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 748909,
+        "stranieri": 747866
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 120353,
+        "stranieri": 133559
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 24923,
@@ -11288,6 +13108,16 @@
     ],
     "2016-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 774685,
+        "stranieri": 659946
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 133344,
+        "stranieri": 151444
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 31535,
         "stranieri": 22476
@@ -11349,6 +13179,16 @@
       }
     ],
     "2016-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 127599,
+        "stranieri": 200187
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 65128,
+        "stranieri": 55445
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 19201,
@@ -11412,6 +13252,16 @@
     ],
     "2016-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 102569,
+        "stranieri": 326371
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 65968,
+        "stranieri": 222656
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 17199,
         "stranieri": 17803
@@ -11473,6 +13323,16 @@
       }
     ],
     "2016-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 362150,
+        "stranieri": 366911
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 143644,
+        "stranieri": 184077
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 20787,
@@ -11536,6 +13396,16 @@
     ],
     "2016-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1378306,
+        "stranieri": 548440
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 480173,
+        "stranieri": 507130
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 40885,
         "stranieri": 37957
@@ -11597,6 +13467,16 @@
       }
     ],
     "2016-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1832856,
+        "stranieri": 480799
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 695600,
+        "stranieri": 538286
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 57801,
@@ -11660,6 +13540,16 @@
     ],
     "2016-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 484648,
+        "stranieri": 481036
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 158140,
+        "stranieri": 241835
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 27189,
         "stranieri": 29582
@@ -11721,6 +13611,16 @@
       }
     ],
     "2016-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 137650,
+        "stranieri": 264804
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 65195,
+        "stranieri": 78491
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 22959,
@@ -11784,6 +13684,16 @@
     ],
     "2016-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 74765,
+        "stranieri": 44508
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 44990,
+        "stranieri": 12507
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 22432,
         "stranieri": 6722
@@ -11845,6 +13755,16 @@
       }
     ],
     "2016-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 654120,
+        "stranieri": 184437
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 165150,
+        "stranieri": 34034
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 52855,
@@ -11908,6 +13828,16 @@
     ],
     "2017-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 889576,
+        "stranieri": 513157
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 166226,
+        "stranieri": 98996
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 34803,
         "stranieri": 16742
@@ -11969,6 +13899,16 @@
       }
     ],
     "2017-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 714004,
+        "stranieri": 752176
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 110261,
+        "stranieri": 139964
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 25839,
@@ -12032,6 +13972,16 @@
     ],
     "2017-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 696569,
+        "stranieri": 602227
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 110766,
+        "stranieri": 119856
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 29225,
         "stranieri": 24616
@@ -12093,6 +14043,16 @@
       }
     ],
     "2017-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 191974,
+        "stranieri": 319023
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 94225,
+        "stranieri": 143047
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 25392,
@@ -12156,6 +14116,16 @@
     ],
     "2017-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 101578,
+        "stranieri": 283088
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 69848,
+        "stranieri": 133014
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 17426,
         "stranieri": 15936
@@ -12217,6 +14187,16 @@
       }
     ],
     "2017-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 425307,
+        "stranieri": 431765
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 180088,
+        "stranieri": 321055
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 23319,
@@ -12280,6 +14260,16 @@
     ],
     "2017-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1475201,
+        "stranieri": 548273
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 508979,
+        "stranieri": 539714
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 47493,
         "stranieri": 39503
@@ -12341,6 +14331,16 @@
       }
     ],
     "2017-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1929874,
+        "stranieri": 475326
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 748467,
+        "stranieri": 564996
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 67188,
@@ -12404,6 +14404,16 @@
     ],
     "2017-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 492523,
+        "stranieri": 480294
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 148713,
+        "stranieri": 253351
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 28815,
         "stranieri": 30753
@@ -12465,6 +14475,16 @@
       }
     ],
     "2017-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 126644,
+        "stranieri": 263096
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 67902,
+        "stranieri": 105175
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 21619,
@@ -12528,6 +14548,16 @@
     ],
     "2017-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 87451,
+        "stranieri": 51327
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 53895,
+        "stranieri": 18533
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 23687,
         "stranieri": 7313
@@ -12589,6 +14619,16 @@
       }
     ],
     "2017-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 773659,
+        "stranieri": 209319
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 200197,
+        "stranieri": 45331
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 55329,
@@ -12652,6 +14692,16 @@
     ],
     "2018-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 926173,
+        "stranieri": 604237
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 178352,
+        "stranieri": 117718
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 38797,
         "stranieri": 18674
@@ -12713,6 +14763,16 @@
       }
     ],
     "2018-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 824543,
+        "stranieri": 776108
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 135474,
+        "stranieri": 150399
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 29186,
@@ -12776,6 +14836,16 @@
     ],
     "2018-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 712231,
+        "stranieri": 647661
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 122743,
+        "stranieri": 149765
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 30354,
         "stranieri": 26071
@@ -12837,6 +14907,16 @@
       }
     ],
     "2018-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 185836,
+        "stranieri": 261821
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 94763,
+        "stranieri": 90911
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 23165,
@@ -12900,6 +14980,16 @@
     ],
     "2018-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 140978,
+        "stranieri": 316267
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 85992,
+        "stranieri": 230163
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 27204,
         "stranieri": 20046
@@ -12961,6 +15051,16 @@
       }
     ],
     "2018-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 427671,
+        "stranieri": 416182
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 182182,
+        "stranieri": 243264
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 24064,
@@ -13024,6 +15124,16 @@
     ],
     "2018-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1456044,
+        "stranieri": 544346
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 526834,
+        "stranieri": 537883
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 43073,
         "stranieri": 38636
@@ -13085,6 +15195,16 @@
       }
     ],
     "2018-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1918187,
+        "stranieri": 446460
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 762784,
+        "stranieri": 515453
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 64029,
@@ -13148,6 +15268,16 @@
     ],
     "2018-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 499639,
+        "stranieri": 467088
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 170318,
+        "stranieri": 256045
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 26492,
         "stranieri": 30633
@@ -13209,6 +15339,16 @@
       }
     ],
     "2018-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 131017,
+        "stranieri": 244015
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 75694,
+        "stranieri": 95387
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 22951,
@@ -13272,6 +15412,16 @@
     ],
     "2018-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 103957,
+        "stranieri": 50116
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 60100,
+        "stranieri": 17136
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 28084,
         "stranieri": 7734
@@ -13333,6 +15483,16 @@
       }
     ],
     "2018-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 756603,
+        "stranieri": 241882
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 202527,
+        "stranieri": 55051
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 56009,
@@ -13396,6 +15556,16 @@
     ],
     "2019-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 856855,
+        "stranieri": 609512
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 166168,
+        "stranieri": 118708
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 37736,
         "stranieri": 20627
@@ -13457,6 +15627,16 @@
       }
     ],
     "2019-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 757841,
+        "stranieri": 781245
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 121128,
+        "stranieri": 154320
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 29866,
@@ -13520,6 +15700,16 @@
     ],
     "2019-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 682086,
+        "stranieri": 623691
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 133336,
+        "stranieri": 123946
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 33921,
         "stranieri": 24488
@@ -13581,6 +15771,16 @@
       }
     ],
     "2019-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 177915,
+        "stranieri": 272358
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 104351,
+        "stranieri": 140274
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 25243,
@@ -13644,6 +15844,16 @@
     ],
     "2019-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 115285,
+        "stranieri": 289388
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 78610,
+        "stranieri": 140299
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 21999,
         "stranieri": 19201
@@ -13705,6 +15915,16 @@
       }
     ],
     "2019-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 448995,
+        "stranieri": 454970
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 199222,
+        "stranieri": 354875
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 28067,
@@ -13768,6 +15988,16 @@
     ],
     "2019-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1492007,
+        "stranieri": 535533
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 542992,
+        "stranieri": 558563
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 48910,
         "stranieri": 40455
@@ -13829,6 +16059,16 @@
       }
     ],
     "2019-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1960427,
+        "stranieri": 447915
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 802097,
+        "stranieri": 535300
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 70483,
@@ -13892,6 +16132,16 @@
     ],
     "2019-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 499764,
+        "stranieri": 476124
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 170552,
+        "stranieri": 261670
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 28181,
         "stranieri": 32020
@@ -13953,6 +16203,16 @@
       }
     ],
     "2019-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 149827,
+        "stranieri": 270305
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 81959,
+        "stranieri": 124442
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 27335,
@@ -14016,6 +16276,16 @@
     ],
     "2019-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 127336,
+        "stranieri": 52889
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 72541,
+        "stranieri": 15671
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 31512,
         "stranieri": 8222
@@ -14077,6 +16347,16 @@
       }
     ],
     "2019-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 789430,
+        "stranieri": 283154
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 212276,
+        "stranieri": 62899
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 60563,
@@ -14140,6 +16420,16 @@
     ],
     "2020-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 975309,
+        "stranieri": 648949
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 186352,
+        "stranieri": 128143
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 49420,
         "stranieri": 25367
@@ -14201,6 +16491,16 @@
       }
     ],
     "2020-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 823114,
+        "stranieri": 902594
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 143309,
+        "stranieri": 167130
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 33696,
@@ -14264,6 +16564,16 @@
     ],
     "2020-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 205065,
+        "stranieri": 64625
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 41914,
+        "stranieri": 13748
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 0,
         "stranieri": 0
@@ -14325,6 +16635,16 @@
       }
     ],
     "2020-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 4429,
+        "stranieri": 714
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 11697,
+        "stranieri": 2462
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 0,
@@ -14388,6 +16708,16 @@
     ],
     "2020-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 13615,
+        "stranieri": 1011
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 26959,
+        "stranieri": 3377
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 0,
         "stranieri": 0
@@ -14449,6 +16779,16 @@
       }
     ],
     "2020-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 142016,
+        "stranieri": 42905
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 109398,
+        "stranieri": 56377
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 9076,
@@ -14512,6 +16852,16 @@
     ],
     "2020-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1085152,
+        "stranieri": 200029
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 441558,
+        "stranieri": 233343
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 32813,
         "stranieri": 9116
@@ -14573,6 +16923,16 @@
       }
     ],
     "2020-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1925828,
+        "stranieri": 242367
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 784765,
+        "stranieri": 311605
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 76076,
@@ -14636,6 +16996,16 @@
     ],
     "2020-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 513875,
+        "stranieri": 270165
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 194999,
+        "stranieri": 244127
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 26800,
         "stranieri": 14579
@@ -14697,6 +17067,16 @@
       }
     ],
     "2020-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 122140,
+        "stranieri": 103151
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 66283,
+        "stranieri": 64527
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 17287,
@@ -14760,6 +17140,16 @@
     ],
     "2020-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 37187,
+        "stranieri": 7791
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 38482,
+        "stranieri": 7255
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 0,
         "stranieri": 0
@@ -14821,6 +17211,16 @@
       }
     ],
     "2020-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 43785,
+        "stranieri": 6940
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 36706,
+        "stranieri": 3866
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 7509,
@@ -14884,6 +17284,16 @@
     ],
     "2021-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 30522,
+        "stranieri": 9568
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 30022,
+        "stranieri": 3409
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 0,
         "stranieri": 0
@@ -14945,6 +17355,16 @@
       }
     ],
     "2021-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 39570,
+        "stranieri": 6760
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 30867,
+        "stranieri": 3244
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 0,
@@ -15008,6 +17428,16 @@
     ],
     "2021-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 31678,
+        "stranieri": 8005
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 31289,
+        "stranieri": 3928
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 0,
         "stranieri": 0
@@ -15069,6 +17499,16 @@
       }
     ],
     "2021-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 30327,
+        "stranieri": 6390
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 32186,
+        "stranieri": 3773
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 0,
@@ -15132,6 +17572,16 @@
     ],
     "2021-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 112546,
+        "stranieri": 55810
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 70633,
+        "stranieri": 76096
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 16226,
         "stranieri": 3371
@@ -15193,6 +17643,16 @@
       }
     ],
     "2021-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 428934,
+        "stranieri": 191713
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 204724,
+        "stranieri": 188223
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 21972,
@@ -15256,6 +17716,16 @@
     ],
     "2021-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1515825,
+        "stranieri": 386811
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 546511,
+        "stranieri": 431909
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 51606,
         "stranieri": 22985
@@ -15317,6 +17787,16 @@
       }
     ],
     "2021-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 2080244,
+        "stranieri": 410185
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 826105,
+        "stranieri": 529573
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 85519,
@@ -15380,6 +17860,16 @@
     ],
     "2021-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 613185,
+        "stranieri": 411169
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 229591,
+        "stranieri": 333119
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 33706,
         "stranieri": 26060
@@ -15441,6 +17931,16 @@
       }
     ],
     "2021-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 195572,
+        "stranieri": 213127
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 94509,
+        "stranieri": 126186
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 31326,
@@ -15504,6 +18004,16 @@
     ],
     "2021-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 102524,
+        "stranieri": 43620
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 54651,
+        "stranieri": 19374
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 0,
         "stranieri": 0
@@ -15565,6 +18075,16 @@
       }
     ],
     "2021-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 704486,
+        "stranieri": 231148
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 171777,
+        "stranieri": 45461
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 48724,
@@ -15628,6 +18148,16 @@
     ],
     "2022-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 833388,
+        "stranieri": 347925
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 179793,
+        "stranieri": 64265
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 36680,
         "stranieri": 13080
@@ -15689,6 +18219,16 @@
       }
     ],
     "2022-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 669953,
+        "stranieri": 534992
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 109091,
+        "stranieri": 108033
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 29853,
@@ -15752,6 +18292,16 @@
     ],
     "2022-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 554323,
+        "stranieri": 476541
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 100073,
+        "stranieri": 92270
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 29093,
         "stranieri": 22341
@@ -15813,6 +18363,16 @@
       }
     ],
     "2022-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 171900,
+        "stranieri": 253484
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 91204,
+        "stranieri": 146857
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 24814,
@@ -15876,6 +18436,16 @@
     ],
     "2022-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 143517,
+        "stranieri": 255904
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 87750,
+        "stranieri": 163748
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 25258,
         "stranieri": 18629
@@ -15937,6 +18507,16 @@
       }
     ],
     "2022-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 540452,
+        "stranieri": 432775
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 230955,
+        "stranieri": 390822
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 29024,
@@ -16000,6 +18580,16 @@
     ],
     "2022-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1561920,
+        "stranieri": 522813
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 579577,
+        "stranieri": 562674
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 55655,
         "stranieri": 36706
@@ -16061,6 +18651,16 @@
       }
     ],
     "2022-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1951453,
+        "stranieri": 435704
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 772367,
+        "stranieri": 573251
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 77177,
@@ -16124,6 +18724,16 @@
     ],
     "2022-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 579848,
+        "stranieri": 466529
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 208953,
+        "stranieri": 342473
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 30092,
         "stranieri": 34367
@@ -16185,6 +18795,16 @@
       }
     ],
     "2022-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 195984,
+        "stranieri": 245446
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 105597,
+        "stranieri": 148571
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 30464,
@@ -16248,6 +18868,16 @@
     ],
     "2022-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 100525,
+        "stranieri": 51215
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 58409,
+        "stranieri": 25304
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 31016,
         "stranieri": 8832
@@ -16309,6 +18939,16 @@
       }
     ],
     "2022-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 759604,
+        "stranieri": 292803
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 188366,
+        "stranieri": 59238
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 59434,
@@ -16372,6 +19012,16 @@
     ],
     "2023-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1078371,
+        "stranieri": 565287
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 215523,
+        "stranieri": 113818
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 52565,
         "stranieri": 25168
@@ -16433,6 +19083,16 @@
       }
     ],
     "2023-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 778192,
+        "stranieri": 820308
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 138138,
+        "stranieri": 163570
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 35449,
@@ -16496,6 +19156,16 @@
     ],
     "2023-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 580274,
+        "stranieri": 571308
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 109371,
+        "stranieri": 128293
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 32960,
         "stranieri": 29534
@@ -16557,6 +19227,16 @@
       }
     ],
     "2023-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 203214,
+        "stranieri": 301774
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 114690,
+        "stranieri": 184712
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 27760,
@@ -16620,6 +19300,16 @@
     ],
     "2023-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 127003,
+        "stranieri": 304986
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 78066,
+        "stranieri": 208808
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 25775,
         "stranieri": 25231
@@ -16681,6 +19371,16 @@
       }
     ],
     "2023-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 535219,
+        "stranieri": 443618
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 218038,
+        "stranieri": 355105
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 30099,
@@ -16744,6 +19444,16 @@
     ],
     "2023-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1485376,
+        "stranieri": 536163
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 579784,
+        "stranieri": 598133
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 53189,
         "stranieri": 38913
@@ -16805,6 +19515,16 @@
       }
     ],
     "2023-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1781800,
+        "stranieri": 450044
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 751346,
+        "stranieri": 607015
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 67907,
@@ -16868,6 +19588,16 @@
     ],
     "2023-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 581195,
+        "stranieri": 490581
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 218178,
+        "stranieri": 355971
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 30316,
         "stranieri": 35890
@@ -16929,6 +19659,16 @@
       }
     ],
     "2023-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 164915,
+        "stranieri": 266022
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 80972,
+        "stranieri": 149839
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 27017,
@@ -16992,6 +19732,16 @@
     ],
     "2023-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 112037,
+        "stranieri": 57457
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 62167,
+        "stranieri": 26712
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 32953,
         "stranieri": 9683
@@ -17053,6 +19803,16 @@
       }
     ],
     "2023-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 822965,
+        "stranieri": 334462
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 216484,
+        "stranieri": 74640
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 65263,
@@ -17116,6 +19876,16 @@
     ],
     "2024-01": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1039735,
+        "stranieri": 693408
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 211827,
+        "stranieri": 141130
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 48768,
         "stranieri": 27962
@@ -17177,6 +19947,16 @@
       }
     ],
     "2024-02": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 804400,
+        "stranieri": 886505
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 147222,
+        "stranieri": 185254
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 33629,
@@ -17240,6 +20020,16 @@
     ],
     "2024-03": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 615651,
+        "stranieri": 645843
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 122897,
+        "stranieri": 163907
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 34804,
         "stranieri": 27375
@@ -17301,6 +20091,16 @@
       }
     ],
     "2024-04": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 157053,
+        "stranieri": 223872
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 88724,
+        "stranieri": 109763
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 25111,
@@ -17364,6 +20164,16 @@
     ],
     "2024-05": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 131095,
+        "stranieri": 348011
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 84118,
+        "stranieri": 292308
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 24543,
         "stranieri": 29323
@@ -17425,6 +20235,16 @@
       }
     ],
     "2024-06": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 518003,
+        "stranieri": 450923
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 198221,
+        "stranieri": 322888
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 29186,
@@ -17488,6 +20308,16 @@
     ],
     "2024-07": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1463057,
+        "stranieri": 566045
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 555562,
+        "stranieri": 642568
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 53085,
         "stranieri": 38935
@@ -17549,6 +20379,16 @@
       }
     ],
     "2024-08": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 1845988,
+        "stranieri": 479866
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 791392,
+        "stranieri": 628140
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 67115,
@@ -17612,6 +20452,16 @@
     ],
     "2024-09": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 578092,
+        "stranieri": 500860
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 197358,
+        "stranieri": 346167
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 33715,
         "stranieri": 34189
@@ -17673,6 +20523,16 @@
       }
     ],
     "2024-10": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 167966,
+        "stranieri": 283129
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 78417,
+        "stranieri": 146757
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 31305,
@@ -17736,6 +20596,16 @@
     ],
     "2024-11": [
       {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 150893,
+        "stranieri": 58019
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 76882,
+        "stranieri": 27020
+      },
+      {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 37406,
         "stranieri": 9352
@@ -17797,6 +20667,16 @@
       }
     ],
     "2024-12": [
+      {
+        "ambito": "Esercizi alberghieri",
+        "italiani": 782535,
+        "stranieri": 385480
+      },
+      {
+        "ambito": "Esercizi extralberghieri",
+        "italiani": 218302,
+        "stranieri": 91375
+      },
       {
         "ambito": "Trento, Monte Bondone e Altopiano di Pinè",
         "italiani": 63005,

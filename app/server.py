@@ -19,6 +19,27 @@ def elabora():
     risultato = f"Python ha elaborato: '{testo.upper()}'" 
     return jsonify({"status": "success", "risultato": risultato})
 
+@app.route('/filtra', methods=['POST'])
+def filtra():
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # 2. Funzione per avviare Flask
 def run_flask():
     # Colab richiede l'host 0.0.0.0
