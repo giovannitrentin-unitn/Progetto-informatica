@@ -1,3 +1,4 @@
+import pandas as pd
 
 def estrai_colonne(df):   
     # Trasforma tutti i nomi delle colonne in minuscolo per il confronto
