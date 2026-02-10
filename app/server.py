@@ -45,10 +45,12 @@ def elabora():
     quantiles = calcola_quatiles.genera_quantili(precisione)
     # Genero le previsioni
     predictions = genera_prediction.genera_prediction(dati, prediction_length, quantiles)
+    # Processo l'output
+    predictions_processed = processing_output.processing_output(predictions, target)
     # Salvo la prediction in csv
-    salva_dataframe_csv(predictions, "/app/data/prediction.csv")
+    salva_dataframe_csv(predictions_processed, "/app/data/prediction.csv")
     # Calcolo i totali
-    prediction_total = calcola_totali.aggiungi_totali(predictions, target)
+    prediction_total = calcola_totali.aggiungi_totali(predictions_processed, target)
     # Salvo la previsione lato server e la invio al client
     predictions_json = conversione_json.conversione_json(prediction_total, "/app/results/predictions.json")
 
@@ -112,22 +114,6 @@ def elimina_lista_file():
         except Exception as e:
             print(f"❌ Errore durante l'eliminazione di {file_path}: {e}")
     return jsonify({"status": "success"}), 200
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # 2. Funzione per avviare Flask
 def run_flask():
