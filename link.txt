@@ -1,0 +1,36 @@
+
+
+IN QUALI VALLI SONO ANDATI I TURISTI
+
+Arrivi e presenze nelle VALLI negli esercizi alberghieri per ambito, provenienza e mese (2013-2025)								
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuarioturismo&sp=spArrPresEsAlbXAmbProvMes&var=0&a=2013
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuarioturismo&sp=spArrPresEsAlbXAmbProvMes&var=0&a=2014
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuarioturismo&sp=spArrPresEsAlbXAmbProvMes&var=0&a=2015
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuarioturismo&sp=spArrPresEsAlbXAmbProvMes&var=0&a=2016
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuarioturismo&sp=spArrPresEsAlbXAmbProvMes&var=0&a=2017
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuarioturismo&sp=spArrPresEsAlbXAmbProvMes&var=0&a=2018
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuarioturismo&sp=spArrPresEsAlbXAmbProvMes&var=0&a=2019
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuarioturismo&sp=spArrPresEsAlbXAmbProvMes&var=0&a=2020
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuarioturismo&sp=spArrPresEsAlbXAmbProvMes&var=0&a=2021
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuarioturismo&sp=spArrPresEsAlbXAmbProvMes&var=0&a=2022
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuarioturismo&sp=spArrPresEsAlbXAmbProvMes&var=0&a=2023
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuarioturismo&sp=spArrPresEsAlbXAmbProvMes&var=0&a=2024
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuarioturismo&sp=spArrPresEsAlbXAmbProvMes&var=0&a=2025
+
+
+DOVE HANNO RISIEDUTO (esercizi alberghieri o extralberghieri)
+
+Arrivi e presenze: o esercizi alberghieri o extralberghieri esercizi alberghieri per ambito, provenienza e mese (2013-2025)	
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuario&sp=spArriviPresXMeseProv&var=0&a=2013
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuario&sp=spArriviPresXMeseProv&var=0&a=2014
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuario&sp=spArriviPresXMeseProv&var=0&a=2015
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuario&sp=spArriviPresXMeseProv&var=0&a=2016
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuario&sp=spArriviPresXMeseProv&var=0&a=2017
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuario&sp=spArriviPresXMeseProv&var=0&a=2018
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuario&sp=spArriviPresXMeseProv&var=0&a=2019
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuario&sp=spArriviPresXMeseProv&var=0&a=2020
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuario&sp=spArriviPresXMeseProv&var=0&a=2021
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuario&sp=spArriviPresXMeseProv&var=0&a=2022
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuario&sp=spArriviPresXMeseProv&var=0&a=2023
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuario&sp=spArriviPresXMeseProv&var=0&a=2024
+https://statweb.provincia.tn.it/movturistico/data.asp?db=annuario&sp=spArriviPresXMeseProv&var=0&a=2025
