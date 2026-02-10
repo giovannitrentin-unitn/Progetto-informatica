@@ -1,0 +1,22 @@
+- Creare script python per previsione dei dati
+- Creare script per formattazione dati
+- Decisione forecast mensile o annuale
+- Di quanto fare il forecast valore che va da 0 a 1024
+- Struttura a bolle con barra principale e grafico grande (Se non sono state fatte previsioni, mettere dati storici, se filtrati che non esitono mettere scritta dati non presenti)
+- Bolla di filtro:
+  - Quali anni visualizzare
+  - Decisione mesi - anni
+- Bolla di generazione:
+  - Precisione della generazione max 1-10
+  - Quantità di previsione 1 a 1024
+  - Filtro per ambito
+  - Generazione annuale - mensile
+- Usage:
+  - Bolla sulla destra che fa vedere come usare l'app
+- Archivio previsioni e dati storici:
+  - Visualizzazione per anno con i vari dati, visualizzazione a tendina per anno
+  - Filtro sullo storico tramite anno
+- Quando si preme genera cosa deve succedere:
+  - sull'interfaccia, overlay con caricamento, e magari musichetta
+  - Prende i filtri e li passa al python
+  - python prende i dati, inserisce i filtri nella generazione, genera output, mette i dati all'interno di un json schema che viene sovrascritto volta per volta, resettare mettiamo un tasto nella bolla di generazione e uno sulla barra principale
