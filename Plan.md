@@ -12,6 +12,7 @@
   - Precisione della generazione max 1-10
   - Quantità di previsione 1 a 1024
   - Filtro per ambito
+  - Stranieri, italiani
   - Generazione annuale - mensile
   - Target di generazione (arrivi - presenze)
 - Usage:
