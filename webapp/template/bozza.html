@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trentino Forecast - Professional Suite</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* --- DESIGN TOKENS (Light Mode Default) --- */
+            --primary: #6366f1;       /* Indigo 500 */
+            --primary-glow: rgba(99, 102, 241, 0.15);
+            --secondary: #0ea5e9;     /* Sky 500 */
+            --accent: #ec4899;        /* Pink 500 */
+            
+            --bg-body: #f8fafc;       /* Slate 50 */
+            --bg-surface: #ffffff;
+            --bg-surface-glass: rgba(255, 255, 255, 0.8);
+            --bg-element: #f1f5f9;    /* Slate 100 */
+            
+            --text-primary: #0f172a;  /* Slate 900 */
+            --text-secondary: #64748b;/* Slate 500 */
+            --text-tertiary: #94a3b8; /* Slate 400 */
+            
+            --border: #e2e8f0;        /* Slate 200 */
+            --divider: #f1f5f9;
+            
+            --chart-grid: #e2e8f0;
+            --chart-text: #64748b;
+            
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            
+            --sidebar-width: 320px;
+            --sidebar-right-width: 300px;
+            --header-height: 70px;
+            
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* --- DARK MODE OVERRIDES --- */
+        [data-theme="dark"] {
+            --bg-body: #0f172a;       /* Slate 900 */
+            --bg-surface: #1e293b;    /* Slate 800 */
+            --bg-surface-glass: rgba(30, 41, 59, 0.8);
+            --bg-element: #334155;    /* Slate 700 */
+            
+            --text-primary: #f8fafc;  /* Slate 50 */
+            --text-secondary: #94a3b8;/* Slate 400 */
+            --text-tertiary: #64748b; /* Slate 500 */
+            
+            --border: #334155;        /* Slate 700 */
+            --divider: #1e293b;
+            
+            --chart-grid: #334155;
+            --chart-text: #94a3b8;
+            
+            --primary: #818cf8;       /* Indigo 400 */
+            --primary-glow: rgba(129, 140, 248, 0.2);
+        }
+
+        * { box-sizing: border-box; outline: none; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+            font-size: 14px;
+            transition: background-color var(--transition), color var(--transition);
+        }
+
+        /* --- LAYOUT --- */
+        .app-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* --- SIDEBAR BASE STYLES --- */
+        aside {
+            background: var(--bg-surface);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            z-index: 30;
+            transition: transform var(--transition), background-color var(--transition), border-color var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* --- SIDEBAR SINISTRA (FILTRI) --- */
+        .sidebar-left {
+            width: var(--sidebar-width);
+            min-width: var(--sidebar-width);
+        }
+        .sidebar-left.collapsed {
+            transform: translateX(-100%);
+            margin-right: calc(var(--sidebar-width) * -1);
+        }
+
+        .sidebar-header {
+            height: var(--header-height);
+            padding: 0 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: -0.01em;
+        }
+        
+        .brand-icon {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px var(--primary-glow);
+        }
+        .brand-icon svg { width: 18px; height: 18px; stroke-width: 2.5; }
+
+        /* Reset Button Refined */
+        .reset-btn {
+            background: transparent;
+            border: 1px solid transparent;
+            color: var(--text-tertiary);
+            cursor: pointer;
+            padding: 6px 10px;
+            border-radius: var(--radius-md);
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .reset-btn:hover {
+            background: var(--bg-element);
+            color: #ef4444; /* Red warning */
+            border-color: var(--border);
+        }
+        .reset-icon { width: 14px; height: 14px; transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+        .sidebar-content {
+            padding: 24px;
+            overflow-y: auto;
+            flex: 1;
+        }
+        .sidebar-content::-webkit-scrollbar { width: 5px; }
+        .sidebar-content::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+
+        .filter-section { margin-bottom: 32px; }
+        
+        .filter-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .filter-title::after {
+            content: ''; flex: 1; height: 1px; background: var(--border);
+        }
+
+        /* --- UI COMPONENTS --- */
+        
+        /* Select Box */
+        .select-wrapper { position: relative; }
+        .select-box {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            background: var(--bg-body);
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            transition: all 0.2s;
+            appearance: none;
+            cursor: pointer;
+        }
+        .select-box:hover { border-color: var(--text-tertiary); }
+        .select-box:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-glow); }
+        .select-arrow {
+            position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+            pointer-events: none; color: var(--text-tertiary);
+        }
+
+        /* Scrollable Container */
+        .scrollable-filter {
+            max-height: 160px;
+            overflow-y: auto;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 6px;
+            background: var(--bg-surface);
+        }
+        .scrollable-filter::-webkit-scrollbar { width: 4px; }
+        .scrollable-filter::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+        /* Checkbox Items */
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 8px 10px;
+            border-radius: 6px;
+            transition: background 0.15s;
+            user-select: none;
+        }
+        .checkbox-item:hover { background: var(--bg-element); }
+        
+        /* Custom Checkbox */
+        .checkbox-item input[type="checkbox"] {
+            appearance: none;
+            width: 18px; height: 18px;
+            border: 2px solid var(--text-tertiary);
+            border-radius: 5px;
+            background: transparent;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .checkbox-item input[type="checkbox"]:checked {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        .checkbox-item input[type="checkbox"]:checked::after {
+            content: '';
+            position: absolute;
+            left: 5px; top: 1px;
+            width: 4px; height: 9px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        /* Range Chips */
+        .range-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+        .range-item {
+            padding: 8px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--bg-body);
+            cursor: pointer;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .range-item:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--bg-surface);
+        }
+        .range-item:active { transform: scale(0.98); }
+
+        /* --- MAIN CONTENT --- */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            min-width: 0;
+            background-color: var(--bg-body);
+            background-image: 
+                radial-gradient(var(--border) 1px, transparent 1px),
+                radial-gradient(var(--border) 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            transition: background-color var(--transition);
+        }
+
+        /* Header Navigation */
+        .top-bar {
+            height: var(--header-height);
+            background: var(--bg-surface-glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            transition: border-color var(--transition);
+        }
+
+        .toggle-btn {
+            width: 40px; height: 40px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--bg-surface);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .toggle-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            box-shadow: 0 4px 12px var(--primary-glow);
+        }
+        .toggle-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .header-center {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+        }
+
+        /* THEME SWITCHER */
+        .theme-switch {
+            background: var(--bg-element);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            margin-right: 15px;
+        }
+        .theme-icon {
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-tertiary);
+            transition: all 0.3s;
+        }
+        .theme-switch[data-mode="light"] .sun { color: #f59e0b; background: white; shadow: var(--shadow-sm); }
+        .theme-switch[data-mode="dark"] .moon { color: #818cf8; background: var(--bg-surface); }
+
+        .content-scrollable {
+            flex: 1;
+            overflow-y: auto;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* CHART CARD PRO */
+        .chart-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: 40px;
+            width: 100%;
+            max-width: 1200px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+            min-height: 500px;
+            transition: background-color var(--transition), border-color var(--transition);
+        }
+
+        .chart-header-internal {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .chart-titles h2 { margin: 0; font-size: 1.8rem; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em; }
+        .chart-titles p { margin: 6px 0 0; color: var(--text-secondary); font-size: 1rem; }
+
+        .chart-wrapper {
+            flex: 1;
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Placeholder */
+        .chart-placeholder {
+            text-align: center;
+            color: var(--text-tertiary);
+            display: none; 
+            animation: floatIn 0.6s ease-out;
+        }
+        .chart-placeholder svg {
+            width: 80px; height: 80px; 
+            margin-bottom: 24px;
+            color: var(--text-tertiary);
+            stroke-width: 1.5;
+            opacity: 0.5;
+        }
+        .chart-placeholder p {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        @keyframes floatIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Mode Controls Pill Style */
+        .mode-controls {
+            background: var(--bg-surface);
+            padding: 6px;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            display: flex;
+            gap: 4px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .mode-btn {
+            padding: 10px 24px;
+            border-radius: 40px;
+            border: none;
+            background: transparent;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .mode-btn:hover { color: var(--text-primary); }
+        .mode-btn.active { background: var(--bg-element); color: var(--text-primary); }
+        
+        .mode-btn.generate.active { 
+            background: var(--primary); 
+            color: white; 
+            box-shadow: 0 4px 12px var(--primary-glow);
+        }
+
+        /* --- SIDEBAR DESTRA (INFO) --- */
+        .sidebar-right {
+            width: var(--sidebar-right-width);
+            min-width: var(--sidebar-right-width);
+            border-left: 1px solid var(--border);
+        }
+        .sidebar-right.collapsed {
+            transform: translateX(100%);
+            margin-right: calc(var(--sidebar-right-width) * -1);
+        }
+
+        .info-container { padding: 24px; }
+
+        .info-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-left: 4px solid #f59e0b;
+            border-radius: var(--radius-md);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .info-title {
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+        .info-icon-wrapper {
+            width: 32px; height: 32px; 
+            background: #fffbeb; color: #f59e0b;
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+        }
+
+        .info-text { font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 16px; }
+        
+        .step-list { margin: 0; padding: 0; list-style: none; }
+        .step-list li {
+            position: relative;
+            padding-left: 16px;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border-left: 2px solid var(--border);
+            transition: all 0.2s;
+        }
+        .step-list li:hover { border-left-color: var(--primary); color: var(--text-primary); padding-left: 20px; }
+        .step-list strong { color: var(--text-primary); }
+
+        /* Icons */
+        .icon { width: 20px; height: 20px; stroke-width: 2; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+
+        @media (max-width: 1024px) {
+            .app-container { flex-direction: column; }
+            .sidebar-left, .sidebar-right { position: fixed; height: 100%; top: 0; bottom: 0; }
+            .sidebar-left { left: 0; transform: translateX(0); }
+            .sidebar-left.collapsed { transform: translateX(-100%); }
+            .sidebar-right { right: 0; transform: translateX(0); }
+            .sidebar-right.collapsed { transform: translateX(100%); }
+            .chart-card { min-height: 350px; padding: 20px; }
+            .mode-btn { padding: 8px 16px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+
+        <!-- SIDEBAR SINISTRA -->
+        <aside class="sidebar-left" id="sidebarLeft">
+            <div class="sidebar-header">
+                <div class="brand-title">
+                    <div class="brand-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"></path></svg>
+                    </div>
+                    TRENTINO FORECAST
+                </div>
+                <button class="reset-btn" onclick="resetFilters()" title="Resetta">
+                    <svg class="icon reset-icon" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+                    Reset
+                </button>
+            </div>
+
+            <div class="sidebar-content">
+                
+                <div class="filter-section">
+                    <div class="filter-title">Ambito Turistico</div>
+                    <div class="select-wrapper">
+                        <select class="select-box" id="locationFilter" onchange="updateChart()">
+                            <option value="all">Tutte le Valli</option>
+                            <option>Trento, Monte Bondone e Altopiano di Pinè</option>
+                            <option>Val di Fiemme e Val di Cembra</option>
+                            <option>Val di Fassa</option>
+                            <option>San Martino di Castrozza, Primiero e Vanoi</option>
+                            <option>Valsugana, Tesino e Valle dei Mocheni</option>
+                            <option>Altipiani cimbri e Vigolana</option>
+                            <option>Rovereto, Vallagarina e Monte Baldo</option>
+                            <option>Garda trentino, Valle di Ledro...</option>
+                            <option>Madonna di Campiglio, Pinzolo...</option>
+                            <option>Val di Sole</option>
+                            <option>Val di Non</option>
+                            <option>Altopiano della Paganella...</option>
+                        </select>
+                        <svg class="icon select-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                </div>
+                
+                <div class="filter-section">
+                    <div class="filter-title">Anni (2013-2109)</div>
+                    <div class="scrollable-filter" id="yearsFilterContainer"></div>
+                </div>
+
+                <div class="filter-section">
+                    <div class="filter-title">Range Rapidi</div>
+                    <div class="range-grid" id="rangeFilterContainer"></div>
+                </div>
+
+                <div class="filter-section">
+                    <div class="filter-title">Tipologia</div>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" id="chkHotel" checked> Alberghieri</label>
+                        <label class="checkbox-item"><input type="checkbox" id="chkExtra" checked> Extralberghieri</label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <div class="filter-title">Origine</div>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" id="chkIta" checked> Italiani</label>
+                        <label class="checkbox-item"><input type="checkbox" id="chkStr" checked> Stranieri</label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <div class="filter-title">Serie Dati</div>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="chkPresenze" checked onchange="toggleSeries()"> 
+                            <span style="display:inline-block; width:10px; height:10px; border-radius:3px; background:var(--accent); margin-right:8px;"></span> Presenze
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="chkArrivi" checked onchange="toggleSeries()"> 
+                            <span style="display:inline-block; width:10px; height:10px; border-radius:3px; background:var(--secondary); margin-right:8px;"></span> Arrivi
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <header class="top-bar">
+                <button class="toggle-btn active" id="btnToggleLeft" onclick="toggleSidebar('left')" title="Menu Filtri">
+                    <svg class="icon" viewBox="0 0 24 24"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+                </button>
+
+                <div class="header-center">TourismForecast</div>
+
+                <div style="display:flex; gap:10px; align-items:center;">
+                    <!-- THEME TOGGLE -->
+                    <div class="theme-switch" id="themeSwitch" data-mode="light" onclick="toggleTheme()" title="Cambia Tema">
+                        <div class="theme-icon sun"><svg class="icon" style="width:16px" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></div>
+                        <div class="theme-icon moon"><svg class="icon" style="width:16px" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></div>
+                    </div>
+
+                    <button class="toggle-btn active" id="btnToggleRight" onclick="toggleSidebar('right')" title="Guida">
+                        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-scrollable">
+                <div class="chart-card">
+                    <div class="chart-header-internal">
+                        <div class="chart-titles">
+                            <h2 id="chartTitle">Analisi Trend</h2>
+                            <p id="chartSubtitle">Seleziona una modalità per iniziare</p>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="mainChart"></canvas>
+                        <!-- PLACEHOLDER SMILEY -->
+                        <div id="chartPlaceholder" class="chart-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                            </svg>
+                            <p>Non immaginare il futuro, prevedilo!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mode-controls">
+                    <button class="mode-btn" onclick="setMode('history')" id="btnHistory">Storico</button>
+                    <button class="mode-btn generate" onclick="setMode('forecast')" id="btnGenerate">Generate AI ✨</button>
+                    <button class="mode-btn" onclick="setMode('all')" id="btnAll">Completo</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- SIDEBAR DESTRA -->
+        <aside class="sidebar-right" id="sidebarRight">
+            <div class="sidebar-header" style="justify-content: center;">
+                <span class="brand-title" style="color:var(--text-primary)">GUIDA RAPIDA</span>
+            </div>
+            <div class="info-container">
+                <div class="info-card">
+                    <div class="info-title">
+                        <div class="info-icon-wrapper"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+                        How To Use
+                    </div>
+                    <div class="info-text">
+                        Benvenuto nella dashboard predittiva del turismo in Trentino.
+                    </div>
+                    <ul class="step-list">
+                        <li><strong>Filtra:</strong> Usa il pannello sinistro per selezionare ambito, tipologia e origine.</li>
+                        <li><strong>Anni:</strong> Seleziona manualmente gli anni o usa i range rapidi (5 anni).</li>
+                        <li><strong>Modalità:</strong>
+                            <div style="margin-top:4px; padding-left:8px; font-size:0.85rem; color:var(--text-tertiary)">
+                                • Storico: Dati consolidati fino al 2024.<br>
+                                • Generate AI: Algoritmo predittivo con cicli economici.
+                            </div>
+                        </li>
+                        <li><strong>Reset:</strong> Usa il tasto "Reset" per cancellare la selezione e il grafico.</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+    <script>
+        // --- THEME ENGINE ---
+        function toggleTheme() {
+            const html = document.documentElement;
+            const switchBtn = document.getElementById('themeSwitch');
+            const current = html.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            switchBtn.setAttribute('data-mode', next);
+            updateChart(); // Force chart redraw for colors
+        }
+
+        function getChartColors() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            return {
+                grid: isDark ? '#334155' : '#e2e8f0',
+                text: isDark ? '#94a3b8' : '#64748b'
+            };
+        }
+
+        // --- UI LOGIC ---
+        function toggleSidebar(side) {
+            const sidebar = document.getElementById(side === 'left' ? 'sidebarLeft' : 'sidebarRight');
+            const btn = document.getElementById(side === 'left' ? 'btnToggleLeft' : 'btnToggleRight');
+            sidebar.classList.toggle('collapsed');
+            btn.classList.toggle('active');
+            setTimeout(() => { if (chartInstance) chartInstance.resize(); }, 350);
+        }
+
+        function resetFilters() {
+            document.querySelectorAll('.year-checkbox').forEach(cb => cb.checked = false);
+            document.getElementById('locationFilter').value = 'all';
+            ['chkHotel', 'chkExtra', 'chkIta', 'chkStr', 'chkPresenze', 'chkArrivi'].forEach(id => {
+                document.getElementById(id).checked = false;
+            });
+            document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+            currentMode = null;
+
+            document.getElementById('chartTitle').textContent = "Pronto";
+            document.getElementById('chartSubtitle').textContent = "Configura l'analisi";
+
+            if(chartInstance) { chartInstance.destroy(); chartInstance = null; }
+            document.getElementById('mainChart').style.display = 'none';
+            document.getElementById('chartPlaceholder').style.display = 'block';
+            
+            const icon = document.querySelector('.reset-icon');
+            icon.style.transform = "rotate(-360deg)";
+            setTimeout(() => icon.style.transform = "rotate(0deg)", 500);
+        }
+
+        // --- DATA & CHART ENGINE ---
+        const monthMap = ["Gen", "Feb", "Mar", "Apr", "Mag", "Giu", "Lug", "Ago", "Set", "Ott", "Nov", "Dic"];
+        // Dati di base
+        const historyData = {
+            "2023": { "Arrivi": { "Gen": 85000, "Feb": 95000, "Mar": 100000, "Apr": 105000, "Mag": 110000, "Giu": 125000, "Lug": 160000, "Ago": 200000, "Set": 140000, "Ott": 120000, "Nov": 110000, "Dic": 105000 }, "Presenze": { "Gen": 160000, "Feb": 170000, "Mar": 180000, "Apr": 185000, "Mag": 195000, "Giu": 210000, "Lug": 250000, "Ago": 300000, "Set": 220000, "Ott": 200000, "Nov": 190000, "Dic": 190000 } },
+            "2024": { "Arrivi": { "Gen": 90000, "Feb": 100000, "Mar": 110000, "Apr": 115000, "Mag": 120000, "Giu": 135000, "Lug": 175000, "Ago": 215000, "Set": 155000, "Ott": 130000, "Nov": 120000, "Dic": 115000 }, "Presenze": { "Gen": 175000, "Feb": 185000, "Mar": 195000, "Apr": 200000, "Mag": 210000, "Giu": 225000, "Lug": 270000, "Ago": 320000, "Set": 240000, "Ott": 220000, "Nov": 210000, "Dic": 210000 } },
+            "2025": { "Arrivi": { "Gen": 105000, "Feb": 115000, "Mar": 125000, "Apr": 125000, "Mag": 135000, "Giu": 150000, "Lug": 190000, "Ago": 235000, "Set": 170000, "Ott": 145000, "Nov": 135000, "Dic": 130000 }, "Presenze": { "Gen": 195000, "Feb": 205000, "Mar": 215000, "Apr": 215000, "Mag": 230000, "Giu": 245000, "Lug": 290000, "Ago": 340000, "Set": 260000, "Ott": 240000, "Nov": 230000, "Dic": 230000 } }
+        };
+
+        const rawData = { history: historyData, forecast: {} };
+        let chartInstance = null;
+        let currentMode = 'history';
+
+        function generateForecastData() {
+            const startYear = 2026;
+            const endYear = 2109;
+            const baseData = rawData.history[2025];
+            
+            let prevA = { ...baseData.Arrivi }; 
+            let prevP = { ...baseData.Presenze };
+
+            for (let y = startYear; y <= endYear; y++) {
+                rawData.forecast[y] = { Arrivi: {}, Presenze: {} };
+                // Economic Cycle Logic
+                const yearsFromStart = y - startYear;
+                const baseGrowth = Math.max(0.005, 0.015 - (yearsFromStart * 0.00015)); 
+                const cycleFactor = Math.sin(yearsFromStart * 0.7) * 0.025; 
+                const growthFactor = 1 + baseGrowth + cycleFactor;
+
+                monthMap.forEach(m => {
+                    const noise = 0.98 + Math.random() * 0.04;
+                    const newA = Math.round(prevA[m] * growthFactor * noise);
+                    const newP = Math.round(prevP[m] * growthFactor * noise);
+                    rawData.forecast[y].Arrivi[m] = newA;
+                    rawData.forecast[y].Presenze[m] = newP;
+                    prevA[m] = newA; prevP[m] = newP;
+                });
+            }
+        }
+
+        function initYearsFilter() {
+            const container = document.getElementById('yearsFilterContainer');
+            container.innerHTML = '';
+            for (let year = 2013; year <= 2109; year++) {
+                const label = document.createElement('label');
+                label.className = 'checkbox-item';
+                const input = document.createElement('input');
+                input.type = 'checkbox';
+                input.value = year;
+                input.className = 'year-checkbox';
+                input.checked = (year <= 2025);
+                input.addEventListener('change', () => updateChart());
+                label.appendChild(input);
+                label.appendChild(document.createTextNode(` ${year}`));
+                container.appendChild(label);
+            }
+        }
+
+        function initRangeFilter() {
+            const container = document.getElementById('rangeFilterContainer');
+            container.innerHTML = '';
+            for (let y = 2013; y < 2109; y += 5) {
+                let end = Math.min(y + 5, 2109);
+                const btn = document.createElement('button');
+                btn.className = 'range-item';
+                btn.textContent = `${y}-${end}`;
+                btn.onclick = () => { selectYearsRange(y, end); updateChart(); };
+                container.appendChild(btn);
+            }
+        }
+
+        function selectYearsRange(start, end) {
+            document.querySelectorAll('.year-checkbox').forEach(cb => {
+                const y = parseInt(cb.value);
+                cb.checked = (y >= start && y <= end);
+            });
+            const first = document.querySelector('.year-checkbox:checked');
+            if(first) first.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function getSelectedYears() {
+            return Array.from(document.querySelectorAll('.year-checkbox:checked')).map(cb => parseInt(cb.value)).sort((a,b)=>a-b);
+        }
+
+        function getDataBySelection() {
+            let labels = [], arrivi = [], presenze = [];
+            getSelectedYears().forEach(year => {
+                let d = rawData.history[year] || rawData.forecast[year];
+                if (d) {
+                    monthMap.forEach(m => {
+                        labels.push(`${m} ${year}`);
+                        arrivi.push(d.Arrivi[m]);
+                        presenze.push(d.Presenze[m]);
+                    });
+                }
+            });
+            return { labels, arrivi, presenze };
+        }
+
+        function updateChart() {
+            const selectedYears = getSelectedYears();
+            if (selectedYears.length === 0) {
+                if(chartInstance) { chartInstance.destroy(); chartInstance = null; }
+                document.getElementById('mainChart').style.display = 'none';
+                document.getElementById('chartPlaceholder').style.display = 'block';
+                return;
+            }
+
+            document.getElementById('chartPlaceholder').style.display = 'none';
+            document.getElementById('mainChart').style.display = 'block';
+
+            const ctx = document.getElementById('mainChart').getContext('2d');
+            const data = getDataBySelection();
+            
+            const t = document.getElementById('chartTitle');
+            const s = document.getElementById('chartSubtitle');
+            if(currentMode==='history') { t.textContent="Dati Storici"; s.textContent="Analisi consolidata (2013-2025)"; }
+            else if(currentMode==='forecast') { t.textContent="Previsione Futura"; s.textContent="Algoritmo predittivo AI (2026+)"; }
+            else { t.textContent="Trend Completo"; s.textContent="Visione globale dati"; }
+
+            // Dynamic colors based on theme
+            const colors = getChartColors();
+
+            const gradP = ctx.createLinearGradient(0,0,0,400);
+            gradP.addColorStop(0, 'rgba(236, 72, 153, 0.2)'); gradP.addColorStop(1, 'rgba(236, 72, 153, 0)');
+            const gradA = ctx.createLinearGradient(0,0,0,400);
+            gradA.addColorStop(0, 'rgba(14, 165, 233, 0.2)'); gradA.addColorStop(1, 'rgba(14, 165, 233, 0)');
+
+            if(chartInstance) chartInstance.destroy();
+
+            chartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: data.labels,
+                    datasets: [
+                        { label: 'Presenze', data: data.presenze, borderColor: '#ec4899', backgroundColor: gradP, borderWidth: 2, tension: 0.4, fill: true, pointRadius: 0, pointHoverRadius: 6 },
+                        { label: 'Arrivi', data: data.arrivi, borderColor: '#0ea5e9', backgroundColor: gradA, borderWidth: 2, tension: 0.4, fill: true, pointRadius: 0, pointHoverRadius: 6 }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { 
+                        legend: { display: false },
+                        tooltip: { 
+                            mode: 'index', intersect: false, 
+                            backgroundColor: document.documentElement.getAttribute('data-theme') === 'dark' ? '#334155' : '#1e293b', 
+                            titleColor: '#f8fafc', bodyColor: '#f8fafc', 
+                            padding: 12, cornerRadius: 8, displayColors: true 
+                        }
+                    },
+                    scales: {
+                        x: { 
+                            grid: { display: false }, 
+                            ticks: { maxTicksLimit: 10, color: colors.text, font:{family:'Plus Jakarta Sans'} } 
+                        },
+                        y: { 
+                            border: { display: false }, 
+                            grid: { color: colors.grid, borderDash: [5, 5] }, 
+                            ticks: { callback: (v)=>v/1000+'k', color: colors.text, font:{family:'Plus Jakarta Sans'} } 
+                        }
+                    },
+                    interaction: { mode: 'nearest', axis: 'x', intersect: false }
+                }
+            });
+            toggleSeries();
+        }
+
+        function toggleSeries() {
+            if(!chartInstance) return;
+            chartInstance.getDatasetMeta(0).hidden = !document.getElementById('chkPresenze').checked;
+            chartInstance.getDatasetMeta(1).hidden = !document.getElementById('chkArrivi').checked;
+            chartInstance.update();
+        }
+
+        function setMode(mode) {
+            currentMode = mode;
+            ['chkHotel', 'chkExtra', 'chkIta', 'chkStr', 'chkPresenze', 'chkArrivi'].forEach(id => {
+                document.getElementById(id).checked = true;
+            });
+            document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+            if(mode==='history') { document.getElementById('btnHistory').classList.add('active'); selectYearsRange(2013, 2025); }
+            else if(mode==='forecast') { document.getElementById('btnGenerate').classList.add('active'); selectYearsRange(2026, 2109); }
+            else { document.getElementById('btnAll').classList.add('active'); selectYearsRange(2013, 2109); }
+            updateChart();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            generateForecastData();
+            initYearsFilter();
+            initRangeFilter();
+            setMode('history');
+        });
+    </script>
+</body>
+</html>
