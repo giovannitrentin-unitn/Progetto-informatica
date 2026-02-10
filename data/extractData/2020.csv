@@ -1,73 +1,337 @@
 Metrica,Periodo,Ambito,Italiani,Stranieri
-Arrivi,2020-01,Esercizi alberghieri,264886,113956
-Arrivi,2020-01,Esercizi extralberghieri,42790,21277
-Arrivi,2020-01,Totale,307676,135233
-Arrivi,2020-02,Esercizi alberghieri,223491,157415
-Arrivi,2020-02,Esercizi extralberghieri,38080,28766
-Arrivi,2020-02,Totale,261571,186181
-Arrivi,2020-03,Esercizi alberghieri,51451,7952
-Arrivi,2020-03,Esercizi extralberghieri,6765,1284
-Arrivi,2020-03,Totale,58216,9236
-Arrivi,2020-04,Esercizi alberghieri,704,68
-Arrivi,2020-04,Esercizi extralberghieri,129,23
-Arrivi,2020-04,Totale,833,91
-Arrivi,2020-05,Esercizi alberghieri,4586,287
-Arrivi,2020-05,Esercizi extralberghieri,5862,179
-Arrivi,2020-05,Totale,10448,466
-Arrivi,2020-06,Esercizi alberghieri,59392,15584
-Arrivi,2020-06,Esercizi extralberghieri,32588,14409
-Arrivi,2020-06,Totale,91980,29993
-Arrivi,2020-07,Esercizi alberghieri,258881,61818
-Arrivi,2020-07,Esercizi extralberghieri,98139,49458
-Arrivi,2020-07,Totale,357020,111276
-Arrivi,2020-08,Esercizi alberghieri,417253,72197
-Arrivi,2020-08,Esercizi extralberghieri,152636,62612
-Arrivi,2020-08,Totale,569889,134809
-Arrivi,2020-09,Esercizi alberghieri,154050,78348
-Arrivi,2020-09,Esercizi extralberghieri,48743,56933
-Arrivi,2020-09,Totale,202793,135281
-Arrivi,2020-10,Esercizi alberghieri,55608,27779
-Arrivi,2020-10,Esercizi extralberghieri,16778,14249
-Arrivi,2020-10,Totale,72386,42028
-Arrivi,2020-11,Esercizi alberghieri,13190,1899
-Arrivi,2020-11,Esercizi extralberghieri,3724,756
-Arrivi,2020-11,Totale,16914,2655
-Arrivi,2020-12,Esercizi alberghieri,17944,2131
-Arrivi,2020-12,Esercizi extralberghieri,4603,408
-Arrivi,2020-12,Totale,22547,2539
-Presenze,2020-01,Esercizi alberghieri,975309,648949
-Presenze,2020-01,Esercizi extralberghieri,186352,128143
-Presenze,2020-01,Totale,1161661,777092
-Presenze,2020-02,Esercizi alberghieri,823114,902594
-Presenze,2020-02,Esercizi extralberghieri,143309,167130
-Presenze,2020-02,Totale,966423,1069724
-Presenze,2020-03,Esercizi alberghieri,205065,64625
-Presenze,2020-03,Esercizi extralberghieri,41914,13748
-Presenze,2020-03,Totale,246979,78373
-Presenze,2020-04,Esercizi alberghieri,4429,714
-Presenze,2020-04,Esercizi extralberghieri,11697,2462
-Presenze,2020-04,Totale,16126,3176
-Presenze,2020-05,Esercizi alberghieri,13615,1011
-Presenze,2020-05,Esercizi extralberghieri,26959,3377
-Presenze,2020-05,Totale,40574,4388
-Presenze,2020-06,Esercizi alberghieri,142016,42905
-Presenze,2020-06,Esercizi extralberghieri,109398,56377
-Presenze,2020-06,Totale,251414,99282
-Presenze,2020-07,Esercizi alberghieri,1085152,200029
-Presenze,2020-07,Esercizi extralberghieri,441558,233343
-Presenze,2020-07,Totale,1526710,433372
-Presenze,2020-08,Esercizi alberghieri,1925828,242367
-Presenze,2020-08,Esercizi extralberghieri,784765,311605
-Presenze,2020-08,Totale,2710593,553972
-Presenze,2020-09,Esercizi alberghieri,513875,270165
-Presenze,2020-09,Esercizi extralberghieri,194999,244127
-Presenze,2020-09,Totale,708874,514292
-Presenze,2020-10,Esercizi alberghieri,122140,103151
-Presenze,2020-10,Esercizi extralberghieri,66283,64527
-Presenze,2020-10,Totale,188423,167678
-Presenze,2020-11,Esercizi alberghieri,37187,7791
-Presenze,2020-11,Esercizi extralberghieri,38482,7255
-Presenze,2020-11,Totale,75669,15046
-Presenze,2020-12,Esercizi alberghieri,43785,6940
-Presenze,2020-12,Esercizi extralberghieri,36706,3866
-Presenze,2020-12,Totale,80491,10806
+Arrivi,2020-01,"Trento, Monte Bondone e Altopiano di Pinè",16499,5281
+Arrivi,2020-01,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",32518,5726
+Arrivi,2020-01,Val di Fiemme e Val di Cembra,15840,14046
+Arrivi,2020-01,Val di Fassa,46421,27574
+Arrivi,2020-01,"San Martino di Castrozza, Primiero e Vanoi",14767,2581
+Arrivi,2020-01,"Valsugana, Tesino e Valle dei Mocheni",4213,614
+Arrivi,2020-01,Altipiani cimbri e Vigolana,14356,5965
+Arrivi,2020-01,"Rovereto, Vallagarina e Monte Baldo",6147,1307
+Arrivi,2020-01,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",9309,6890
+Arrivi,2020-01,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",24478,14295
+Arrivi,2020-01,Val di Sole,28811,21715
+Arrivi,2020-01,Val di Non,4207,398
+Arrivi,2020-01,Provincia,217566,106392
+Arrivi,2020-02,"Trento, Monte Bondone e Altopiano di Pinè",15329,7387
+Arrivi,2020-02,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",31314,8662
+Arrivi,2020-02,Val di Fiemme e Val di Cembra,15620,16176
+Arrivi,2020-02,Val di Fassa,42565,34414
+Arrivi,2020-02,"San Martino di Castrozza, Primiero e Vanoi",17203,3806
+Arrivi,2020-02,"Valsugana, Tesino e Valle dei Mocheni",4492,1027
+Arrivi,2020-02,Altipiani cimbri e Vigolana,14113,8914
+Arrivi,2020-02,"Rovereto, Vallagarina e Monte Baldo",6065,1227
+Arrivi,2020-02,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",6244,2679
+Arrivi,2020-02,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",24692,17017
+Arrivi,2020-02,Val di Sole,24785,29892
+Arrivi,2020-02,Val di Non,3890,401
+Arrivi,2020-02,Provincia,206312,131602
+Arrivi,2020-03,"Trento, Monte Bondone e Altopiano di Pinè",17491,7116
+Arrivi,2020-03,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",23045,6398
+Arrivi,2020-03,Val di Fiemme e Val di Cembra,14068,13457
+Arrivi,2020-03,Val di Fassa,34260,27826
+Arrivi,2020-03,"San Martino di Castrozza, Primiero e Vanoi",13063,1838
+Arrivi,2020-03,"Valsugana, Tesino e Valle dei Mocheni",5167,1333
+Arrivi,2020-03,Altipiani cimbri e Vigolana,10321,4939
+Arrivi,2020-03,"Rovereto, Vallagarina e Monte Baldo",5730,1176
+Arrivi,2020-03,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",12194,15553
+Arrivi,2020-03,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",25024,11861
+Arrivi,2020-03,Val di Sole,22889,25689
+Arrivi,2020-03,Val di Non,3774,436
+Arrivi,2020-03,Provincia,187026,117622
+Arrivi,2020-04,"Trento, Monte Bondone e Altopiano di Pinè",14435,7644
+Arrivi,2020-04,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",5499,2637
+Arrivi,2020-04,Val di Fiemme e Val di Cembra,5208,2506
+Arrivi,2020-04,Val di Fassa,4016,813
+Arrivi,2020-04,"San Martino di Castrozza, Primiero e Vanoi",3458,196
+Arrivi,2020-04,"Valsugana, Tesino e Valle dei Mocheni",7845,3594
+Arrivi,2020-04,Altipiani cimbri e Vigolana,1445,119
+Arrivi,2020-04,"Rovereto, Vallagarina e Monte Baldo",3917,2768
+Arrivi,2020-04,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",20060,44403
+Arrivi,2020-04,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",4923,2196
+Arrivi,2020-04,Val di Sole,4331,5793
+Arrivi,2020-04,Val di Non,4963,1330
+Arrivi,2020-04,Provincia,80100,73999
+Arrivi,2020-05,"Trento, Monte Bondone e Altopiano di Pinè",13486,10391
+Arrivi,2020-05,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",3514,5726
+Arrivi,2020-05,Val di Fiemme e Val di Cembra,3036,2607
+Arrivi,2020-05,Val di Fassa,2414,1864
+Arrivi,2020-05,"San Martino di Castrozza, Primiero e Vanoi",2865,1366
+Arrivi,2020-05,"Valsugana, Tesino e Valle dei Mocheni",7270,6994
+Arrivi,2020-05,Altipiani cimbri e Vigolana,1627,796
+Arrivi,2020-05,"Rovereto, Vallagarina e Monte Baldo",3848,4147
+Arrivi,2020-05,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",12156,50686
+Arrivi,2020-05,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",1681,1187
+Arrivi,2020-05,Val di Sole,3756,2762
+Arrivi,2020-05,Val di Non,3950,2677
+Arrivi,2020-05,Provincia,59603,91203
+Arrivi,2020-06,"Trento, Monte Bondone e Altopiano di Pinè",14139,16777
+Arrivi,2020-06,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",22326,8263
+Arrivi,2020-06,Val di Fiemme e Val di Cembra,12497,6816
+Arrivi,2020-06,Val di Fassa,28459,10099
+Arrivi,2020-06,"San Martino di Castrozza, Primiero e Vanoi",9594,1919
+Arrivi,2020-06,"Valsugana, Tesino e Valle dei Mocheni",9802,9195
+Arrivi,2020-06,Altipiani cimbri e Vigolana,8008,2311
+Arrivi,2020-06,"Rovereto, Vallagarina e Monte Baldo",4585,4257
+Arrivi,2020-06,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",19183,65731
+Arrivi,2020-06,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",10689,3264
+Arrivi,2020-06,Val di Sole,12172,5783
+Arrivi,2020-06,Val di Non,5231,3906
+Arrivi,2020-06,Provincia,156685,138321
+Arrivi,2020-07,"Trento, Monte Bondone e Altopiano di Pinè",18682,19788
+Arrivi,2020-07,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",34150,6918
+Arrivi,2020-07,Val di Fiemme e Val di Cembra,23628,5273
+Arrivi,2020-07,Val di Fassa,61506,12300
+Arrivi,2020-07,"San Martino di Castrozza, Primiero e Vanoi",19094,4202
+Arrivi,2020-07,"Valsugana, Tesino e Valle dei Mocheni",13040,8345
+Arrivi,2020-07,Altipiani cimbri e Vigolana,14613,2591
+Arrivi,2020-07,"Rovereto, Vallagarina e Monte Baldo",5358,4170
+Arrivi,2020-07,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",22493,70085
+Arrivi,2020-07,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",28650,6733
+Arrivi,2020-07,Val di Sole,40861,5975
+Arrivi,2020-07,Val di Non,8772,4335
+Arrivi,2020-07,Provincia,290847,150715
+Arrivi,2020-08,"Trento, Monte Bondone e Altopiano di Pinè",24730,17332
+Arrivi,2020-08,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",44379,5188
+Arrivi,2020-08,Val di Fiemme e Val di Cembra,30564,3163
+Arrivi,2020-08,Val di Fassa,77008,8968
+Arrivi,2020-08,"San Martino di Castrozza, Primiero e Vanoi",24274,1507
+Arrivi,2020-08,"Valsugana, Tesino e Valle dei Mocheni",20673,6936
+Arrivi,2020-08,Altipiani cimbri e Vigolana,19002,1651
+Arrivi,2020-08,"Rovereto, Vallagarina e Monte Baldo",7965,4295
+Arrivi,2020-08,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",37656,63359
+Arrivi,2020-08,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",40306,5065
+Arrivi,2020-08,Val di Sole,51680,4726
+Arrivi,2020-08,Val di Non,11234,3672
+Arrivi,2020-08,Provincia,389471,125862
+Arrivi,2020-09,"Trento, Monte Bondone e Altopiano di Pinè",15096,15792
+Arrivi,2020-09,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",17380,9710
+Arrivi,2020-09,Val di Fiemme e Val di Cembra,10712,7267
+Arrivi,2020-09,Val di Fassa,24945,9761
+Arrivi,2020-09,"San Martino di Castrozza, Primiero e Vanoi",10500,1975
+Arrivi,2020-09,"Valsugana, Tesino e Valle dei Mocheni",10045,8731
+Arrivi,2020-09,Altipiani cimbri e Vigolana,5315,2230
+Arrivi,2020-09,"Rovereto, Vallagarina e Monte Baldo",5005,4245
+Arrivi,2020-09,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",18682,62518
+Arrivi,2020-09,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",11193,4892
+Arrivi,2020-09,Val di Sole,10188,6953
+Arrivi,2020-09,Val di Non,6822,4958
+Arrivi,2020-09,Provincia,145883,139032
+Arrivi,2020-10,"Trento, Monte Bondone e Altopiano di Pinè",16036,8076
+Arrivi,2020-10,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",5189,4490
+Arrivi,2020-10,Val di Fiemme e Val di Cembra,3490,4635
+Arrivi,2020-10,Val di Fassa,5703,2919
+Arrivi,2020-10,"San Martino di Castrozza, Primiero e Vanoi",3655,535
+Arrivi,2020-10,"Valsugana, Tesino e Valle dei Mocheni",5628,5799
+Arrivi,2020-10,Altipiani cimbri e Vigolana,737,293
+Arrivi,2020-10,"Rovereto, Vallagarina e Monte Baldo",4119,2977
+Arrivi,2020-10,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",17184,43349
+Arrivi,2020-10,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",3430,1261
+Arrivi,2020-10,Val di Sole,2670,2076
+Arrivi,2020-10,Val di Non,6148,3014
+Arrivi,2020-10,Provincia,73989,79424
+Arrivi,2020-11,"Trento, Monte Bondone e Altopiano di Pinè",18158,3796
+Arrivi,2020-11,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",3098,973
+Arrivi,2020-11,Val di Fiemme e Val di Cembra,2692,466
+Arrivi,2020-11,Val di Fassa,4202,330
+Arrivi,2020-11,"San Martino di Castrozza, Primiero e Vanoi",2289,109
+Arrivi,2020-11,"Valsugana, Tesino e Valle dei Mocheni",6826,956
+Arrivi,2020-11,Altipiani cimbri e Vigolana,1328,70
+Arrivi,2020-11,"Rovereto, Vallagarina e Monte Baldo",3616,1511
+Arrivi,2020-11,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",14285,8042
+Arrivi,2020-11,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",5248,643
+Arrivi,2020-11,Val di Sole,1873,1431
+Arrivi,2020-11,Val di Non,3793,819
+Arrivi,2020-11,Provincia,67408,19146
+Arrivi,2020-12,"Trento, Monte Bondone e Altopiano di Pinè",29705,5074
+Arrivi,2020-12,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",26550,2964
+Arrivi,2020-12,Val di Fiemme e Val di Cembra,21124,8719
+Arrivi,2020-12,Val di Fassa,46825,11955
+Arrivi,2020-12,"San Martino di Castrozza, Primiero e Vanoi",15597,1149
+Arrivi,2020-12,"Valsugana, Tesino e Valle dei Mocheni",13695,801
+Arrivi,2020-12,Altipiani cimbri e Vigolana,14219,1706
+Arrivi,2020-12,"Rovereto, Vallagarina e Monte Baldo",6859,1297
+Arrivi,2020-12,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",21144,7002
+Arrivi,2020-12,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",31489,8279
+Arrivi,2020-12,Val di Sole,31391,15058
+Arrivi,2020-12,Val di Non,7682,960
+Arrivi,2020-12,Provincia,266280,64964
+Presenze,2020-01,"Trento, Monte Bondone e Altopiano di Pinè",37736,20627
+Presenze,2020-01,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",137489,31162
+Presenze,2020-01,Val di Fiemme e Val di Cembra,54970,75190
+Presenze,2020-01,Val di Fassa,203216,172784
+Presenze,2020-01,"San Martino di Castrozza, Primiero e Vanoi",57236,14891
+Presenze,2020-01,"Valsugana, Tesino e Valle dei Mocheni",11682,2601
+Presenze,2020-01,Altipiani cimbri e Vigolana,49245,34490
+Presenze,2020-01,"Rovereto, Vallagarina e Monte Baldo",20986,4446
+Presenze,2020-01,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",22026,22836
+Presenze,2020-01,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",104740,89527
+Presenze,2020-01,Val di Sole,146866,139637
+Presenze,2020-01,Val di Non,10663,1321
+Presenze,2020-01,Provincia,856855,609512
+Presenze,2020-02,"Trento, Monte Bondone e Altopiano di Pinè",29866,30755
+Presenze,2020-02,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",129245,45986
+Presenze,2020-02,Val di Fiemme e Val di Cembra,47513,97152
+Presenze,2020-02,Val di Fassa,181871,215766
+Presenze,2020-02,"San Martino di Castrozza, Primiero e Vanoi",62054,22579
+Presenze,2020-02,"Valsugana, Tesino e Valle dei Mocheni",10524,4293
+Presenze,2020-02,Altipiani cimbri e Vigolana,44667,53523
+Presenze,2020-02,"Rovereto, Vallagarina e Monte Baldo",18636,3921
+Presenze,2020-02,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",11086,5720
+Presenze,2020-02,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",100196,108766
+Presenze,2020-02,Val di Sole,114188,191591
+Presenze,2020-02,Val di Non,7995,1193
+Presenze,2020-02,Provincia,757841,781245
+Presenze,2020-03,"Trento, Monte Bondone e Altopiano di Pinè",33921,24488
+Presenze,2020-03,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",97745,29692
+Presenze,2020-03,Val di Fiemme e Val di Cembra,39769,78709
+Presenze,2020-03,Val di Fassa,149044,173374
+Presenze,2020-03,"San Martino di Castrozza, Primiero e Vanoi",50441,9939
+Presenze,2020-03,"Valsugana, Tesino e Valle dei Mocheni",11611,4306
+Presenze,2020-03,Altipiani cimbri e Vigolana,35907,27373
+Presenze,2020-03,"Rovereto, Vallagarina e Monte Baldo",17878,2103
+Presenze,2020-03,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",21726,44580
+Presenze,2020-03,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",104266,71879
+Presenze,2020-03,Val di Sole,112504,155787
+Presenze,2020-03,Val di Non,7274,1461
+Presenze,2020-03,Provincia,682086,623691
+Presenze,2020-04,"Trento, Monte Bondone e Altopiano di Pinè",25243,14141
+Presenze,2020-04,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",12795,7551
+Presenze,2020-04,Val di Fiemme e Val di Cembra,12642,12763
+Presenze,2020-04,Val di Fassa,9482,3692
+Presenze,2020-04,"San Martino di Castrozza, Primiero e Vanoi",9351,482
+Presenze,2020-04,"Valsugana, Tesino e Valle dei Mocheni",16907,11908
+Presenze,2020-04,Altipiani cimbri e Vigolana,3605,344
+Presenze,2020-04,"Rovereto, Vallagarina e Monte Baldo",7587,4871
+Presenze,2020-04,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",44353,158836
+Presenze,2020-04,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",13058,12176
+Presenze,2020-04,Val di Sole,12516,42126
+Presenze,2020-04,Val di Non,10376,3468
+Presenze,2020-04,Provincia,177915,272358
+Presenze,2020-05,"Trento, Monte Bondone e Altopiano di Pinè",21999,19201
+Presenze,2020-05,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",6139,17946
+Presenze,2020-05,Val di Fiemme e Val di Cembra,6472,8073
+Presenze,2020-05,Val di Fassa,4849,4280
+Presenze,2020-05,"San Martino di Castrozza, Primiero e Vanoi",4560,2477
+Presenze,2020-05,"Valsugana, Tesino e Valle dei Mocheni",13671,20628
+Presenze,2020-05,Altipiani cimbri e Vigolana,4862,2995
+Presenze,2020-05,"Rovereto, Vallagarina e Monte Baldo",7091,6438
+Presenze,2020-05,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",27122,190695
+Presenze,2020-05,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",4880,3545
+Presenze,2020-05,Val di Sole,6098,6883
+Presenze,2020-05,Val di Non,7542,6227
+Presenze,2020-05,Provincia,115285,289388
+Presenze,2020-06,"Trento, Monte Bondone e Altopiano di Pinè",28067,35707
+Presenze,2020-06,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",77892,28495
+Presenze,2020-06,Val di Fiemme e Val di Cembra,39266,25574
+Presenze,2020-06,Val di Fassa,89908,31256
+Presenze,2020-06,"San Martino di Castrozza, Primiero e Vanoi",30194,4912
+Presenze,2020-06,"Valsugana, Tesino e Valle dei Mocheni",28776,32069
+Presenze,2020-06,Altipiani cimbri e Vigolana,21451,9348
+Presenze,2020-06,"Rovereto, Vallagarina e Monte Baldo",13028,7429
+Presenze,2020-06,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",44411,243056
+Presenze,2020-06,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",29921,8557
+Presenze,2020-06,Val di Sole,35155,18467
+Presenze,2020-06,Val di Non,10926,10100
+Presenze,2020-06,Provincia,448995,454970
+Presenze,2020-07,"Trento, Monte Bondone e Altopiano di Pinè",48910,40455
+Presenze,2020-07,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",219585,19220
+Presenze,2020-07,Val di Fiemme e Val di Cembra,139195,19872
+Presenze,2020-07,Val di Fassa,357495,43356
+Presenze,2020-07,"San Martino di Castrozza, Primiero e Vanoi",101997,15687
+Presenze,2020-07,"Valsugana, Tesino e Valle dei Mocheni",58757,33227
+Presenze,2020-07,Altipiani cimbri e Vigolana,77391,9020
+Presenze,2020-07,"Rovereto, Vallagarina e Monte Baldo",29791,9341
+Presenze,2020-07,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",67170,293464
+Presenze,2020-07,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",146259,21072
+Presenze,2020-07,Val di Sole,209655,22477
+Presenze,2020-07,Val di Non,35802,8342
+Presenze,2020-07,Provincia,1492007,535533
+Presenze,2020-08,"Trento, Monte Bondone e Altopiano di Pinè",70483,32669
+Presenze,2020-08,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",257952,14018
+Presenze,2020-08,Val di Fiemme e Val di Cembra,174875,12720
+Presenze,2020-08,Val di Fassa,443234,30770
+Presenze,2020-08,"San Martino di Castrozza, Primiero e Vanoi",134533,7852
+Presenze,2020-08,"Valsugana, Tesino e Valle dei Mocheni",83812,27091
+Presenze,2020-08,Altipiani cimbri e Vigolana,98497,7016
+Presenze,2020-08,"Rovereto, Vallagarina e Monte Baldo",28904,8133
+Presenze,2020-08,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",126388,268613
+Presenze,2020-08,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",211997,14512
+Presenze,2020-08,Val di Sole,284052,16533
+Presenze,2020-08,Val di Non,45700,7988
+Presenze,2020-08,Provincia,1960427,447915
+Presenze,2020-09,"Trento, Monte Bondone e Altopiano di Pinè",28181,32020
+Presenze,2020-09,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",72052,32869
+Presenze,2020-09,Val di Fiemme e Val di Cembra,40933,25967
+Presenze,2020-09,Val di Fassa,111548,33444
+Presenze,2020-09,"San Martino di Castrozza, Primiero e Vanoi",42007,5036
+Presenze,2020-09,"Valsugana, Tesino e Valle dei Mocheni",29460,29739
+Presenze,2020-09,Altipiani cimbri e Vigolana,18336,9265
+Presenze,2020-09,"Rovereto, Vallagarina e Monte Baldo",12982,7373
+Presenze,2020-09,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",46353,245087
+Presenze,2020-09,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",41233,15118
+Presenze,2020-09,Val di Sole,40088,27591
+Presenze,2020-09,Val di Non,16591,12615
+Presenze,2020-09,Provincia,499764,476124
+Presenze,2020-10,"Trento, Monte Bondone e Altopiano di Pinè",27335,16502
+Presenze,2020-10,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",10274,15817
+Presenze,2020-10,Val di Fiemme e Val di Cembra,7396,16119
+Presenze,2020-10,Val di Fassa,11580,7486
+Presenze,2020-10,"San Martino di Castrozza, Primiero e Vanoi",7465,1587
+Presenze,2020-10,"Valsugana, Tesino e Valle dei Mocheni",12263,17871
+Presenze,2020-10,Altipiani cimbri e Vigolana,1903,794
+Presenze,2020-10,"Rovereto, Vallagarina e Monte Baldo",8983,5325
+Presenze,2020-10,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",36284,168850
+Presenze,2020-10,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",7947,4031
+Presenze,2020-10,Val di Sole,5207,7099
+Presenze,2020-10,Val di Non,13190,8824
+Presenze,2020-10,Provincia,149827,270305
+Presenze,2020-11,"Trento, Monte Bondone e Altopiano di Pinè",31512,8222
+Presenze,2020-11,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",6095,2227
+Presenze,2020-11,Val di Fiemme e Val di Cembra,4809,1682
+Presenze,2020-11,Val di Fassa,7553,731
+Presenze,2020-11,"San Martino di Castrozza, Primiero e Vanoi",5014,308
+Presenze,2020-11,"Valsugana, Tesino e Valle dei Mocheni",12747,3144
+Presenze,2020-11,Altipiani cimbri e Vigolana,2601,226
+Presenze,2020-11,"Rovereto, Vallagarina e Monte Baldo",8099,2866
+Presenze,2020-11,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",26126,25228
+Presenze,2020-11,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",10392,1784
+Presenze,2020-11,Val di Sole,4211,4407
+Presenze,2020-11,Val di Non,8177,2064
+Presenze,2020-11,Provincia,127336,52889
+Presenze,2020-12,"Trento, Monte Bondone e Altopiano di Pinè",60563,15284
+Presenze,2020-12,"Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",91079,10226
+Presenze,2020-12,Val di Fiemme e Val di Cembra,64872,38601
+Presenze,2020-12,Val di Fassa,168036,55001
+Presenze,2020-12,"San Martino di Castrozza, Primiero e Vanoi",47507,4062
+Presenze,2020-12,"Valsugana, Tesino e Valle dei Mocheni",28074,2554
+Presenze,2020-12,Altipiani cimbri e Vigolana,42382,7511
+Presenze,2020-12,"Rovereto, Vallagarina e Monte Baldo",16933,2897
+Presenze,2020-12,"Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi",40348,22749
+Presenze,2020-12,"Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e
+          Valle del Chiese",99898,40245
+Presenze,2020-12,Val di Sole,110708,81169
+Presenze,2020-12,Val di Non,19030,2855
+Presenze,2020-12,Provincia,789430,283154
