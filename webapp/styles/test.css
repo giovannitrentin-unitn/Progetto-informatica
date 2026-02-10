@@ -1,0 +1,100 @@
+:root {
+  --bg-color: rgba(0, 0, 0, 0.2);
+}
+
+html,
+body {
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  gap: 20px;
+}
+
+/* CARD BOX */
+.card {
+  background-color: var(--bg-color);
+  border-bottom: 1px solid #333333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 24px;
+  border-radius: 16px;
+}
+
+/* SIDES */
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 310px;
+  gap: 20px;
+  padding: 10px 0px 10px 10px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  width: 310px;
+  padding: 10px 10px 10px 0px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 10px;
+  padding: 10px;
+}
+
+.left.hidden {
+  display: none;
+}
+
+.right.hidden {
+  display: none;
+}
+
+.card.hidden {
+  display: none;
+}
+
+/* CARDS PROPERTIES */
+/* Left */
+.generate {
+  display: flex;
+  height: 200px;
+}
+
+.filter {
+  display: flex;
+  flex-grow: 1;
+}
+
+/* Center */
+.navbar {
+  display: flex;
+  height: 40px;
+}
+
+.graph {
+  display: flex;
+  flex-grow: 1;
+}
+
+/* Right */
+.archive {
+  display: flex;
+  flex-grow: 1;
+}
+.usage {
+  display: flex;
+  flex-grow: 1;
+}

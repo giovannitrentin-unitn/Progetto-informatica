@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Dashboard Turismo 2023-2030</title>
+
+    <link rel="stylesheet" href="../styles/test.css" />
+  </head>
+  <body>
+    <div class="left" id="left">
+      <div class="card generate" id="generate">generate</div>
+      <div class="card filter" id="filter">filter</div>
+    </div>
+    <div class="center">
+      <div class="card navbar">
+        <button id="button-generate">generate</button>
+        <button id="button-filter">filter</button>
+        <button id="button-usage">usage</button>
+        <button id="button-archive">archive</button>
+      </div>
+      <div class="card graph">graph</div>
+    </div>
+    <div class="right hidden" id="right">
+      <div class="card usage hidden" id="usage">usage</div>
+      <div class="card archive hidden" id="archive">archive</div>
+    </div>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const generate = document.getElementById("generate");
+      const filter = document.getElementById("filter");
+      const usage = document.getElementById("usage");
+      const archive = document.getElementById("archive");
+      const left = document.getElementById("left");
+      const right = document.getElementById("right");
+
+      document
+        .getElementById("button-generate")
+        .addEventListener("click", () => {
+          generate.classList.toggle("hidden");
+          if (
+            generate.classList.contains("hidden") &&
+            filter.classList.contains("hidden")
+          ) {
+            left.classList.toggle("hidden");
+          } else if (left.classList.contains("hidden")) {
+            left.classList.toggle("hidden");
+          }
+        });
+
+      document.getElementById("button-filter").addEventListener("click", () => {
+        filter.classList.toggle("hidden");
+        if (
+          generate.classList.contains("hidden") &&
+          filter.classList.contains("hidden")
+        ) {
+          left.classList.toggle("hidden");
+        } else if (left.classList.contains("hidden")) {
+          left.classList.toggle("hidden");
+        }
+      });
+
+      document.getElementById("button-usage").addEventListener("click", () => {
+        if (!archive.classList.contains("hidden"))
+          archive.classList.toggle("hidden");
+        usage.classList.toggle("hidden");
+        if (
+          usage.classList.contains("hidden") &&
+          archive.classList.contains("hidden")
+        ) {
+          right.classList.toggle("hidden");
+        } else if (right.classList.contains("hidden")) {
+          right.classList.toggle("hidden");
+        }
+      });
+      document
+        .getElementById("button-archive")
+        .addEventListener("click", () => {
+          if (!usage.classList.contains("hidden"))
+            usage.classList.toggle("hidden");
+          archive.classList.toggle("hidden");
+          if (
+            usage.classList.contains("hidden") &&
+            archive.classList.contains("hidden")
+          ) {
+            right.classList.toggle("hidden");
+          } else if (right.classList.contains("hidden")) {
+            right.classList.toggle("hidden");
+          }
+        });
+    });
+  </script>
+</html>

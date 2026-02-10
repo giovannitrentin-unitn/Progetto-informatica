@@ -269,6 +269,7 @@ body {
   background: white;
   position: relative;
   min-width: 0;
+  gap: 60px;
 }
 
 .chart-header-area {
@@ -367,4 +368,13 @@ body {
     right: auto;
     left: 0;
   }
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  padding: 10px;
+  border-radius: 8px;
+  border: black 1px solid;
+  box-shadow: #111827 right;
 }
