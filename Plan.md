@@ -20,3 +20,4 @@
   - sull'interfaccia, overlay con caricamento, e magari musichetta
   - Prende i filtri e li passa al python
   - python prende i dati, inserisce i filtri nella generazione, genera output, mette i dati all'interno di un json schema che viene sovrascritto volta per volta, resettare mettiamo un tasto nella bolla di generazione e uno sulla barra principale
+- CI SERVONO I DATI
