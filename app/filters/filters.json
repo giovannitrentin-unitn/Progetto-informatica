@@ -5,7 +5,7 @@
       "precisione_max_generazione": "10",
       "quantita_min_previsione": "1",
       "quantita_max_previsione": "1024",
-      "ambito": [
+      "ambito_mensile": [
         "Esercizi alberghieri",
         "Esercizi extralberghieri",
         "Trento, Monte Bondone e Altopiano di Pinè",
@@ -21,10 +21,19 @@
         "Val di Sole",
         "Val di Non"
       ],
+      "ambito_annuale": ["Totale Luoghi", "Totale Strutture"],
       "colonne": ["Stranieri", "Italiani"],
-      "periodo": ["Annuale", "Mensile"],
+      "periodo_previsione": ["Annuale", "Mensile"],
       "target": ["Presenze", "Arrivi"]
     },
-    "data": {}
+    "data": {
+      "quantita_predizione": 0,
+      "precisione_predizione": 0,
+      "ambiti": [],
+      "target_prediction": ["Italiani", "Stranieri"],
+      "metrica": ["Presenze", "Arrivi"],
+      "periodo_dati": ["data_inizio", "data_fine"],
+      "periodo_previsione": ["Annuale", "Mensile"]
+    }
   }
 }

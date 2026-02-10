@@ -2,6 +2,7 @@ import threading
 import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import json
 
 # 1. Configurazione WebApp
 app = Flask(__name__)
@@ -11,7 +12,7 @@ CORS(app) # Fondamentale per evitare blocchi di sicurezza del browser
 def home():
     return "<h1>Server Attivo!</h1><p>L'interfaccia è connessa a Python.</p>"
 
-@app.route('/elabora', methods=['POST'])
+@app.route('/genera_previsioni', methods=['POST'])
 def elabora():
     dati = request.json
     testo = dati.get("testo", "")
@@ -19,8 +20,25 @@ def elabora():
     risultato = f"Python ha elaborato: '{testo.upper()}'" 
     return jsonify({"status": "success", "risultato": risultato})
 
-@app.route('/filtra', methods=['POST'])
+@app.route('/get_filters', methods=['GET'])
 def filtra():
+    file_principale = '/app/filters/filters.json'
+    file_alternativo = '/app/filters/default_filters.json'
+    
+    # Controlla quale file esiste
+    if os.path.exists(file_principale):
+        file_da_caricare = file_principale
+    elif os.path.exists(file_alternativo):
+        file_da_caricare = file_alternativo
+    else:
+        # Se nessuno dei due esiste, ritorna un errore JSON
+        return jsonify({"errore": "Nessun file disponibile"}), 404
+
+    # Leggi il file JSON
+    with open(file_da_caricare, 'r', encoding='utf-8') as f:
+        dati_json = json.load(f)
+
+    return jsonify(dati_json)
 
 
 
