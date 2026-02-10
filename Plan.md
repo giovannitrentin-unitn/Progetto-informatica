@@ -4,13 +4,16 @@
 - Di quanto fare il forecast valore che va da 0 a 1024
 - Struttura a bolle con barra principale e grafico grande (Se non sono state fatte previsioni, mettere dati storici, se filtrati che non esitono mettere scritta dati non presenti)
 - Bolla di filtro:
+  - Dipendono dai dati generati
   - Quali anni visualizzare
   - Decisione mesi - anni
+  - Presenze e arrivi
 - Bolla di generazione:
   - Precisione della generazione max 1-10
   - Quantità di previsione 1 a 1024
   - Filtro per ambito
   - Generazione annuale - mensile
+  - Target di generazione (arrivi - presenze)
 - Usage:
   - Bolla sulla destra che fa vedere come usare l'app
 - Archivio previsioni e dati storici:
@@ -21,3 +24,4 @@
   - Prende i filtri e li passa al python
   - python prende i dati, inserisce i filtri nella generazione, genera output, mette i dati all'interno di un json schema che viene sovrascritto volta per volta, resettare mettiamo un tasto nella bolla di generazione e uno sulla barra principale
 - CI SERVONO I DATI
+- Optional aggiunta css chiaro scuro
