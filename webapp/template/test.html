@@ -159,6 +159,7 @@
           </div>
         </div>
       </aside>
+
       <!-- SIDEBAR GENERAZIONE -->
       <aside class="sidebar-left collapsed" id="sidebarLeftGenerate">
         <div class="sidebar-header">
@@ -181,7 +182,209 @@
           </button>
         </div>
         <div class="sidebar-content">
-          <div class="filter-section"></div>
+          <!-- Prediction Length -->
+          <div class="filter-section">
+            <div class="filter-title">Prediction Length (1-1024)</div>
+            <input
+              type="number"
+              id="predictionLength"
+              class="select-box"
+              min="1"
+              max="1024"
+              value="12"
+            />
+          </div>
+
+          <!-- Prediction Precision -->
+          <div class="filter-section">
+            <div class="filter-title">Prediction Precision (0-10)</div>
+            <input
+              type="number"
+              id="predictionPrecision"
+              class="select-box"
+              min="0"
+              max="10"
+              value="2"
+            />
+          </div>
+
+          <!-- Ambito Mensile -->
+          <div class="filter-section">
+            <div class="filter-title">Ambito Mensile</div>
+
+            <div class="checkbox-group">
+              <label class="checkbox-item">
+                <input type="radio" name="ambitoMode" value="all" checked />
+                Tutti
+              </label>
+
+              <label class="checkbox-item">
+                <input type="radio" name="ambitoMode" value="strutture" />
+                Solo Strutture
+              </label>
+
+              <label class="checkbox-item">
+                <input type="radio" name="ambitoMode" value="luoghi" />
+                Solo Luoghi
+              </label>
+            </div>
+
+            <div class="scrollable-filter" id="ambitoList">
+              <!-- STRUTTURE -->
+              <label class="checkbox-item">
+                <input
+                  type="checkbox"
+                  class="ambito-item strutture"
+                  value="Esercizi alberghieri"
+                  checked
+                />
+                Esercizi alberghieri
+              </label>
+
+              <label class="checkbox-item">
+                <input
+                  type="checkbox"
+                  class="ambito-item strutture"
+                  value="Esercizi extralberghieri"
+                  checked
+                />
+                Esercizi extralberghieri
+              </label>
+
+              <!-- LUOGHI -->
+              <label class="checkbox-item">
+                <input
+                  type="checkbox"
+                  class="ambito-item luoghi"
+                  value="Trento, Monte Bondone e Altopiano di Pinè"
+                  checked
+                />
+                Trento, Monte Bondone e Altopiano di Pinè
+              </label>
+
+              <label class="checkbox-item">
+                <input
+                  type="checkbox"
+                  class="ambito-item luoghi"
+                  value="Val di Fiemme e Val di Cembra"
+                  checked
+                />
+                Val di Fiemme e Val di Cembra
+              </label>
+
+              <label class="checkbox-item">
+                <input
+                  type="checkbox"
+                  class="ambito-item luoghi"
+                  value="Val di Fassa"
+                  checked
+                />
+                Val di Fassa
+              </label>
+
+              <!-- puoi aggiungere gli altri allo stesso modo -->
+            </div>
+          </div>
+
+          <!-- Target -->
+          <div class="filter-section">
+            <div class="filter-title">Target</div>
+            <div class="checkbox-group">
+              <label class="checkbox-item">
+                <input
+                  type="checkbox"
+                  class="target-item"
+                  value="Italiani"
+                  checked
+                />
+                Italiani
+              </label>
+              <label class="checkbox-item">
+                <input
+                  type="checkbox"
+                  class="target-item"
+                  value="Stranieri"
+                  checked
+                />
+                Stranieri
+              </label>
+            </div>
+          </div>
+
+          <!-- Metrica -->
+          <div class="filter-section">
+            <div class="filter-title">Metrica</div>
+            <div class="checkbox-group">
+              <label class="checkbox-item">
+                <input
+                  type="checkbox"
+                  class="metrica-item"
+                  value="Presenze"
+                  checked
+                />
+                Presenze
+              </label>
+              <label class="checkbox-item">
+                <input
+                  type="checkbox"
+                  class="metrica-item"
+                  value="Arrivi"
+                  checked
+                />
+                Arrivi
+              </label>
+            </div>
+          </div>
+
+          <!-- Periodo Dati -->
+          <div class="filter-section">
+            <div class="filter-title">Periodo Dati</div>
+            <div style="display: flex; gap: 10px">
+              <input
+                type="month"
+                id="periodStart"
+                class="select-box"
+                value="2013-01"
+              />
+              <input
+                type="month"
+                id="periodEnd"
+                class="select-box"
+                value="2024-12"
+              />
+            </div>
+          </div>
+
+          <!-- Periodo Previsione -->
+          <div class="filter-section">
+            <div class="filter-title">Periodo Previsione</div>
+            <div class="checkbox-group">
+              <label class="checkbox-item">
+                <input
+                  type="radio"
+                  name="periodoPrevisione"
+                  value="Mensile"
+                  checked
+                />
+                Mensile
+              </label>
+              <label class="checkbox-item">
+                <input type="radio" name="periodoPrevisione" value="Annuale" />
+                Annuale
+              </label>
+            </div>
+          </div>
+
+          <!-- Generate Button -->
+          <div class="filter-section" style="margin-top: 30px">
+            <button
+              class="mode-btn generate active"
+              style="width: 100%"
+              onclick="generateJSON()"
+            >
+              Genera JSON ✨
+            </button>
+          </div>
         </div>
       </aside>
 

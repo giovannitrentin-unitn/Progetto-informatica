@@ -545,6 +545,203 @@ function setMode(mode) {
   updateChart();
 }
 
+function getGenerationFiltersJSON() {
+  const predictionLength = parseInt(
+    document.getElementById("predictionLength").value,
+  );
+
+  const predictionPrecision = parseInt(
+    document.getElementById("predictionPrecision").value,
+  );
+
+  // Ambito mensile selezionato
+  const ambito = Array.from(
+    document.querySelectorAll(".ambito-item:checked"),
+  ).map((el) => el.value);
+
+  const target = Array.from(
+    document.querySelectorAll(".target-item:checked"),
+  ).map((el) => el.value);
+
+  const metrica = Array.from(
+    document.querySelectorAll(".metrica-item:checked"),
+  ).map((el) => el.value);
+
+  const periodStart = document.getElementById("periodStart").value;
+  const periodEnd = document.getElementById("periodEnd").value;
+
+  const periodoPrevisione = document.querySelector(
+    'input[name="periodoPrevisione"]:checked',
+  ).value;
+
+  return {
+    filters: {
+      prediction_length: predictionLength,
+      prediction_precision: predictionPrecision,
+      ambito_mensile: ambito,
+      target: target,
+      metrica: metrica,
+      periodo_dati: [periodStart, periodEnd],
+      periodo_previsione: periodoPrevisione,
+    },
+  };
+}
+
+function enforceAtLeastOne(groupClass) {
+  const checkboxes = document.querySelectorAll("." + groupClass);
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+      const checked = document.querySelectorAll("." + groupClass + ":checked");
+
+      if (checked.length === 0) {
+        checkbox.checked = true; // riattiva l'ultimo deselezionato
+      }
+    });
+  });
+}
+
+function initAmbitoMensile() {
+  const ambitoItems = document.querySelectorAll(".ambito-item");
+  const modeRadios = document.querySelectorAll('input[name="ambitoMode"]');
+
+  if (!ambitoItems.length || !modeRadios.length) return;
+
+  // ---- CLICK RADIO (Tutti / Strutture / Luoghi)
+  modeRadios.forEach((radio) => {
+    radio.addEventListener("change", () => {
+      if (!radio.checked) return;
+
+      const value = radio.value;
+
+      ambitoItems.forEach((item) => {
+        if (value === "all") {
+          item.checked = true;
+        } else if (value === "strutture") {
+          item.checked = item.classList.contains("strutture");
+        } else if (value === "luoghi") {
+          item.checked = item.classList.contains("luoghi");
+        }
+      });
+    });
+  });
+
+  // ---- CLICK MANUALE CHECKBOX
+  ambitoItems.forEach((item) => {
+    item.addEventListener("change", updateAmbitoMode);
+  });
+
+  function updateAmbitoMode() {
+    const all = Array.from(ambitoItems);
+    const checked = all.filter((i) => i.checked);
+
+    const strutture = all.filter((i) => i.classList.contains("strutture"));
+    const luoghi = all.filter((i) => i.classList.contains("luoghi"));
+
+    const allChecked = checked.length === all.length;
+
+    const onlyStrutture =
+      strutture.every((i) => i.checked) && luoghi.every((i) => !i.checked);
+
+    const onlyLuoghi =
+      luoghi.every((i) => i.checked) && strutture.every((i) => !i.checked);
+
+    // Reset radio
+    modeRadios.forEach((r) => (r.checked = false));
+
+    if (allChecked) {
+      document.querySelector('input[value="all"]').checked = true;
+    } else if (onlyStrutture) {
+      document.querySelector('input[value="strutture"]').checked = true;
+    } else if (onlyLuoghi) {
+      document.querySelector('input[value="luoghi"]').checked = true;
+    }
+    // Se misto → restano tutti vuoti
+  }
+}
+
+function initGenerationValidation() {
+  const periodStart = document.getElementById("periodStart");
+  const periodEnd = document.getElementById("periodEnd");
+  const predictionLength = document.getElementById("predictionLength");
+  const predictionPrecision = document.getElementById("predictionPrecision");
+
+  const MIN_DATE = "2013-01";
+  const MAX_DATE = "2024-12";
+
+  // Imposta limiti nativi HTML
+  periodStart.min = MIN_DATE;
+  periodStart.max = MAX_DATE;
+  periodEnd.min = MIN_DATE;
+  periodEnd.max = MAX_DATE;
+
+  // ---- VALIDAZIONE DATE ----
+  function validateDates() {
+    // Se start vuoto → gennaio 2013
+    if (!periodStart.value) {
+      periodStart.value = MIN_DATE;
+    }
+
+    // Se end vuoto → dicembre 2024
+    if (!periodEnd.value) {
+      periodEnd.value = MAX_DATE;
+    }
+
+    // Clamp massimo
+    if (periodStart.value > MAX_DATE) {
+      periodStart.value = MAX_DATE;
+    }
+
+    if (periodEnd.value > MAX_DATE) {
+      periodEnd.value = MAX_DATE;
+    }
+
+    // Clamp minimo
+    if (periodStart.value < MIN_DATE) {
+      periodStart.value = MIN_DATE;
+    }
+
+    if (periodEnd.value < MIN_DATE) {
+      periodEnd.value = MIN_DATE;
+    }
+
+    // Se start > end → riallinea
+    if (periodStart.value > periodEnd.value) {
+      periodStart.value = periodEnd.value;
+    }
+  }
+
+  periodStart.addEventListener("change", validateDates);
+  periodEnd.addEventListener("change", validateDates);
+
+  // ---- VALIDAZIONE NUMERI ----
+  function clampNumber(input) {
+    const min = parseInt(input.min);
+    const max = parseInt(input.max);
+    let value = parseInt(input.value);
+
+    if (isNaN(value)) value = min;
+
+    if (value < min) value = min;
+    if (value > max) value = max;
+
+    input.value = value;
+  }
+
+  predictionLength.addEventListener("change", () =>
+    clampNumber(predictionLength),
+  );
+
+  predictionPrecision.addEventListener("change", () =>
+    clampNumber(predictionPrecision),
+  );
+
+  // Validazione iniziale
+  validateDates();
+  clampNumber(predictionLength);
+  clampNumber(predictionPrecision);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   toggleTheme(true);
   generateForecastData();
@@ -553,4 +750,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Start with history checked but update visual state
   updateRangeButtonState();
   setMode("history");
+  enforceAtLeastOne("target-item");
+  enforceAtLeastOne("metrica-item");
+  initAmbitoMensile();
+  initGenerationValidation();
 });

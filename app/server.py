@@ -29,7 +29,6 @@ def elabora():
     prediction_length = data.get('quantita_predizione')
     precisione = data.get('precisione_predizione')
     ambiti = data.get('ambiti')
-    target = data.get('target_prediction')
     metrica = data.get('metrica')
     # Estraggo data inizio fine
     periodo_dati = data.get('periodo_dati')
