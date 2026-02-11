@@ -8,22 +8,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* --- DESIGN TOKENS (Light Mode Default) --- */
-            --primary: #6366f1;       /* Indigo 500 */
+            /* --- DESIGN TOKENS --- */
+            --primary: #6366f1;       
             --primary-glow: rgba(99, 102, 241, 0.15);
-            --secondary: #0ea5e9;     /* Sky 500 */
-            --accent: #ec4899;        /* Pink 500 */
+            --secondary: #0ea5e9;     
+            --accent: #ec4899;        
             
-            --bg-body: #f8fafc;       /* Slate 50 */
+            /* Colori Previsione */
+            --forecast-arrivi: #8b5cf6; /* Viola */
+            --forecast-presenze: #f97316; /* Arancio */
+
+            --bg-body: #f8fafc;       
             --bg-surface: #ffffff;
             --bg-surface-glass: rgba(255, 255, 255, 0.8);
-            --bg-element: #f1f5f9;    /* Slate 100 */
+            --bg-element: #f1f5f9;    
             
-            --text-primary: #0f172a;  /* Slate 900 */
-            --text-secondary: #64748b;/* Slate 500 */
-            --text-tertiary: #94a3b8; /* Slate 400 */
+            --text-primary: #0f172a;  
+            --text-secondary: #64748b;
+            --text-tertiary: #94a3b8; 
             
-            --border: #e2e8f0;        /* Slate 200 */
+            --border: #e2e8f0;        
             --divider: #f1f5f9;
             
             --chart-grid: #e2e8f0;
@@ -34,31 +38,30 @@
             --radius-lg: 16px;
             --radius-md: 10px;
             
-            --sidebar-width: 320px;
+            --sidebar-width: 340px; /* Allargato leggermente per i nuovi range */
             --sidebar-right-width: 300px;
             --header-height: 70px;
             
-            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* --- DARK MODE OVERRIDES --- */
         [data-theme="dark"] {
-            --bg-body: #0f172a;       /* Slate 900 */
-            --bg-surface: #1e293b;    /* Slate 800 */
+            --bg-body: #0f172a;       
+            --bg-surface: #1e293b;    
             --bg-surface-glass: rgba(30, 41, 59, 0.8);
-            --bg-element: #334155;    /* Slate 700 */
+            --bg-element: #334155;    
             
-            --text-primary: #f8fafc;  /* Slate 50 */
-            --text-secondary: #94a3b8;/* Slate 400 */
-            --text-tertiary: #64748b; /* Slate 500 */
+            --text-primary: #f8fafc;  
+            --text-secondary: #94a3b8;
+            --text-tertiary: #64748b; 
             
-            --border: #334155;        /* Slate 700 */
+            --border: #334155;        
             --divider: #1e293b;
             
             --chart-grid: #334155;
             --chart-text: #94a3b8;
             
-            --primary: #818cf8;       /* Indigo 400 */
+            --primary: #818cf8;       
             --primary-glow: rgba(129, 140, 248, 0.2);
         }
 
@@ -77,33 +80,43 @@
             transition: background-color var(--transition), color var(--transition);
         }
 
-        /* --- LAYOUT --- */
+        /* --- LAYOUT GENERALE --- */
         .app-container {
             display: flex;
             width: 100%;
             height: 100%;
+            overflow: hidden; 
         }
 
-        /* --- SIDEBAR BASE STYLES --- */
-        aside {
+        /* --- SIDEBAR SINISTRA --- */
+        .sidebar-left {
+            width: var(--sidebar-width);
+            min-width: 100px;
+            max-width: 600px;
             background: var(--bg-surface);
             border-right: 1px solid var(--border);
             display: flex;
             flex-direction: column;
             z-index: 30;
-            transition: transform var(--transition), background-color var(--transition), border-color var(--transition);
+            transition: margin-left var(--transition), opacity var(--transition);
             box-shadow: var(--shadow-sm);
+            margin-left: 0;
+            opacity: 1;
+            position: relative;
         }
 
-        /* --- SIDEBAR SINISTRA (FILTRI) --- */
-        .sidebar-left {
-            width: var(--sidebar-width);
-            min-width: var(--sidebar-width);
-        }
         .sidebar-left.collapsed {
-            transform: translateX(-100%);
-            margin-right: calc(var(--sidebar-width) * -1);
+            margin-left: calc(var(--sidebar-width) * -1);
+            opacity: 0;
+            pointer-events: none;
         }
+
+        .resizer {
+            position: absolute; top: 0; bottom: 0; width: 10px; cursor: col-resize; z-index: 40; transition: background 0.2s;
+        }
+        .resizer:hover { background: rgba(99, 102, 241, 0.1); }
+        .resizer-left { right: -5px; } 
+        .resizer-right { left: -5px; }
 
         .sidebar-header {
             height: var(--header-height);
@@ -112,6 +125,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            background: var(--bg-surface);
+            flex-shrink: 0;
         }
 
         .brand-title {
@@ -122,6 +137,8 @@
             align-items: center;
             gap: 12px;
             letter-spacing: -0.01em;
+            white-space: nowrap;
+            overflow: hidden;
         }
         
         .brand-icon {
@@ -133,10 +150,10 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 10px var(--primary-glow);
+            flex-shrink: 0;
         }
         .brand-icon svg { width: 18px; height: 18px; stroke-width: 2.5; }
 
-        /* Reset Button Refined */
         .reset-btn {
             background: transparent;
             border: 1px solid transparent;
@@ -151,11 +168,7 @@
             font-size: 0.8rem;
             font-weight: 600;
         }
-        .reset-btn:hover {
-            background: var(--bg-element);
-            color: #ef4444; /* Red warning */
-            border-color: var(--border);
-        }
+        .reset-btn:hover { background: var(--bg-element); color: #ef4444; border-color: var(--border); }
         .reset-icon { width: 14px; height: 14px; transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
 
         .sidebar-content {
@@ -166,8 +179,45 @@
         .sidebar-content::-webkit-scrollbar { width: 5px; }
         .sidebar-content::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
 
-        .filter-section { margin-bottom: 32px; }
+        .filter-section { margin-bottom: 24px; }
         
+        /* Accordion Style per Menu a Tendina */
+        details.filter-accordion {
+            background: var(--bg-body);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+        
+        details.filter-accordion summary {
+            padding: 12px 14px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background 0.2s;
+        }
+        details.filter-accordion summary:hover { background: var(--bg-element); color: var(--text-primary); }
+        details.filter-accordion summary::-webkit-details-marker { display: none; }
+        details.filter-accordion summary::after {
+            content: '+'; font-size: 1.2em; font-weight: 400; transition: transform 0.2s;
+        }
+        details.filter-accordion[open] summary::after { transform: rotate(45deg); }
+        
+        /* Contenuto interno accordion */
+        .accordion-content {
+            padding: 10px;
+            border-top: 1px solid var(--border);
+            background: var(--bg-surface);
+        }
+
         .filter-title {
             font-size: 0.7rem;
             text-transform: uppercase;
@@ -179,13 +229,8 @@
             align-items: center;
             gap: 8px;
         }
-        .filter-title::after {
-            content: ''; flex: 1; height: 1px; background: var(--border);
-        }
+        .filter-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-        /* --- UI COMPONENTS --- */
-        
-        /* Select Box */
         .select-wrapper { position: relative; }
         .select-box {
             width: 100%;
@@ -202,24 +247,16 @@
         }
         .select-box:hover { border-color: var(--text-tertiary); }
         .select-box:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-glow); }
-        .select-arrow {
-            position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
-            pointer-events: none; color: var(--text-tertiary);
-        }
+        .select-arrow { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--text-tertiary); }
 
-        /* Scrollable Container */
         .scrollable-filter {
             max-height: 160px;
             overflow-y: auto;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 6px;
-            background: var(--bg-surface);
+            padding: 4px;
         }
         .scrollable-filter::-webkit-scrollbar { width: 4px; }
         .scrollable-filter::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 
-        /* Checkbox Items */
         .checkbox-item {
             display: flex;
             align-items: center;
@@ -227,14 +264,13 @@
             font-size: 0.9rem;
             color: var(--text-primary);
             cursor: pointer;
-            padding: 8px 10px;
+            padding: 6px 10px;
             border-radius: 6px;
             transition: background 0.15s;
             user-select: none;
         }
         .checkbox-item:hover { background: var(--bg-element); }
         
-        /* Custom Checkbox */
         .checkbox-item input[type="checkbox"] {
             appearance: none;
             width: 18px; height: 18px;
@@ -250,17 +286,12 @@
             border-color: var(--primary);
         }
         .checkbox-item input[type="checkbox"]:checked::after {
-            content: '';
-            position: absolute;
-            left: 5px; top: 1px;
-            width: 4px; height: 9px;
-            border: solid white;
-            border-width: 0 2px 2px 0;
-            transform: rotate(45deg);
+            content: ''; position: absolute; left: 5px; top: 1px; width: 4px; height: 9px;
+            border: solid white; border-width: 0 2px 2px 0; transform: rotate(45deg);
         }
 
-        /* Range Chips */
-        .range-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+        /* Range Chips Aggiornati */
+        .range-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
         .range-item {
             padding: 8px;
             border: 1px solid var(--border);
@@ -273,16 +304,18 @@
             text-align: center;
             transition: all 0.2s;
         }
-        .range-item:hover {
+        .range-item:hover { border-color: var(--primary); }
+        /* Stile attivo/selezionato */
+        .range-item.selected {
+            background: var(--primary);
+            color: white;
             border-color: var(--primary);
-            color: var(--primary);
-            background: var(--bg-surface);
+            box-shadow: 0 2px 6px var(--primary-glow);
         }
-        .range-item:active { transform: scale(0.98); }
 
-        /* --- MAIN CONTENT --- */
+        /* --- MAIN CONTENT (CENTRALE) --- */
         .main-content {
-            flex: 1;
+            flex: 1; 
             display: flex;
             flex-direction: column;
             position: relative;
@@ -296,7 +329,6 @@
             transition: background-color var(--transition);
         }
 
-        /* Header Navigation */
         .top-bar {
             height: var(--header-height);
             background: var(--bg-surface-glass);
@@ -325,16 +357,8 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        .toggle-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            box-shadow: 0 4px 12px var(--primary-glow);
-        }
-        .toggle-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
+        .toggle-btn:hover { border-color: var(--primary); color: var(--primary); box-shadow: 0 4px 12px var(--primary-glow); }
+        .toggle-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
 
         .header-center {
             font-size: 1.1rem;
@@ -344,7 +368,6 @@
             text-transform: uppercase;
         }
 
-        /* THEME SWITCHER */
         .theme-switch {
             background: var(--bg-element);
             border: 1px solid var(--border);
@@ -377,7 +400,6 @@
             align-items: center;
         }
 
-        /* CHART CARD PRO */
         .chart-card {
             background: var(--bg-surface);
             border: 1px solid var(--border);
@@ -415,28 +437,15 @@
             justify-content: center;
         }
 
-        /* Placeholder */
         .chart-placeholder {
-            text-align: center;
-            color: var(--text-tertiary);
-            display: none; 
-            animation: floatIn 0.6s ease-out;
+            text-align: center; color: var(--text-tertiary); display: none; animation: floatIn 0.6s ease-out;
         }
         .chart-placeholder svg {
-            width: 80px; height: 80px; 
-            margin-bottom: 24px;
-            color: var(--text-tertiary);
-            stroke-width: 1.5;
-            opacity: 0.5;
+            width: 80px; height: 80px; margin-bottom: 24px; color: var(--text-tertiary); stroke-width: 1.5; opacity: 0.5;
         }
-        .chart-placeholder p {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-        }
+        .chart-placeholder p { font-size: 1.1rem; font-weight: 500; color: var(--text-secondary); }
         @keyframes floatIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Mode Controls Pill Style */
         .mode-controls {
             background: var(--bg-surface);
             padding: 6px;
@@ -460,22 +469,29 @@
         }
         .mode-btn:hover { color: var(--text-primary); }
         .mode-btn.active { background: var(--bg-element); color: var(--text-primary); }
-        
-        .mode-btn.generate.active { 
-            background: var(--primary); 
-            color: white; 
-            box-shadow: 0 4px 12px var(--primary-glow);
-        }
+        .mode-btn.generate.active { background: var(--primary); color: white; box-shadow: 0 4px 12px var(--primary-glow); }
 
-        /* --- SIDEBAR DESTRA (INFO) --- */
+        /* --- SIDEBAR DESTRA --- */
         .sidebar-right {
             width: var(--sidebar-right-width);
-            min-width: var(--sidebar-right-width);
+            min-width: 100px;
+            max-width: 500px;
+            background: var(--bg-surface);
             border-left: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            z-index: 30;
+            transition: margin-right var(--transition), opacity var(--transition);
+            box-shadow: -1px 0 2px 0 rgb(0 0 0 / 0.05);
+            margin-right: 0;
+            opacity: 1;
+            position: relative;
         }
+
         .sidebar-right.collapsed {
-            transform: translateX(100%);
             margin-right: calc(var(--sidebar-right-width) * -1);
+            opacity: 0;
+            pointer-events: none;
         }
 
         .info-container { padding: 24px; }
@@ -519,27 +535,28 @@
         .step-list li:hover { border-left-color: var(--primary); color: var(--text-primary); padding-left: 20px; }
         .step-list strong { color: var(--text-primary); }
 
-        /* Icons */
         .icon { width: 20px; height: 20px; stroke-width: 2; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
 
         @media (max-width: 1024px) {
             .app-container { flex-direction: column; }
-            .sidebar-left, .sidebar-right { position: fixed; height: 100%; top: 0; bottom: 0; }
-            .sidebar-left { left: 0; transform: translateX(0); }
-            .sidebar-left.collapsed { transform: translateX(-100%); }
-            .sidebar-right { right: 0; transform: translateX(0); }
-            .sidebar-right.collapsed { transform: translateX(100%); }
+            .sidebar-left, .sidebar-right { position: fixed; height: 100%; top: 0; bottom: 0; transition: transform 0.3s ease; }
+            .sidebar-left { left: 0; transform: translateX(0); margin-left: 0; width: 80%; max-width: 320px; }
+            .sidebar-left.collapsed { transform: translateX(-100%); margin-left: 0; opacity: 1; pointer-events: none; }
+            .sidebar-right { right: 0; transform: translateX(0); margin-right: 0; width: 80%; max-width: 320px; }
+            .sidebar-right.collapsed { transform: translateX(100%); margin-right: 0; opacity: 1; pointer-events: none; }
             .chart-card { min-height: 350px; padding: 20px; }
             .mode-btn { padding: 8px 16px; font-size: 0.8rem; }
+            .resizer { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <div class="app-container">
+    <div class="app-container" id="appContainer">
 
         <!-- SIDEBAR SINISTRA -->
         <aside class="sidebar-left" id="sidebarLeft">
+            <div class="resizer resizer-left" id="resizerLeft"></div>
             <div class="sidebar-header">
                 <div class="brand-title">
                     <div class="brand-icon">
@@ -577,17 +594,31 @@
                     </div>
                 </div>
                 
-                <div class="filter-section">
-                    <div class="filter-title">Anni (2013-2109)</div>
-                    <div class="scrollable-filter" id="yearsFilterContainer"></div>
-                </div>
+                <!-- MENU A TENDINA: ANNI SINGOLI -->
+                <details class="filter-accordion" open>
+                    <summary>ANNI STORICO (2013-2109)</summary>
+                    <div class="accordion-content">
+                        <div class="scrollable-filter" id="yearsFilterContainer"></div>
+                    </div>
+                </details>
 
-                <div class="filter-section">
-                    <div class="filter-title">Range Rapidi</div>
-                    <div class="range-grid" id="rangeFilterContainer"></div>
-                </div>
+                <!-- MENU A TENDINA: RANGE STORICO -->
+                <details class="filter-accordion" open>
+                    <summary>Range Storico (2013-2024)</summary>
+                    <div class="accordion-content">
+                        <div class="range-grid" id="historicRangeContainer"></div>
+                    </div>
+                </details>
 
-                <div class="filter-section">
+                <!-- MENU A TENDINA: RANGE PREVISIONE -->
+                <details class="filter-accordion">
+                    <summary>Range Previsione (2025-2109)</summary>
+                    <div class="accordion-content">
+                        <div class="range-grid" id="forecastRangeContainer"></div>
+                    </div>
+                </details>
+
+                <div class="filter-section" style="margin-top:24px;">
                     <div class="filter-title">Tipologia</div>
                     <div class="checkbox-group">
                         <label class="checkbox-item"><input type="checkbox" id="chkHotel" checked> Alberghieri</label>
@@ -629,7 +660,6 @@
                 <div class="header-center">TourismForecast</div>
 
                 <div style="display:flex; gap:10px; align-items:center;">
-                    <!-- THEME TOGGLE -->
                     <div class="theme-switch" id="themeSwitch" data-mode="light" onclick="toggleTheme()" title="Cambia Tema">
                         <div class="theme-icon sun"><svg class="icon" style="width:16px" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></div>
                         <div class="theme-icon moon"><svg class="icon" style="width:16px" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></div>
@@ -651,7 +681,6 @@
                     </div>
                     <div class="chart-wrapper">
                         <canvas id="mainChart"></canvas>
-                        <!-- PLACEHOLDER SMILEY -->
                         <div id="chartPlaceholder" class="chart-placeholder">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="12" cy="12" r="10"></circle>
@@ -674,6 +703,7 @@
 
         <!-- SIDEBAR DESTRA -->
         <aside class="sidebar-right" id="sidebarRight">
+            <div class="resizer resizer-right" id="resizerRight"></div>
             <div class="sidebar-header" style="justify-content: center;">
                 <span class="brand-title" style="color:var(--text-primary)">GUIDA RAPIDA</span>
             </div>
@@ -712,28 +742,85 @@
             const next = current === 'dark' ? 'light' : 'dark';
             html.setAttribute('data-theme', next);
             switchBtn.setAttribute('data-mode', next);
-            updateChart(); // Force chart redraw for colors
+            updateChart(); 
         }
 
         function getChartColors() {
             const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const computedStyle = getComputedStyle(document.documentElement);
             return {
                 grid: isDark ? '#334155' : '#e2e8f0',
-                text: isDark ? '#94a3b8' : '#64748b'
+                text: isDark ? '#94a3b8' : '#64748b',
+                arrivi: computedStyle.getPropertyValue('--secondary').trim(),
+                presenze: computedStyle.getPropertyValue('--accent').trim(),
+                forecastArrivi: computedStyle.getPropertyValue('--forecast-arrivi').trim(),
+                forecastPresenze: computedStyle.getPropertyValue('--forecast-presenze').trim(),
             };
         }
 
+        // --- RESIZER LOGIC ---
+        function initResizers() {
+            const leftResizer = document.getElementById('resizerLeft');
+            const leftSidebar = document.getElementById('sidebarLeft');
+            let isResizingLeft = false;
+
+            leftResizer.addEventListener('mousedown', (e) => {
+                isResizingLeft = true;
+                document.body.style.cursor = 'col-resize';
+                leftSidebar.style.transition = 'none';
+            });
+
+            const rightResizer = document.getElementById('resizerRight');
+            const rightSidebar = document.getElementById('sidebarRight');
+            let isResizingRight = false;
+
+            rightResizer.addEventListener('mousedown', (e) => {
+                isResizingRight = true;
+                document.body.style.cursor = 'col-resize';
+                rightSidebar.style.transition = 'none';
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (isResizingLeft) {
+                    let newWidth = e.clientX;
+                    if (newWidth < 100) { toggleSidebar('left', true); isResizingLeft = false; document.body.style.cursor = 'default'; return; }
+                    if (newWidth > 600) newWidth = 600;
+                    document.documentElement.style.setProperty('--sidebar-width', `${newWidth}px`);
+                    if(leftSidebar.classList.contains('collapsed')) { leftSidebar.classList.remove('collapsed'); document.getElementById('btnToggleLeft').classList.add('active'); }
+                }
+                if (isResizingRight) {
+                    let newWidth = window.innerWidth - e.clientX;
+                    if (newWidth < 100) { toggleSidebar('right', true); isResizingRight = false; document.body.style.cursor = 'default'; return; }
+                    if (newWidth > 500) newWidth = 500;
+                    document.documentElement.style.setProperty('--sidebar-right-width', `${newWidth}px`);
+                    if(rightSidebar.classList.contains('collapsed')) { rightSidebar.classList.remove('collapsed'); document.getElementById('btnToggleRight').classList.add('active'); }
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                if (isResizingLeft || isResizingRight) {
+                    isResizingLeft = false; isResizingRight = false;
+                    document.body.style.cursor = 'default';
+                    leftSidebar.style.transition = ''; rightSidebar.style.transition = '';
+                    if (chartInstance) chartInstance.resize();
+                }
+            });
+        }
+
         // --- UI LOGIC ---
-        function toggleSidebar(side) {
+        function toggleSidebar(side, forceClose = false) {
             const sidebar = document.getElementById(side === 'left' ? 'sidebarLeft' : 'sidebarRight');
             const btn = document.getElementById(side === 'left' ? 'btnToggleLeft' : 'btnToggleRight');
-            sidebar.classList.toggle('collapsed');
-            btn.classList.toggle('active');
-            setTimeout(() => { if (chartInstance) chartInstance.resize(); }, 350);
+            if (forceClose) { sidebar.classList.add('collapsed'); btn.classList.remove('active'); }
+            else { sidebar.classList.toggle('collapsed'); btn.classList.toggle('active'); }
+            setTimeout(() => { if (chartInstance) chartInstance.resize(); }, 400);
         }
 
         function resetFilters() {
             document.querySelectorAll('.year-checkbox').forEach(cb => cb.checked = false);
+            // Clear range visual selection
+            document.querySelectorAll('.range-item').forEach(btn => btn.classList.remove('selected'));
+            
             document.getElementById('locationFilter').value = 'all';
             ['chkHotel', 'chkExtra', 'chkIta', 'chkStr', 'chkPresenze', 'chkArrivi'].forEach(id => {
                 document.getElementById(id).checked = false;
@@ -755,7 +842,6 @@
 
         // --- DATA & CHART ENGINE ---
         const monthMap = ["Gen", "Feb", "Mar", "Apr", "Mag", "Giu", "Lug", "Ago", "Set", "Ott", "Nov", "Dic"];
-        // Dati di base
         const historyData = {
             "2023": { "Arrivi": { "Gen": 85000, "Feb": 95000, "Mar": 100000, "Apr": 105000, "Mag": 110000, "Giu": 125000, "Lug": 160000, "Ago": 200000, "Set": 140000, "Ott": 120000, "Nov": 110000, "Dic": 105000 }, "Presenze": { "Gen": 160000, "Feb": 170000, "Mar": 180000, "Apr": 185000, "Mag": 195000, "Giu": 210000, "Lug": 250000, "Ago": 300000, "Set": 220000, "Ott": 200000, "Nov": 190000, "Dic": 190000 } },
             "2024": { "Arrivi": { "Gen": 90000, "Feb": 100000, "Mar": 110000, "Apr": 115000, "Mag": 120000, "Giu": 135000, "Lug": 175000, "Ago": 215000, "Set": 155000, "Ott": 130000, "Nov": 120000, "Dic": 115000 }, "Presenze": { "Gen": 175000, "Feb": 185000, "Mar": 195000, "Apr": 200000, "Mag": 210000, "Giu": 225000, "Lug": 270000, "Ago": 320000, "Set": 240000, "Ott": 220000, "Nov": 210000, "Dic": 210000 } },
@@ -776,7 +862,6 @@
 
             for (let y = startYear; y <= endYear; y++) {
                 rawData.forecast[y] = { Arrivi: {}, Presenze: {} };
-                // Economic Cycle Logic
                 const yearsFromStart = y - startYear;
                 const baseGrowth = Math.max(0.005, 0.015 - (yearsFromStart * 0.00015)); 
                 const cycleFactor = Math.sin(yearsFromStart * 0.7) * 0.025; 
@@ -793,6 +878,7 @@
             }
         }
 
+        // --- FILTER INIT ---
         function initYearsFilter() {
             const container = document.getElementById('yearsFilterContainer');
             container.innerHTML = '';
@@ -802,35 +888,82 @@
                 const input = document.createElement('input');
                 input.type = 'checkbox';
                 input.value = year;
+                input.id = `chk-year-${year}`;
                 input.className = 'year-checkbox';
                 input.checked = (year <= 2025);
-                input.addEventListener('change', () => updateChart());
+                input.addEventListener('change', () => {
+                    updateRangeButtonState();
+                    updateChart();
+                });
                 label.appendChild(input);
                 label.appendChild(document.createTextNode(` ${year}`));
                 container.appendChild(label);
             }
         }
 
-        function initRangeFilter() {
-            const container = document.getElementById('rangeFilterContainer');
+        function initRangeFilters() {
+            createRangeButtons(2013, 2024, 5, 'historicRangeContainer');
+            createRangeButtons(2025, 2109, 5, 'forecastRangeContainer');
+        }
+
+        function createRangeButtons(startYear, endYear, step, containerId) {
+            const container = document.getElementById(containerId);
             container.innerHTML = '';
-            for (let y = 2013; y < 2109; y += 5) {
-                let end = Math.min(y + 5, 2109);
+            for (let y = startYear; y <= endYear; y += step) {
+                // Ensure ranges align with user request (e.g. 2013-2018, 2018-2023)
+                // Using simple chunks for now: 2013-2017 (5 yrs), 2018-2022
+                // Adjusted logic to match "2013-2018" style overlapping ranges if desired, or discrete chunks.
+                // Standard UI usually uses discrete. Let's do y to y+4.
+                let end = Math.min(y + step - 1, endYear);
+                if (end < y) break;
+                
                 const btn = document.createElement('button');
                 btn.className = 'range-item';
                 btn.textContent = `${y}-${end}`;
-                btn.onclick = () => { selectYearsRange(y, end); updateChart(); };
+                btn.dataset.start = y;
+                btn.dataset.end = end;
+                btn.onclick = () => { toggleYearsRange(y, end, btn); };
                 container.appendChild(btn);
             }
         }
 
-        function selectYearsRange(start, end) {
-            document.querySelectorAll('.year-checkbox').forEach(cb => {
-                const y = parseInt(cb.value);
-                cb.checked = (y >= start && y <= end);
+        // --- SELECTION LOGIC ---
+        function toggleYearsRange(start, end, btnElement) {
+            // Check if this range is currently "fully selected"
+            // If fully selected, deselect it. If partial or none, select it.
+            const checkboxes = document.querySelectorAll('.year-checkbox');
+            let allChecked = true;
+            
+            // First pass check
+            for (let y = start; y <= end; y++) {
+                const cb = document.getElementById(`chk-year-${y}`);
+                if (cb && !cb.checked) { allChecked = false; break; }
+            }
+
+            const newState = !allChecked; // Toggle
+
+            for (let y = start; y <= end; y++) {
+                const cb = document.getElementById(`chk-year-${y}`);
+                if (cb) cb.checked = newState;
+            }
+
+            updateRangeButtonState();
+            updateChart();
+        }
+
+        function updateRangeButtonState() {
+            // Update visual state of all range buttons based on underlying checkboxes
+            document.querySelectorAll('.range-item').forEach(btn => {
+                const start = parseInt(btn.dataset.start);
+                const end = parseInt(btn.dataset.end);
+                let allChecked = true;
+                for (let y = start; y <= end; y++) {
+                    const cb = document.getElementById(`chk-year-${y}`);
+                    if (cb && !cb.checked) { allChecked = false; break; }
+                }
+                if (allChecked) btn.classList.add('selected');
+                else btn.classList.remove('selected');
             });
-            const first = document.querySelector('.year-checkbox:checked');
-            if(first) first.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
         function getSelectedYears() {
@@ -852,6 +985,13 @@
             return { labels, arrivi, presenze };
         }
 
+        function isForecast(label) {
+            if(!label) return false;
+            const parts = label.split(' ');
+            const year = parseInt(parts[1]);
+            return year >= 2026;
+        }
+
         function updateChart() {
             const selectedYears = getSelectedYears();
             if (selectedYears.length === 0) {
@@ -867,19 +1007,14 @@
             const ctx = document.getElementById('mainChart').getContext('2d');
             const data = getDataBySelection();
             
+            // Text logic
             const t = document.getElementById('chartTitle');
             const s = document.getElementById('chartSubtitle');
-            if(currentMode==='history') { t.textContent="Dati Storici"; s.textContent="Analisi consolidata (2013-2025)"; }
-            else if(currentMode==='forecast') { t.textContent="Previsione Futura"; s.textContent="Algoritmo predittivo AI (2026+)"; }
-            else { t.textContent="Trend Completo"; s.textContent="Visione globale dati"; }
+            if(currentMode==='history') { t.textContent="Dati Storici"; s.textContent="Visualizzazione storico"; }
+            else if(currentMode==='forecast') { t.textContent="Previsione Futura"; s.textContent="Visualizzazione previsione"; }
+            else { t.textContent="Analisi Completa"; s.textContent="Visualizzazione dati selezionati"; }
 
-            // Dynamic colors based on theme
             const colors = getChartColors();
-
-            const gradP = ctx.createLinearGradient(0,0,0,400);
-            gradP.addColorStop(0, 'rgba(236, 72, 153, 0.2)'); gradP.addColorStop(1, 'rgba(236, 72, 153, 0)');
-            const gradA = ctx.createLinearGradient(0,0,0,400);
-            gradA.addColorStop(0, 'rgba(14, 165, 233, 0.2)'); gradA.addColorStop(1, 'rgba(14, 165, 233, 0)');
 
             if(chartInstance) chartInstance.destroy();
 
@@ -888,8 +1023,32 @@
                 data: {
                     labels: data.labels,
                     datasets: [
-                        { label: 'Presenze', data: data.presenze, borderColor: '#ec4899', backgroundColor: gradP, borderWidth: 2, tension: 0.4, fill: true, pointRadius: 0, pointHoverRadius: 6 },
-                        { label: 'Arrivi', data: data.arrivi, borderColor: '#0ea5e9', backgroundColor: gradA, borderWidth: 2, tension: 0.4, fill: true, pointRadius: 0, pointHoverRadius: 6 }
+                        { 
+                            label: 'Presenze', 
+                            data: data.presenze, 
+                            borderWidth: 2, 
+                            tension: 0.4, 
+                            fill: false, 
+                            pointRadius: 0, 
+                            pointHoverRadius: 6,
+                            segment: {
+                                borderColor: ctx => isForecast(data.labels[ctx.p1DataIndex]) ? colors.forecastPresenze : colors.presenze,
+                                borderDash: ctx => isForecast(data.labels[ctx.p1DataIndex]) ? [5, 5] : []
+                            }
+                        },
+                        { 
+                            label: 'Arrivi', 
+                            data: data.arrivi, 
+                            borderWidth: 2, 
+                            tension: 0.4, 
+                            fill: false, 
+                            pointRadius: 0, 
+                            pointHoverRadius: 6,
+                            segment: {
+                                borderColor: ctx => isForecast(data.labels[ctx.p1DataIndex]) ? colors.forecastArrivi : colors.arrivi,
+                                borderDash: ctx => isForecast(data.labels[ctx.p1DataIndex]) ? [5, 5] : []
+                            }
+                        }
                     ]
                 },
                 options: {
@@ -905,15 +1064,8 @@
                         }
                     },
                     scales: {
-                        x: { 
-                            grid: { display: false }, 
-                            ticks: { maxTicksLimit: 10, color: colors.text, font:{family:'Plus Jakarta Sans'} } 
-                        },
-                        y: { 
-                            border: { display: false }, 
-                            grid: { color: colors.grid, borderDash: [5, 5] }, 
-                            ticks: { callback: (v)=>v/1000+'k', color: colors.text, font:{family:'Plus Jakarta Sans'} } 
-                        }
+                        x: { grid: { display: false }, ticks: { maxTicksLimit: 10, color: colors.text, font:{family:'Plus Jakarta Sans'} } },
+                        y: { border: { display: false }, grid: { color: colors.grid, borderDash: [5, 5] }, ticks: { callback: (v)=>v/1000+'k', color: colors.text, font:{family:'Plus Jakarta Sans'} } }
                     },
                     interaction: { mode: 'nearest', axis: 'x', intersect: false }
                 }
@@ -929,21 +1081,39 @@
         }
 
         function setMode(mode) {
+            // Note: Completo button now simply sets mode label, doesn't force selection
             currentMode = mode;
             ['chkHotel', 'chkExtra', 'chkIta', 'chkStr', 'chkPresenze', 'chkArrivi'].forEach(id => {
                 document.getElementById(id).checked = true;
             });
             document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
-            if(mode==='history') { document.getElementById('btnHistory').classList.add('active'); selectYearsRange(2013, 2025); }
-            else if(mode==='forecast') { document.getElementById('btnGenerate').classList.add('active'); selectYearsRange(2026, 2109); }
-            else { document.getElementById('btnAll').classList.add('active'); selectYearsRange(2013, 2109); }
+            
+            if(mode==='history') { 
+                document.getElementById('btnHistory').classList.add('active'); 
+                // Select only historic range for "Storico" preset
+                document.querySelectorAll('.year-checkbox').forEach(cb => { cb.checked = (parseInt(cb.value) <= 2024); });
+            }
+            else if(mode==='forecast') { 
+                document.getElementById('btnGenerate').classList.add('active'); 
+                // Select only forecast range for "Generate" preset
+                document.querySelectorAll('.year-checkbox').forEach(cb => { cb.checked = (parseInt(cb.value) >= 2025); });
+            }
+            else { 
+                document.getElementById('btnAll').classList.add('active'); 
+                // "Completo" DOES NOT change selection, just mode label as requested
+            }
+            
+            updateRangeButtonState(); // Sync range buttons
             updateChart();
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            initResizers();
             generateForecastData();
             initYearsFilter();
-            initRangeFilter();
+            initRangeFilters();
+            // Start with history checked but update visual state
+            updateRangeButtonState();
             setMode('history');
         });
     </script>
