@@ -208,170 +208,214 @@
             />
           </div>
 
-          <!-- Ambito Mensile -->
-          <div class="filter-section">
-            <div class="filter-title">Ambito Mensile</div>
+          <!-- 1. AMBITO MENSILE (Multi-Select) -->
+          <details class="filter-accordion" open>
+            <summary>Ambito Mensile</summary>
+            <div class="accordion-content">
+              <div class="checkbox-group">
+                <label class="checkbox-item">
+                  <input type="radio" name="ambitoMode" value="all" checked />
+                  Tutti
+                </label>
 
-            <div class="checkbox-group">
-              <label class="checkbox-item">
-                <input type="radio" name="ambitoMode" value="all" checked />
-                Tutti
-              </label>
+                <label class="checkbox-item">
+                  <input type="radio" name="ambitoMode" value="strutture" />
+                  Solo Strutture
+                </label>
 
-              <label class="checkbox-item">
-                <input type="radio" name="ambitoMode" value="strutture" />
-                Solo Strutture
-              </label>
+                <label class="checkbox-item">
+                  <input type="radio" name="ambitoMode" value="luoghi" />
+                  Solo Luoghi
+                </label>
+              </div>
+              <div class="scrollable-filter" id="ambitiContainer">
+                <!-- STRUTTURE -->
+                <label class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    class="ambito-item strutture"
+                    value="Esercizi alberghieri"
+                    checked
+                  />
+                  Esercizi alberghieri
+                </label>
 
-              <label class="checkbox-item">
-                <input type="radio" name="ambitoMode" value="luoghi" />
-                Solo Luoghi
-              </label>
+                <label class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    class="ambito-item strutture"
+                    value="Esercizi extralberghieri"
+                    checked
+                  />
+                  Esercizi extralberghieri
+                </label>
+
+                <!-- LUOGHI -->
+                <label class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    class="ambito-item luoghi"
+                    value="Trento, Monte Bondone e Altopiano di Pinè"
+                    checked
+                  />
+                  Trento, Monte Bondone e Altopiano di Pinè
+                </label>
+
+                <label class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    class="ambito-item luoghi"
+                    value="Val di Fiemme e Val di Cembra"
+                    checked
+                  />
+                  Val di Fiemme e Val di Cembra
+                </label>
+
+                <label class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    class="ambito-item luoghi"
+                    value="Val di Fassa"
+                    checked
+                  />
+                  Val di Fassa
+                </label>
+              </div>
+            </div>
+          </details>
+
+          <!-- 2. TARGET (Tipologia e Origine) -->
+          <details class="filter-accordion" open>
+            <summary>Target</summary>
+            <div class="accordion-content">
+              <div class="checkbox-group">
+                <label class="checkbox-item"
+                  ><input
+                    type="checkbox"
+                    id="chkIta"
+                    class="target-item"
+                    checked
+                  />
+                  Italiani</label
+                >
+                <label class="checkbox-item"
+                  ><input
+                    type="checkbox"
+                    id="chkStr"
+                    class="target-item"
+                    checked
+                  />
+                  Stranieri</label
+                >
+              </div>
+            </div>
+          </details>
+
+          <!-- 3. METRICA (Serie Dati) -->
+          <details class="filter-accordion" open>
+            <summary>Metrica</summary>
+            <div class="accordion-content">
+              <div class="checkbox-group">
+                <label class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="chkPresenze"
+                    class="metrica-item"
+                    checked
+                  />
+                  <span
+                    style="
+                      display: inline-block;
+                      width: 10px;
+                      height: 10px;
+                      border-radius: 3px;
+                      background: var(--accent);
+                      margin-right: 8px;
+                    "
+                  ></span>
+                  Presenze
+                </label>
+                <label class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    id="chkArrivi"
+                    class="metrica-item"
+                    checked
+                  />
+                  <span
+                    style="
+                      display: inline-block;
+                      width: 10px;
+                      height: 10px;
+                      border-radius: 3px;
+                      background: var(--secondary);
+                      margin-right: 8px;
+                    "
+                  ></span>
+                  Arrivi
+                </label>
+              </div>
+            </div>
+          </details>
+
+          <!-- 4. PERIODO (Data Partenza - Data Arrivo) -->
+          <div class="filter-section" style="margin-top: 12px">
+            <div class="filter-title">
+              Periodo
+              <div class="toggle-pill">
+                <button
+                  class="pill-btn active"
+                  id="btnPeriodYear"
+                  onclick="setPeriodType('year')"
+                >
+                  Anno
+                </button>
+                <button
+                  class="pill-btn"
+                  id="btnPeriodMonth"
+                  onclick="setPeriodType('month')"
+                >
+                  Mese
+                </button>
+              </div>
             </div>
 
-            <div class="scrollable-filter" id="ambitoList">
-              <!-- STRUTTURE -->
-              <label class="checkbox-item">
-                <input
-                  type="checkbox"
-                  class="ambito-item strutture"
-                  value="Esercizi alberghieri"
-                  checked
-                />
-                Esercizi alberghieri
-              </label>
-
-              <label class="checkbox-item">
-                <input
-                  type="checkbox"
-                  class="ambito-item strutture"
-                  value="Esercizi extralberghieri"
-                  checked
-                />
-                Esercizi extralberghieri
-              </label>
-
-              <!-- LUOGHI -->
-              <label class="checkbox-item">
-                <input
-                  type="checkbox"
-                  class="ambito-item luoghi"
-                  value="Trento, Monte Bondone e Altopiano di Pinè"
-                  checked
-                />
-                Trento, Monte Bondone e Altopiano di Pinè
-              </label>
-
-              <label class="checkbox-item">
-                <input
-                  type="checkbox"
-                  class="ambito-item luoghi"
-                  value="Val di Fiemme e Val di Cembra"
-                  checked
-                />
-                Val di Fiemme e Val di Cembra
-              </label>
-
-              <label class="checkbox-item">
-                <input
-                  type="checkbox"
-                  class="ambito-item luoghi"
-                  value="Val di Fassa"
-                  checked
-                />
-                Val di Fassa
-              </label>
-
-              <!-- puoi aggiungere gli altri allo stesso modo -->
+            <!-- View ANNO -->
+            <div class="periodo-row" id="periodYearRow">
+              <select class="period-select" id="startYear"></select>
+              <span class="period-separator">-</span>
+              <select class="period-select" id="endYear"></select>
             </div>
-          </div>
 
-          <!-- Target -->
-          <div class="filter-section">
-            <div class="filter-title">Target</div>
-            <div class="checkbox-group">
-              <label class="checkbox-item">
-                <input
-                  type="checkbox"
-                  class="target-item"
-                  value="Italiani"
-                  checked
-                />
-                Italiani
-              </label>
-              <label class="checkbox-item">
-                <input
-                  type="checkbox"
-                  class="target-item"
-                  value="Stranieri"
-                  checked
-                />
-                Stranieri
-              </label>
-            </div>
-          </div>
-
-          <!-- Metrica -->
-          <div class="filter-section">
-            <div class="filter-title">Metrica</div>
-            <div class="checkbox-group">
-              <label class="checkbox-item">
-                <input
-                  type="checkbox"
-                  class="metrica-item"
-                  value="Presenze"
-                  checked
-                />
-                Presenze
-              </label>
-              <label class="checkbox-item">
-                <input
-                  type="checkbox"
-                  class="metrica-item"
-                  value="Arrivi"
-                  checked
-                />
-                Arrivi
-              </label>
-            </div>
-          </div>
-
-          <!-- Periodo Dati -->
-          <div class="filter-section">
-            <div class="filter-title">Periodo Dati</div>
-            <div style="display: flex; gap: 10px">
-              <input
-                type="month"
-                id="periodStart"
-                class="select-box"
-                value="2013-01"
-              />
-              <input
-                type="month"
-                id="periodEnd"
-                class="select-box"
-                value="2024-12"
-              />
-            </div>
-          </div>
-
-          <!-- Periodo Previsione -->
-          <div class="filter-section">
-            <div class="filter-title">Periodo Previsione</div>
-            <div class="checkbox-group">
-              <label class="checkbox-item">
-                <input
-                  type="radio"
-                  name="periodoPrevisione"
-                  value="Mensile"
-                  checked
-                />
-                Mensile
-              </label>
-              <label class="checkbox-item">
-                <input type="radio" name="periodoPrevisione" value="Annuale" />
-                Annuale
-              </label>
+            <!-- View MESE -->
+            <div
+              id="periodMonthRow"
+              style="display: none; flex-direction: column; gap: 8px"
+            >
+              <div style="display: flex; align-items: center; gap: 8px">
+                <span
+                  style="
+                    font-size: 0.75rem;
+                    color: var(--text-tertiary);
+                    width: 20px;
+                  "
+                  >Dal</span
+                >
+                <select class="period-select" id="startMonthM"></select>
+                <select class="period-select" id="startYearM"></select>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px">
+                <span
+                  style="
+                    font-size: 0.75rem;
+                    color: var(--text-tertiary);
+                    width: 20px;
+                  "
+                  >Al</span
+                >
+                <select class="period-select" id="endMonthM"></select>
+                <select class="period-select" id="endYearM"></select>
+              </div>
             </div>
           </div>
 
@@ -380,9 +424,9 @@
             <button
               class="mode-btn generate active"
               style="width: 100%"
-              onclick="generateJSON()"
+              onclick="generateForecast()"
             >
-              Genera JSON ✨
+              Genera Forecast ✨
             </button>
           </div>
         </div>

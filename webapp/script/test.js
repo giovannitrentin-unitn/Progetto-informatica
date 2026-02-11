@@ -1,3 +1,11 @@
+const MIN_YEAR = 2013;
+const MAX_YEAR = 2024;
+const MIN_MONTH = 1;
+const MAX_MONTH = 12;
+let data = null;
+let chartInstance = null;
+let currentMode = "history";
+
 // --- THEME ENGINE ---
 function toggleTheme(restore = false) {
   const html = document.documentElement;
@@ -112,222 +120,9 @@ function resetFilters() {
   setTimeout(() => (icon.style.transform = "rotate(0deg)"), 500);
 }
 
-// --- DATA & CHART ENGINE ---
-const monthMap = [
-  "Gen",
-  "Feb",
-  "Mar",
-  "Apr",
-  "Mag",
-  "Giu",
-  "Lug",
-  "Ago",
-  "Set",
-  "Ott",
-  "Nov",
-  "Dic",
-];
-const historyData = {
-  2023: {
-    Arrivi: {
-      Gen: 85000,
-      Feb: 95000,
-      Mar: 100000,
-      Apr: 105000,
-      Mag: 110000,
-      Giu: 125000,
-      Lug: 160000,
-      Ago: 200000,
-      Set: 140000,
-      Ott: 120000,
-      Nov: 110000,
-      Dic: 105000,
-    },
-    Presenze: {
-      Gen: 160000,
-      Feb: 170000,
-      Mar: 180000,
-      Apr: 185000,
-      Mag: 195000,
-      Giu: 210000,
-      Lug: 250000,
-      Ago: 300000,
-      Set: 220000,
-      Ott: 200000,
-      Nov: 190000,
-      Dic: 190000,
-    },
-  },
-  2024: {
-    Arrivi: {
-      Gen: 90000,
-      Feb: 100000,
-      Mar: 110000,
-      Apr: 115000,
-      Mag: 120000,
-      Giu: 135000,
-      Lug: 175000,
-      Ago: 215000,
-      Set: 155000,
-      Ott: 130000,
-      Nov: 120000,
-      Dic: 115000,
-    },
-    Presenze: {
-      Gen: 175000,
-      Feb: 185000,
-      Mar: 195000,
-      Apr: 200000,
-      Mag: 210000,
-      Giu: 225000,
-      Lug: 270000,
-      Ago: 320000,
-      Set: 240000,
-      Ott: 220000,
-      Nov: 210000,
-      Dic: 210000,
-    },
-  },
-  2025: {
-    Arrivi: {
-      Gen: 105000,
-      Feb: 115000,
-      Mar: 125000,
-      Apr: 125000,
-      Mag: 135000,
-      Giu: 150000,
-      Lug: 190000,
-      Ago: 235000,
-      Set: 170000,
-      Ott: 145000,
-      Nov: 135000,
-      Dic: 130000,
-    },
-    Presenze: {
-      Gen: 195000,
-      Feb: 205000,
-      Mar: 215000,
-      Apr: 215000,
-      Mag: 230000,
-      Giu: 245000,
-      Lug: 290000,
-      Ago: 340000,
-      Set: 260000,
-      Ott: 240000,
-      Nov: 230000,
-      Dic: 230000,
-    },
-  },
-};
-
-const rawData = { history: historyData, forecast: {} };
-let chartInstance = null;
-let currentMode = "history";
-
-function generateForecastData() {
-  const startYear = 2026;
-  const endYear = 2109;
-  const baseData = rawData.history[2025];
-
-  let prevA = { ...baseData.Arrivi };
-  let prevP = { ...baseData.Presenze };
-
-  for (let y = startYear; y <= endYear; y++) {
-    rawData.forecast[y] = { Arrivi: {}, Presenze: {} };
-    const yearsFromStart = y - startYear;
-    const baseGrowth = Math.max(0.005, 0.015 - yearsFromStart * 0.00015);
-    const cycleFactor = Math.sin(yearsFromStart * 0.7) * 0.025;
-    const growthFactor = 1 + baseGrowth + cycleFactor;
-
-    monthMap.forEach((m) => {
-      const noise = 0.98 + Math.random() * 0.04;
-      const newA = Math.round(prevA[m] * growthFactor * noise);
-      const newP = Math.round(prevP[m] * growthFactor * noise);
-      rawData.forecast[y].Arrivi[m] = newA;
-      rawData.forecast[y].Presenze[m] = newP;
-      prevA[m] = newA;
-      prevP[m] = newP;
-    });
-  }
-}
-
-// --- FILTER INIT ---
-function initYearsFilter() {
-  const container = document.getElementById("yearsFilterContainer");
-  container.innerHTML = "";
-  for (let year = 2013; year <= 2109; year++) {
-    const label = document.createElement("label");
-    label.className = "checkbox-item";
-    const input = document.createElement("input");
-    input.type = "checkbox";
-    input.value = year;
-    input.id = `chk-year-${year}`;
-    input.className = "year-checkbox";
-    input.checked = year <= 2025;
-    input.addEventListener("change", () => {
-      updateRangeButtonState();
-      updateChart();
-    });
-    label.appendChild(input);
-    label.appendChild(document.createTextNode(` ${year}`));
-    container.appendChild(label);
-  }
-}
-
-function initRangeFilters() {
-  createRangeButtons(2013, 2024, 5, "historicRangeContainer");
-  createRangeButtons(2025, 2109, 5, "forecastRangeContainer");
-}
-
-function createRangeButtons(startYear, endYear, step, containerId) {
-  const container = document.getElementById(containerId);
-  container.innerHTML = "";
-  for (let y = startYear; y <= endYear; y += step) {
-    // Ensure ranges align with user request (e.g. 2013-2018, 2018-2023)
-    // Using simple chunks for now: 2013-2017 (5 yrs), 2018-2022
-    // Adjusted logic to match "2013-2018" style overlapping ranges if desired, or discrete chunks.
-    // Standard UI usually uses discrete. Let's do y to y+4.
-    let end = Math.min(y + step - 1, endYear);
-    if (end < y) break;
-
-    const btn = document.createElement("button");
-    btn.className = "range-item";
-    btn.textContent = `${y}-${end}`;
-    btn.dataset.start = y;
-    btn.dataset.end = end;
-    btn.onclick = () => {
-      toggleYearsRange(y, end, btn);
-    };
-    container.appendChild(btn);
-  }
-}
+// --- FILTER SECTION ---
 
 // --- SELECTION LOGIC ---
-function toggleYearsRange(start, end, btnElement) {
-  // Check if this range is currently "fully selected"
-  // If fully selected, deselect it. If partial or none, select it.
-  const checkboxes = document.querySelectorAll(".year-checkbox");
-  let allChecked = true;
-
-  // First pass check
-  for (let y = start; y <= end; y++) {
-    const cb = document.getElementById(`chk-year-${y}`);
-    if (cb && !cb.checked) {
-      allChecked = false;
-      break;
-    }
-  }
-
-  const newState = !allChecked; // Toggle
-
-  for (let y = start; y <= end; y++) {
-    const cb = document.getElementById(`chk-year-${y}`);
-    if (cb) cb.checked = newState;
-  }
-
-  updateRangeButtonState();
-  updateChart();
-}
 
 function updateRangeButtonState() {
   // Update visual state of all range buttons based on underlying checkboxes
@@ -545,7 +340,7 @@ function setMode(mode) {
   updateChart();
 }
 
-function getGenerationFiltersJSON() {
+function generateForecast() {
   const predictionLength = parseInt(
     document.getElementById("predictionLength").value,
   );
@@ -567,13 +362,6 @@ function getGenerationFiltersJSON() {
     document.querySelectorAll(".metrica-item:checked"),
   ).map((el) => el.value);
 
-  const periodStart = document.getElementById("periodStart").value;
-  const periodEnd = document.getElementById("periodEnd").value;
-
-  const periodoPrevisione = document.querySelector(
-    'input[name="periodoPrevisione"]:checked',
-  ).value;
-
   return {
     filters: {
       prediction_length: predictionLength,
@@ -582,9 +370,13 @@ function getGenerationFiltersJSON() {
       target: target,
       metrica: metrica,
       periodo_dati: [periodStart, periodEnd],
-      periodo_previsione: periodoPrevisione,
+      periodo_previsione: getPeriodoSelezionato(),
     },
   };
+
+  // Richiesta di generazione
+  // Riceviamo i dati
+  // visualizziamo i dati
 }
 
 function enforceAtLeastOne(groupClass) {
@@ -661,58 +453,8 @@ function initAmbitoMensile() {
 }
 
 function initGenerationValidation() {
-  const periodStart = document.getElementById("periodStart");
-  const periodEnd = document.getElementById("periodEnd");
   const predictionLength = document.getElementById("predictionLength");
   const predictionPrecision = document.getElementById("predictionPrecision");
-
-  const MIN_DATE = "2013-01";
-  const MAX_DATE = "2024-12";
-
-  // Imposta limiti nativi HTML
-  periodStart.min = MIN_DATE;
-  periodStart.max = MAX_DATE;
-  periodEnd.min = MIN_DATE;
-  periodEnd.max = MAX_DATE;
-
-  // ---- VALIDAZIONE DATE ----
-  function validateDates() {
-    // Se start vuoto → gennaio 2013
-    if (!periodStart.value) {
-      periodStart.value = MIN_DATE;
-    }
-
-    // Se end vuoto → dicembre 2024
-    if (!periodEnd.value) {
-      periodEnd.value = MAX_DATE;
-    }
-
-    // Clamp massimo
-    if (periodStart.value > MAX_DATE) {
-      periodStart.value = MAX_DATE;
-    }
-
-    if (periodEnd.value > MAX_DATE) {
-      periodEnd.value = MAX_DATE;
-    }
-
-    // Clamp minimo
-    if (periodStart.value < MIN_DATE) {
-      periodStart.value = MIN_DATE;
-    }
-
-    if (periodEnd.value < MIN_DATE) {
-      periodEnd.value = MIN_DATE;
-    }
-
-    // Se start > end → riallinea
-    if (periodStart.value > periodEnd.value) {
-      periodStart.value = periodEnd.value;
-    }
-  }
-
-  periodStart.addEventListener("change", validateDates);
-  periodEnd.addEventListener("change", validateDates);
 
   // ---- VALIDAZIONE NUMERI ----
   function clampNumber(input) {
@@ -736,15 +478,139 @@ function initGenerationValidation() {
     clampNumber(predictionPrecision),
   );
 
-  // Validazione iniziale
-  validateDates();
   clampNumber(predictionLength);
   clampNumber(predictionPrecision);
 }
 
+function setPeriodType(type) {
+  currentPeriodType = type;
+  const btnYear = document.getElementById("btnPeriodYear");
+  const btnMonth = document.getElementById("btnPeriodMonth");
+  const rowYear = document.getElementById("periodYearRow");
+  const rowMonth = document.getElementById("periodMonthRow");
+
+  if (type === "year") {
+    btnYear.classList.add("active");
+    btnMonth.classList.remove("active");
+    rowYear.style.display = "flex";
+    rowMonth.style.display = "none";
+  } else {
+    btnYear.classList.remove("active");
+    btnMonth.classList.add("active");
+    rowYear.style.display = "none";
+    rowMonth.style.display = "flex";
+  }
+}
+
+function initPeriodoSelector() {
+  const startYear = document.getElementById("startYear");
+  const endYear = document.getElementById("endYear");
+
+  const startMonthM = document.getElementById("startMonthM");
+  const startYearM = document.getElementById("startYearM");
+  const endMonthM = document.getElementById("endMonthM");
+  const endYearM = document.getElementById("endYearM");
+
+  // -------- POPOLA ANNI --------
+  for (let y = MIN_YEAR; y <= MAX_YEAR; y++) {
+    startYear.innerHTML += `<option value="${y}">${y}</option>`;
+    endYear.innerHTML += `<option value="${y}">${y}</option>`;
+    startYearM.innerHTML += `<option value="${y}">${y}</option>`;
+    endYearM.innerHTML += `<option value="${y}">${y}</option>`;
+  }
+
+  // -------- POPOLA MESI --------
+  for (let m = 1; m <= 12; m++) {
+    const label = m.toString().padStart(2, "0");
+    startMonthM.innerHTML += `<option value="${m}">${label}</option>`;
+    endMonthM.innerHTML += `<option value="${m}">${label}</option>`;
+  }
+
+  // Default valori
+  startYear.value = MIN_YEAR;
+  endYear.value = MAX_YEAR;
+
+  startYearM.value = MIN_YEAR;
+  endYearM.value = MAX_YEAR;
+  startMonthM.value = 1;
+  endMonthM.value = 12;
+
+  // Eventi validazione
+  startYear.addEventListener("change", validateYearRange);
+  endYear.addEventListener("change", validateYearRange);
+
+  startYearM.addEventListener("change", validateMonthRange);
+  endYearM.addEventListener("change", validateMonthRange);
+  startMonthM.addEventListener("change", validateMonthRange);
+  endMonthM.addEventListener("change", validateMonthRange);
+
+  validateYearRange();
+  validateMonthRange();
+}
+
+function validateYearRange() {
+  const startYear = document.getElementById("startYear");
+  const endYear = document.getElementById("endYear");
+
+  let start = parseInt(startYear.value);
+  let end = parseInt(endYear.value);
+
+  if (start < MIN_YEAR) start = MIN_YEAR;
+  if (end > MAX_YEAR) end = MAX_YEAR;
+
+  if (start > end) start = end;
+
+  startYear.value = start;
+  endYear.value = end;
+}
+
+function validateMonthRange() {
+  const sY = parseInt(document.getElementById("startYearM").value);
+  const eY = parseInt(document.getElementById("endYearM").value);
+  const sM = parseInt(document.getElementById("startMonthM").value);
+  const eM = parseInt(document.getElementById("endMonthM").value);
+
+  let startDate = new Date(sY, sM - 1);
+  let endDate = new Date(eY, eM - 1);
+
+  const minDate = new Date(MIN_YEAR, 0);
+  const maxDate = new Date(MAX_YEAR, 11);
+
+  if (startDate < minDate) startDate = minDate;
+  if (endDate > maxDate) endDate = maxDate;
+
+  if (startDate > endDate) startDate = endDate;
+
+  // Riassegna valori corretti
+  document.getElementById("startYearM").value = startDate.getFullYear();
+  document.getElementById("startMonthM").value = startDate.getMonth() + 1;
+
+  document.getElementById("endYearM").value = endDate.getFullYear();
+  document.getElementById("endMonthM").value = endDate.getMonth() + 1;
+}
+
+function getPeriodoSelezionato() {
+  const isYearMode = document
+    .getElementById("btnPeriodYear")
+    .classList.contains("active");
+
+  if (isYearMode) {
+    const start = document.getElementById("startYear").value + "-01";
+    const end = document.getElementById("endYear").value + "-12";
+    return [start, end];
+  } else {
+    const sY = document.getElementById("startYearM").value;
+    const sM = document.getElementById("startMonthM").value.padStart(2, "0");
+
+    const eY = document.getElementById("endYearM").value;
+    const eM = document.getElementById("endMonthM").value.padStart(2, "0");
+
+    return [`${sY}-${sM}`, `${eY}-${eM}`];
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   toggleTheme(true);
-  generateForecastData();
   initYearsFilter();
   initRangeFilters();
   // Start with history checked but update visual state
@@ -754,4 +620,5 @@ document.addEventListener("DOMContentLoaded", () => {
   enforceAtLeastOne("metrica-item");
   initAmbitoMensile();
   initGenerationValidation();
+  initPeriodoSelector();
 });
