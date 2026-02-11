@@ -3,8 +3,8 @@ import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import json
-from modules import calcola_filtri, calcola_periodo, calcola_totali, carica_dati, calcola_quatiles, conversione_json, estrai_dati, filtra_dati, genera_prediction, normalizza_data, processing_output, trasformazione, salva_csv 
-
+from modules import calcola_filtri, calcola_periodo, calcola_totali, carica_dati, calcola_quatiles, conversione_json, filtra_dati, genera_prediction, normalizza_data, processing_output, trasformazione, salva_csv 
+import pandas as pd
 # 1. Configurazione WebApp
 app = Flask(__name__)
 CORS(app) # Fondamentale per evitare blocchi di sicurezza del browser
@@ -100,9 +100,9 @@ def prediction():
         # Se nessuno dei due esiste, ritorna un errore JSON
         return jsonify({"errore": "Nessun file disponibile"}), 404
 
-    dati = carica_dati(file_da_caricare)
+    dati = carica_dati.carica_dati(file_da_caricare)
 
-    dati_con_totale = calcola_totali.aggiungi_totali(dati, estrai_dati.estrai_colonne(dati))
+    dati_con_totale = calcola_totali.aggiungi_totali(dati)
 
     dati_json = conversione_json.conversione_json(dati_con_totale)
 
@@ -140,4 +140,4 @@ if __name__ == '__main__':
     # 4. Avvio del Tunnel (Esempio Cloudflare)
     # Assicurati di aver installato cloudflared su Colab
     print("🔗 Avvio del tunnel Cloudflare...")
-    os.system("cloudflared tunnel --url http://localhost:5000")
+    # os.system("cloudflared tunnel --url http://localhost:5000")

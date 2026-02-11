@@ -1,10 +1,64 @@
+const templateData = {
+  Arrivi: {
+    "2013-01": {
+      ambito: "",
+      italiani: "",
+      stranieri: "",
+    },
+  },
+  Presenze: {
+    "2013-01": {
+      ambito: "",
+      italiani: "",
+      stranieri: "",
+    },
+  },
+};
+
+const templateFilters = {
+  filters: {
+    ambito_mensile: ["ambito1", "ambito2"],
+    target: ["target1", "target2"],
+    metrica: ["metrica1", "metrica2"],
+    periodo_dati: ["data_partenza", "data_arrivo"],
+    periodo_previsione: "Mensile", // o annuale
+  },
+};
+
 const MIN_YEAR = 2013;
 const MAX_YEAR = 2024;
 const MIN_MONTH = 1;
 const MAX_MONTH = 12;
-let data = null;
+let dataChart = null;
+let filters = null;
 let chartInstance = null;
 let currentMode = "history";
+const idMap = {
+  Alberghieri: "chkHotel",
+  Extralberghieri: "chkExtra",
+  Italiani: "chkIta",
+  Stranieri: "chkStr",
+  Presenze: "chkPresenze",
+  Arrivi: "chkArrivi",
+};
+const colorMap = {
+  Presenze: "var(--accent)",
+  Arrivi: "var(--secondary)",
+};
+const monthMap = [
+  "Gen",
+  "Feb",
+  "Mar",
+  "Apr",
+  "Mag",
+  "Giu",
+  "Lug",
+  "Ago",
+  "Set",
+  "Ott",
+  "Nov",
+  "Dic",
+];
 
 // --- THEME ENGINE ---
 function toggleTheme(restore = false) {
@@ -20,7 +74,7 @@ function toggleTheme(restore = false) {
   }
   html.setAttribute("data-theme", theme);
   switchBtn.setAttribute("data-mode", theme);
-  updateChart();
+  //updateChart();
 }
 
 function getChartColors() {
@@ -80,26 +134,19 @@ function toggleSidebar(side = null) {
   }, 400);
 }
 
+// --- FILTER SECTION ---
 function resetFilters() {
-  document
-    .querySelectorAll(".year-checkbox")
-    .forEach((cb) => (cb.checked = false));
-  // Clear range visual selection
-  document
-    .querySelectorAll(".range-item")
-    .forEach((btn) => btn.classList.remove("selected"));
+  // Reset Date Selects
+  document.getElementById("startYearM").value = 2013;
+  document.getElementById("startMonthM").value = 0;
+  document.getElementById("endYearM").value = 2025;
+  document.getElementById("endMonthM").value = 11;
 
-  document.getElementById("locationFilter").value = "all";
-  [
-    "chkHotel",
-    "chkExtra",
-    "chkIta",
-    "chkStr",
-    "chkPresenze",
-    "chkArrivi",
-  ].forEach((id) => {
-    document.getElementById(id).checked = false;
-  });
+  // Reset Checkboxes
+  document
+    .querySelectorAll('input[type="checkbox"]')
+    .forEach((c) => (c.checked = false));
+
   document
     .querySelectorAll(".mode-btn")
     .forEach((b) => b.classList.remove("active"));
@@ -120,61 +167,53 @@ function resetFilters() {
   setTimeout(() => (icon.style.transform = "rotate(0deg)"), 500);
 }
 
-// --- FILTER SECTION ---
+function setMode(mode) {
+  currentMode = mode;
+  document
+    .querySelectorAll('input[type="checkbox"]')
+    .forEach((c) => (c.checked = true));
+  document
+    .querySelectorAll(".mode-btn")
+    .forEach((b) => b.classList.remove("active"));
 
-// --- SELECTION LOGIC ---
+  const sm = document.getElementById("startMonthM"),
+    sy = document.getElementById("startYearM");
+  const em = document.getElementById("endMonthM"),
+    ey = document.getElementById("endYearM");
+  sm.value = 0;
+  em.value = 11;
 
-function updateRangeButtonState() {
-  // Update visual state of all range buttons based on underlying checkboxes
-  document.querySelectorAll(".range-item").forEach((btn) => {
-    const start = parseInt(btn.dataset.start);
-    const end = parseInt(btn.dataset.end);
-    let allChecked = true;
-    for (let y = start; y <= end; y++) {
-      const cb = document.getElementById(`chk-year-${y}`);
-      if (cb && !cb.checked) {
-        allChecked = false;
-        break;
-      }
-    }
-    if (allChecked) btn.classList.add("selected");
-    else btn.classList.remove("selected");
-  });
-}
-
-function getSelectedYears() {
-  return Array.from(document.querySelectorAll(".year-checkbox:checked"))
-    .map((cb) => parseInt(cb.value))
-    .sort((a, b) => a - b);
-}
-
-function getDataBySelection() {
-  let labels = [],
-    arrivi = [],
-    presenze = [];
-  getSelectedYears().forEach((year) => {
-    let d = rawData.history[year] || rawData.forecast[year];
-    if (d) {
-      monthMap.forEach((m) => {
-        labels.push(`${m} ${year}`);
-        arrivi.push(d.Arrivi[m]);
-        presenze.push(d.Presenze[m]);
-      });
-    }
-  });
-  return { labels, arrivi, presenze };
+  if (mode === "history") {
+    document.getElementById("btnHistory").classList.add("active");
+    sy.value = 2013;
+    ey.value = 2024;
+  } else if (mode === "forecast") {
+    document.getElementById("btnGenerate").classList.add("active");
+    sy.value = 2025;
+    ey.value = 2109;
+  } else {
+    document.getElementById("btnAll").classList.add("active");
+    sy.value = 2013;
+    ey.value = 2109;
+  }
+  updateChart();
 }
 
 function isForecast(label) {
   if (!label) return false;
   const parts = label.split(" ");
-  const year = parseInt(parts[1]);
-  return year >= 2026;
+  return parseInt(parts[1]) >= 2026;
 }
 
 function updateChart() {
-  const selectedYears = getSelectedYears();
-  if (selectedYears.length === 0) {
+  const showP = document.getElementById("chkPresenze")
+    ? document.getElementById("chkPresenze").checked
+    : false;
+  const showA = document.getElementById("chkArrivi")
+    ? document.getElementById("chkArrivi").checked
+    : false;
+
+  if (!showP && !showA) {
     if (chartInstance) {
       chartInstance.destroy();
       chartInstance = null;
@@ -183,30 +222,34 @@ function updateChart() {
     document.getElementById("chartPlaceholder").style.display = "block";
     return;
   }
-
   document.getElementById("chartPlaceholder").style.display = "none";
   document.getElementById("mainChart").style.display = "block";
 
   const ctx = document.getElementById("mainChart").getContext("2d");
   const data = getDataBySelection();
+  const colors = getChartColors();
 
-  // Text logic
   const t = document.getElementById("chartTitle");
   const s = document.getElementById("chartSubtitle");
   if (currentMode === "history") {
-    t.textContent = "Dati Storici";
-    s.textContent = "Visualizzazione storico";
+    t.innerText = "Dati Storici";
+    s.innerText = "Consolidato";
   } else if (currentMode === "forecast") {
-    t.textContent = "Previsione Futura";
-    s.textContent = "Visualizzazione previsione";
+    t.innerText = "Previsione Futura";
+    s.innerText = "Algoritmo AI";
   } else {
-    t.textContent = "Analisi Completa";
-    s.textContent = "Visualizzazione dati selezionati";
+    t.innerText = "Analisi Completa";
+    s.innerText = "Trend globale";
   }
 
-  const colors = getChartColors();
-
   if (chartInstance) chartInstance.destroy();
+
+  const gradP = ctx.createLinearGradient(0, 0, 0, 400);
+  gradP.addColorStop(0, "rgba(236, 72, 153, 0.2)");
+  gradP.addColorStop(1, "rgba(236, 72, 153, 0)");
+  const gradA = ctx.createLinearGradient(0, 0, 0, 400);
+  gradA.addColorStop(0, "rgba(14, 165, 233, 0.2)");
+  gradA.addColorStop(1, "rgba(14, 165, 233, 0)");
 
   chartInstance = new Chart(ctx, {
     type: "line",
@@ -265,7 +308,6 @@ function updateChart() {
           bodyColor: "#f8fafc",
           padding: 12,
           cornerRadius: 8,
-          displayColors: true,
         },
       },
       scales: {
@@ -295,51 +337,332 @@ function updateChart() {
 
 function toggleSeries() {
   if (!chartInstance) return;
-  chartInstance.getDatasetMeta(0).hidden =
-    !document.getElementById("chkPresenze").checked;
-  chartInstance.getDatasetMeta(1).hidden =
-    !document.getElementById("chkArrivi").checked;
+  const elP = document.getElementById("chkPresenze");
+  const elA = document.getElementById("chkArrivi");
+  if (elP) chartInstance.getDatasetMeta(0).hidden = !elP.checked;
+  if (elA) chartInstance.getDatasetMeta(1).hidden = !elA.checked;
   chartInstance.update();
 }
 
-function setMode(mode) {
-  // Note: Completo button now simply sets mode label, doesn't force selection
-  currentMode = mode;
-  [
-    "chkHotel",
-    "chkExtra",
-    "chkIta",
-    "chkStr",
-    "chkPresenze",
-    "chkArrivi",
-  ].forEach((id) => {
-    document.getElementById(id).checked = true;
-  });
-  document
-    .querySelectorAll(".mode-btn")
-    .forEach((b) => b.classList.remove("active"));
+function getDataBySelection() {
+  let labels = [],
+    arrivi = [],
+    presenze = [];
+  const isMonthly =
+    filters.filters.periodo_previsione.toLowerCase() === "mensile";
 
-  if (mode === "history") {
-    document.getElementById("btnHistory").classList.add("active");
-    // Select only historic range for "Storico" preset
-    document.querySelectorAll(".year-checkbox").forEach((cb) => {
-      cb.checked = parseInt(cb.value) <= 2024;
-    });
-  } else if (mode === "forecast") {
-    document.getElementById("btnGenerate").classList.add("active");
-    // Select only forecast range for "Generate" preset
-    document.querySelectorAll(".year-checkbox").forEach((cb) => {
-      cb.checked = parseInt(cb.value) >= 2025;
-    });
+  // Ottieni ambiti selezionati per filtrare i dati
+  const selectedAmbiti = Array.from(
+    document.querySelectorAll(".ambito-checkbox:checked"),
+  ).map((cb) => cb.value);
+  const showIta = document.getElementById("chkIta")?.checked;
+  const showStr = document.getElementById("chkStr")?.checked;
+
+  let startY,
+    endY,
+    startM = 0,
+    endM = 11;
+
+  if (isMonthly) {
+    startY = parseInt(document.getElementById("startYearM").value);
+    startM = parseInt(document.getElementById("startMonthM").value);
+    endY = parseInt(document.getElementById("endYearM").value);
+    endM = parseInt(document.getElementById("endMonthM").value);
   } else {
-    document.getElementById("btnAll").classList.add("active");
-    // "Completo" DOES NOT change selection, just mode label as requested
+    startY = parseInt(document.getElementById("startYearOnly").value);
+    endY = parseInt(document.getElementById("endYearOnly").value);
   }
 
-  updateRangeButtonState(); // Sync range buttons
+  // Iterazione sui dati (Assumendo che dataChart segua la struttura Metrica -> Data)
+  for (let y = startY; y <= endY; y++) {
+    // Supponiamo che monthMap sia ["Gennaio", "Febbraio", ...]
+    monthMap.forEach((mName, mIdx) => {
+      // Validazione del range temporale
+      if (y === startY && mIdx < startM) return;
+      if (y === endY && mIdx > endM) return;
+
+      const dateKey = `${y}-${(mIdx + 1).toString().padStart(2, "0")}`;
+
+      // Calcolo valori filtrati
+      let valArrivi = 0;
+      let valPresenze = 0;
+
+      // Accedi ai dati reali (strutturati per Metrica)
+      const dataA = dataChart.Arrivi[dateKey];
+      const dataP = dataChart.Presenze[dateKey];
+
+      if (
+        dataA &&
+        (selectedAmbiti.includes(dataA.ambito) ||
+          document.getElementById("chk-all-valli").checked)
+      ) {
+        if (showIta) valArrivi += parseFloat(dataA.italiani || 0);
+        if (showStr) valArrivi += parseFloat(dataA.stranieri || 0);
+      }
+
+      if (
+        dataP &&
+        (selectedAmbiti.includes(dataP.ambito) ||
+          document.getElementById("chk-all-valli").checked)
+      ) {
+        if (showIta) valPresenze += parseFloat(dataP.italiani || 0);
+        if (showStr) valPresenze += parseFloat(dataP.stranieri || 0);
+      }
+
+      labels.push(isMonthly ? `${mName} ${y}` : `${y}`);
+      arrivi.push(valArrivi);
+      presenze.push(valPresenze);
+    });
+  }
+
+  // Se Annuale, raggruppiamo i dati per anno (sommando i mesi)
+  if (!isMonthly) {
+    return aggregateByYear(labels, arrivi, presenze);
+  }
+
+  return { labels, arrivi, presenze };
+}
+
+// --- 2. GENERATORE UI DINAMICO ---
+/**
+ * Genera dinamicamente la sidebar dei filtri basandosi sull'oggetto 'filters'
+ * (caricato tramite templateFilters).
+ */
+function renderSidebar() {
+  const container = document.getElementById("dynamicFiltersContainer");
+  if (!container || !filters || !filters.filters) return;
+
+  container.innerHTML = ""; // Pulisce il contenitore prima del rendering
+
+  const filterData = filters.filters;
+  // Determina se la previsione è Mensile o Annuale dal nuovo template
+  const isMonthly =
+    filterData.periodo_previsione &&
+    filterData.periodo_previsione.toLowerCase() === "mensile";
+
+  Object.keys(filterData).forEach((key) => {
+    const values = filterData[key];
+
+    if (key === "ambito_mensile") {
+      // --- SEZIONE AMBITI ---
+      const details = document.createElement("details");
+      details.className = "filter-accordion";
+      details.open = true;
+      details.innerHTML = `<summary>Ambito Mensile</summary>`;
+
+      const content = document.createElement("div");
+      content.className = "accordion-content";
+      const scroll = document.createElement("div");
+      scroll.className = "scrollable-filter";
+
+      values.forEach((opt, idx) => {
+        const label = document.createElement("label");
+        label.className = "checkbox-item";
+        // Il primo elemento funge spesso da "Seleziona Tutti"
+        if (idx === 0 && opt.toLowerCase().includes("tutti")) {
+          label.innerHTML = `<input type="checkbox" id="chk-all-valli" checked onchange="toggleAllAmbiti(this)"> ${opt}`;
+        } else {
+          label.innerHTML = `<input type="checkbox" class="ambito-checkbox" value="${opt}" checked onchange="updateChart()"> ${opt}`;
+        }
+        scroll.appendChild(label);
+      });
+      content.appendChild(scroll);
+      details.appendChild(content);
+      container.appendChild(details);
+    } else if (key === "target") {
+      // --- SEZIONE TARGET (Italiani/Stranieri) ---
+      const details = document.createElement("details");
+      details.className = "filter-accordion";
+      details.open = true;
+      details.innerHTML = `<summary>Target</summary>`;
+
+      const content = document.createElement("div");
+      content.className = "accordion-content";
+      const grp = document.createElement("div");
+      grp.className = "checkbox-group";
+
+      values.forEach((opt) => {
+        const htmlId = idMap[opt] || opt; // Usa la mappa ID per collegare HTML e JSON
+        const lbl = document.createElement("label");
+        lbl.className = "checkbox-item";
+        lbl.innerHTML = `<input type="checkbox" id="${htmlId}" checked onchange="updateChart()"> ${opt}`;
+        grp.appendChild(lbl);
+      });
+      content.appendChild(grp);
+      details.appendChild(content);
+      container.appendChild(details);
+    } else if (key === "metrica") {
+      // --- SEZIONE METRICA (Arrivi/Presenze) ---
+      const details = document.createElement("details");
+      details.className = "filter-accordion";
+      details.open = true;
+      details.innerHTML = `<summary>Metrica</summary>`;
+
+      const content = document.createElement("div");
+      content.className = "accordion-content";
+      const grp = document.createElement("div");
+      grp.className = "checkbox-group";
+
+      values.forEach((opt) => {
+        const htmlId = idMap[opt] || opt;
+        const color = colorMap[opt] || "var(--primary)";
+        const lbl = document.createElement("label");
+        lbl.className = "checkbox-item";
+        const colorSpan = `<span style="display:inline-block; width:10px; height:10px; border-radius:3px; background:${color}; margin-right:8px;"></span>`;
+        lbl.innerHTML = `<input type="checkbox" id="${htmlId}" checked onchange="toggleSeries()"> ${colorSpan} ${opt}`;
+        grp.appendChild(lbl);
+      });
+      content.appendChild(grp);
+      details.appendChild(content);
+      container.appendChild(details);
+    } else if (key === "periodo_dati") {
+      // --- SEZIONE PERIODO (Configurazione dinamica) ---
+      const div = document.createElement("div");
+      div.className = "filter-section";
+      div.style.marginTop = "12px";
+      div.innerHTML = `<div class="filter-title">Periodo di Analisi</div>`;
+
+      const row = document.createElement("div");
+      row.style.display = "flex";
+      row.style.flexDirection = "column";
+      row.style.gap = "8px";
+
+      if (isMonthly) {
+        // Layout Mese + Anno
+        row.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 8px">
+            <span style="font-size:0.75rem; color:var(--text-tertiary); width:20px;">Dal</span>
+            <select class="periodo-select" id="startMonthM" onchange="updateChart()"></select>
+            <select class="periodo-select" id="startYearM" onchange="updateChart()"></select>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px">
+            <span style="font-size:0.75rem; color:var(--text-tertiary); width:20px;">Al</span>
+            <select class="periodo-select" id="endMonthM" onchange="updateChart()"></select>
+            <select class="periodo-select" id="endYearM" onchange="updateChart()"></select>
+          </div>`;
+      } else {
+        // Layout solo Anno
+        row.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 8px">
+            <span style="font-size:0.75rem; color:var(--text-tertiary); width:20px;">Dal</span>
+            <select class="periodo-select" id="startYearOnly" style="width:100%" onchange="updateChart()"></select>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px">
+            <span style="font-size:0.75rem; color:var(--text-tertiary); width:20px;">Al</span>
+            <select class="periodo-select" id="endYearOnly" style="width:100%" onchange="updateChart()"></select>
+          </div>`;
+      }
+
+      div.appendChild(row);
+      container.appendChild(div);
+
+      // Popola le select subito dopo il rendering nel DOM
+      setTimeout(() => {
+        if (isMonthly) {
+          populateDateSelects(MIN_YEAR, MAX_YEAR);
+        } else {
+          populateYearOnlySelects(MIN_YEAR, MAX_YEAR);
+        }
+      }, 0);
+    }
+  });
+}
+
+/**
+ * Helper per popolare solo gli anni quando la previsione è annuale.
+ */
+function populateYearOnlySelects(min, max) {
+  const sy = document.getElementById("startYearOnly");
+  const ey = document.getElementById("endYearOnly");
+  if (!sy || !ey) return;
+
+  for (let y = min; y <= max; y++) {
+    sy.add(new Option(y, y));
+    ey.add(new Option(y, y));
+  }
+  sy.value = min;
+  ey.value = max;
+}
+
+// --- 3. HELPER LOGIC ---
+function populateDateSelects(min, max) {
+  const sm = document.getElementById("startMonthM");
+  const sy = document.getElementById("startYearM");
+  const em = document.getElementById("endMonthM");
+  const ey = document.getElementById("endYearM");
+
+  for (let y = min; y <= max; y++) {
+    sy.add(new Option(y, y));
+    ey.add(new Option(y, y));
+  }
+  monthMap.forEach((m, i) => {
+    sm.add(new Option(m, i));
+    em.add(new Option(m, i));
+  });
+
+  // Defaults
+  sy.value = 2013;
+  sm.value = 0;
+  ey.value = 2025;
+  em.value = 11;
+}
+
+function toggleAllAmbiti(source) {
+  document
+    .querySelectorAll(".ambito-checkbox")
+    .forEach((cb) => (cb.checked = source.checked));
   updateChart();
 }
 
+// --- DATA ---
+async function fetchReceivedData(url) {
+  try {
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      console.error(
+        "Errore nella richiesta:",
+        response.status,
+        response.statusText,
+      );
+      return [];
+    }
+
+    const data = await response.json();
+
+    if (!data || !data.received) {
+      console.warn("Chiave 'received' non trovata nel JSON ricevuto");
+      return [];
+    }
+
+    return data.received;
+  } catch (error) {
+    console.error("Errore fetch:", error);
+    return [];
+  }
+}
+
+async function getData() {
+  await fetchReceivedData("http://localhost:5000/get_prediction").then(
+    (receivedData) => {
+      dataChart = receivedData;
+      console.log(dataChart);
+    },
+  );
+  await fetchReceivedData("http://localhost:5000/get_filters").then(
+    (receivedData) => {
+      filters = receivedData;
+      console.log(filters);
+    },
+  );
+}
+
+// --- GENERATION SECTION ---
 function generateForecast() {
   const predictionLength = parseInt(
     document.getElementById("predictionLength").value,
@@ -362,7 +685,7 @@ function generateForecast() {
     document.querySelectorAll(".metrica-item:checked"),
   ).map((el) => el.value);
 
-  return {
+  payload = {
     filters: {
       prediction_length: predictionLength,
       prediction_precision: predictionPrecision,
@@ -375,8 +698,26 @@ function generateForecast() {
   };
 
   // Richiesta di generazione
-  // Riceviamo i dati
-  // visualizziamo i dati
+  fetch("http://localhost:5000/genera_previsioni", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json", // Indica che stiamo inviando JSON
+    },
+    body: JSON.stringify(payload), // Converte l'oggetto JS in JSON
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Errore nella richiesta: " + response.status);
+      }
+      return response.json(); // Convertiamo la risposta in JSON
+    })
+    .then((data) => {
+      dataChart = data;
+      updateChart();
+    })
+    .catch((error) => {
+      console.error("Errore:", error);
+    });
 }
 
 function enforceAtLeastOne(groupClass) {
@@ -611,11 +952,11 @@ function getPeriodoSelezionato() {
 
 document.addEventListener("DOMContentLoaded", () => {
   toggleTheme(true);
-  initYearsFilter();
-  initRangeFilters();
-  // Start with history checked but update visual state
-  updateRangeButtonState();
-  setMode("history");
+  getData().then(() => {
+    renderSidebar();
+    setMode("history");
+  });
+  // Funziona
   enforceAtLeastOne("target-item");
   enforceAtLeastOne("metrica-item");
   initAmbitoMensile();

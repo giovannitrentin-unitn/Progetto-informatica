@@ -1,13 +1,9 @@
 {
   "filters": {
-    "prediction_length": 1, // da 1 a 1024
-    "prediction_precision": 0, // da 0 a 10
-
     "ambito_mensile": [
-      // Fare in modo di poter selezionare Tutti, Solo Strutture, Solo Luoghi
-      "Esercizi alberghieri", // Strutture
-      "Esercizi extralberghieri", // Strutture
-      "Trento, Monte Bondone e Altopiano di Pinè", // Luoghi
+      "Esercizi alberghieri",
+      "Esercizi extralberghieri",
+      "Trento, Monte Bondone e Altopiano di Pinè",
       "Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino",
       "Val di Fiemme e Val di Cembra",
       "Val di Fassa",
@@ -23,6 +19,6 @@
     "target": ["Stranieri", "Italiani"],
     "metrica": ["Presenze", "Arrivi"],
     "periodo_dati": ["2013-01", "2024-12"],
-    "periodo_previsione": "Mensile" // oppure Annuale
+    "periodo_previsione": "Mensile"
   }
 }
