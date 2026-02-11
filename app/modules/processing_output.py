@@ -1,6 +1,7 @@
 import pandas as pd
 
-def processing_output(pred_df: pd.DataFrame, columns=["Italiani", "Stranieri"]):
+def processing_output(pred_df: pd.DataFrame):
+    columns=["Italiani", "Stranieri"]
     # --------------------------------------------------
     # 6. Preprocessing output
     # --------------------------------------------------

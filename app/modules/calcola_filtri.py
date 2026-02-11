@@ -2,7 +2,7 @@ import json
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-def calcola_filtri(ambiti, target, metrica, data_fine_str, prediction_length, periodo_previsione="Mensile"):
+def calcola_filtri(ambiti, metrica, data_fine_str, prediction_length, periodo_previsione="Mensile", output_file="app/filters/filters.json"):
     """
     Genera il JSON dei filtri applicando la logica:
     Se una lista contiene un solo valore, restituisce un array vuoto [].
@@ -14,21 +14,19 @@ def calcola_filtri(ambiti, target, metrica, data_fine_str, prediction_length, pe
     # 2. Logica "Solo un valore -> Array vuoto"
     # Applichiamo questa regola a ambiti, target e metrica
     filtro_ambiti = ambiti if len(ambiti) > 1 else []
-    filtro_target = target if len(target) > 1 else []
     filtro_metrica = metrica if len(metrica) > 1 else []
 
     # 3. Costruzione del dizionario finale
     risultato = {
         "filters": {
             "ambito_mensile": filtro_ambiti,
-            "target": filtro_target,
             "metrica": filtro_metrica,
             "periodo": periodo
         }
     }
     
     try:
-        with open("/app/filters/filters.json", 'w', encoding='utf-8') as f:
+        with open(output_file, 'w', encoding='utf-8') as f:
             # indent=4 rende il file leggibile (formattato bene)
             # ensure_ascii=False serve per gestire correttamente i caratteri accentati (es. Pinè)
             json.dump(risultato, f, indent=4, ensure_ascii=False)

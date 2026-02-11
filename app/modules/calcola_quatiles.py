@@ -10,5 +10,5 @@ def genera_quantili(n):
     if n == 1: return [0.1]
 
     # Genera n punti da 0 a 1 inclusi
-    lista_quantili = np.linspace(0, 1, n)
+    lista_quantili = np.linspace(0.1, 0.99, n)
     return lista_quantili.tolist()

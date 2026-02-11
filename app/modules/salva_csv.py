@@ -1,6 +1,6 @@
 import pandas as pd
 
-def salva_dataframe_csv(df, nome_file="risultato_analisi.csv"):
+def salva_dataframe_csv(df: pd.DataFrame, nome_file="risultato_analisi.csv"):
     """
     Salva il DataFrame in un file CSV con impostazioni ottimizzate.
     """

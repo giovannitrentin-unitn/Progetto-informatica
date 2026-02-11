@@ -1,59 +1,41 @@
 import pandas as pd
 
-def filtra_turismo_smart(df, livello='mensile', metrica=None, ambiti=None, provenienze=None, data_inizio=None, data_fine=None):
+def filtra_turismo_smart(df, livello='mensile', metrica=None, ambiti=None, data_inizio=None, data_fine=None):
     """
     Filtra e aggrega i dati in base al livello di dettaglio richiesto.
-    
-    :param livello: 'mensile' (dettaglio completo) o 'annuale' (solo totali aggregati)
-    :param metrica: 'Arrivi' o 'Presenze'
-    :param ambiti: Parola chiave per filtro parziale (es. 'Fassa')
-    :param data_inizio: Data o Anno di inizio
-    :param data_fine: Data o Anno di fine (opzionale)
-    :param provenienze: Lista o stringa, es: ['Italiani'] o ['Italiani', 'Stranieri']
+    Versione semplificata: non include filtri per provenienza.
     """
     df_filtered = df.copy()
     df_filtered['Periodo'] = pd.to_datetime(df_filtered['Periodo'])
 
-    # 1. FILTRO PROVENIENZE (Mantiene le colonne specificate)
-    # Identifichiamo le colonne fisse e quelle di provenienza
-    colonne_base = ['Periodo', 'Ambito', 'Metrica']
-    tutte_provenienze = ['Italiani', 'Stranieri']
-    
-    if provenienze:
-        if isinstance(provenienze, str): provenienze = [provenienze]
-        # Selezioniamo solo le colonne base + quelle scelte dall'utente
-        colonne_da_mantenere = colonne_base + [p for p in provenienze if p in df_filtered.columns]
-        df_filtered = df_filtered[colonne_da_mantenere]
-
-    # 2. GESTIONE LIVELLO (ANNUALE vs MENSILE)
+    # 1. GESTIONE LIVELLO (ANNUALE vs MENSILE)
+    # Identifichiamo le righe relative alle tipologie strutturali
     keywords_strutture = ['alberghieri', 'extralberghieri']
-    mask_strutture = df_filtered['Ambito'].str.contains('|'.join(keywords_strutture), case=False)
+    mask_strutture = df_filtered['Ambito'].str.contains('|'.join(keywords_strutture), case=False, na=False)
     
-    if livello == 'annuale':
-        # Logica dinamica per il nome del Totale
-        suffix = ""
-        if provenienze and len(provenienze) == 1:
-            suffix = f" ({provenienze[0].lower()})"
+    if livello.lower() == 'annuale':
+        # Rinominiamo gli ambiti per l'aggregazione totale
+        df_filtered['Ambito'] = 'Totale luoghi'
+        df_filtered.loc[mask_strutture, 'Ambito'] = 'Totale strutture'
         
-        df_filtered['Ambito'] = f'Totale luoghi{suffix}'
-        df_filtered.loc[mask_strutture, 'Ambito'] = f'Totale strutture{suffix}'
-        
+        # Tronchiamo la data all'anno
         df_filtered['Periodo'] = df_filtered['Periodo'].dt.to_period('Y').dt.to_timestamp()
-        # Aggreghiamo sommando le colonne numeriche rimaste (Italiani e/o Stranieri)
+        
+        # Aggreghiamo sommando tutte le colonne numeriche (Arrivi, Presenze, etc.)
         df_filtered = df_filtered.groupby(['Metrica', 'Periodo', 'Ambito'], as_index=False).sum(numeric_only=True)
     
-    # 3. FILTRO METRICA (Corretto con .isin per gestire array)
+    # 2. FILTRO METRICA
     if metrica:
         if isinstance(metrica, str): metrica = [metrica]
         df_filtered = df_filtered[df_filtered['Metrica'].isin(metrica)]
 
-    # 4. FILTRO AMBITI
+    # 3. FILTRO AMBITI
     if ambiti:
         if isinstance(ambiti, str): ambiti = [ambiti]
         pattern = '|'.join(ambiti)
         df_filtered = df_filtered[df_filtered['Ambito'].str.contains(pattern, case=False, na=False)]
 
-    # 5. FILTRO PERIODO
+    # 4. FILTRO PERIODO
     if data_inizio:
         if livello == 'annuale':
             anno_inz = pd.to_datetime(data_inizio).year
@@ -72,7 +54,7 @@ def filtra_turismo_smart(df, livello='mensile', metrica=None, ambiti=None, prove
             else:
                 df_filtered = df_filtered[df_filtered['Periodo'].dt.to_period('M') == inz]
 
-    # Formattazione finale
+    # 5. FORMATTAZIONE FINALE
     if livello == 'annuale':
         df_filtered['Periodo'] = df_filtered['Periodo'].dt.strftime('%Y')
     else:

@@ -1,14 +1,18 @@
 import threading
 import os
-from app.modules import calcola_filtri, calcola_totali, carica_dati, calcola_quatiles, conversione_json, estrai_dati, filtra_dati, genera_prediction, processing_output, trasformazione
-from app.modules.salva_csv import salva_dataframe_csv
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import json
+from modules import calcola_filtri, calcola_periodo, calcola_totali, carica_dati, calcola_quatiles, conversione_json, estrai_dati, filtra_dati, genera_prediction, normalizza_data, processing_output, trasformazione, salva_csv 
 
 # 1. Configurazione WebApp
 app = Flask(__name__)
 CORS(app) # Fondamentale per evitare blocchi di sicurezza del browser
+
+output_filter = "app/filters/filters.json"
+output_csv = "app/data/prediction.csv"
+input_csv = "app/data/dati.csv"
+input_filter = "app/filters/default_filters.json"
 
 @app.route('/')
 def home():
@@ -29,37 +33,43 @@ def elabora():
     metrica = data.get('metrica')
     # Estraggo data inizio fine
     periodo_dati = data.get('periodo_dati')
-    data_inizio = periodo_dati[0]
-    data_fine = periodo_dati[1]
+    data_inizio = normalizza_data.normalizza_anno_a_data(periodo_dati[0])
+    data_fine = normalizza_data.normalizza_anno_a_data(periodo_dati[1], True)
     # Estraggo il periodo di previsione
     periodo_previsione = data.get('periodo_previsione')
     # Calcolo i filtri possibili
-    calcola_filtri.calcola_filtri(ambiti, target, metrica, data_fine, prediction_length, periodo_previsione)
+    calcola_filtri.calcola_filtri(ambiti, metrica, data_fine, prediction_length, periodo_previsione, output_filter)
     # Carico i dati 
-    dati = carica_dati.carica_dati();
+    dati = carica_dati.carica_dati(input_csv);
     # Filtro i vari dati
-    dati = filtra_dati.filtra_turismo_smart(dati, periodo_previsione, metrica, ambiti, target, data_inizio, data_fine)
+    dati = filtra_dati.filtra_turismo_smart(dati, periodo_previsione, metrica, ambiti, data_inizio, data_fine)
     # Trasformo la tabella
-    dati = trasformazione.trasformazione(dati, target)
+    dati = trasformazione.trasformazione_wide_long(dati)
     # Genero i quatiles
     quantiles = calcola_quatiles.genera_quantili(precisione)
     # Genero le previsioni
     predictions = genera_prediction.genera_prediction(dati, prediction_length, quantiles)
     # Processo l'output
-    predictions_processed = processing_output.processing_output(predictions, target)
+    predictions_processed = processing_output.processing_output(predictions)
+    # Sistemazione periodo
+    prediction_periodo = calcola_periodo.formatta_periodo(predictions_processed)
     # Salvo la prediction in csv
-    salva_dataframe_csv(predictions_processed, "/app/data/prediction.csv")
+    salva_csv.salva_dataframe_csv(prediction_periodo, output_csv)
     # Calcolo i totali
-    prediction_total = calcola_totali.aggiungi_totali(predictions_processed, target)
-    # Salvo la previsione lato server e la invio al client
-    predictions_json = conversione_json.conversione_json(prediction_total, "/app/results/predictions.json")
+    prediction_total = calcola_totali.aggiungi_totali(prediction_periodo)
+    # Processo i vecchi dati
+    old_data_processed = trasformazione.trasforma_long_to_wide(dati)
+    # Aggiunta Totali su vecchi dati
+    old_data_total = calcola_totali.aggiungi_totali(old_data_processed)
+    # Sparo al client i vecchi e i nuovi dati
+    data_json = { "history": conversione_json.conversione_json(old_data_total) , "forecast": conversione_json.conversione_json(prediction_total) }
 
-    return jsonify({"status": "success", "received": predictions_json}), 200
+    return jsonify({"status": "success", "received": data_json}), 200
 
 @app.route('/get_filters', methods=['GET'])
 def filtra():
-    file_principale = '/app/filters/filters.json'
-    file_alternativo = '/app/filters/default_filters.json'
+    file_principale = output_filter
+    file_alternativo = input_filter
     
     # Controlla quale file esiste
     if os.path.exists(file_principale):
@@ -79,8 +89,8 @@ def filtra():
 
 @app.route('/get_prediction', methods=['GET'])
 def prediction():
-    file_principale = '/app/data/prediction.csv'
-    file_alternativo = '/app/data/dati.csv'
+    file_principale = output_csv
+    file_alternativo = input_csv
     
     # Controlla quale file esiste
     if os.path.exists(file_principale):
@@ -102,7 +112,7 @@ def prediction():
 
 @app.route('/delete_prediction', methods=['DELETE'])
 def elimina_lista_file():
-    lista_file = ["/app/data/prediction.csv", "/app/filters/filters.json"]
+    lista_file = [output_csv, output_filter]
     for file_path in lista_file:
         try:
             # Controlla se il file esiste prima di provare a eliminarlo

@@ -1,7 +1,4 @@
-- Python:
-  - Eliminare possibilità di generare per target
-  - Controllare che tutte le fasi si svolgano correttamente
-  - Aggiungere ai dati in uscita i dati storici formattati
 - Interfaccia:
   - Aggiunta interfaccia di Generazione
   - Migliorare interfaccia di filtro
+  - Vedere che l'interfaccia non si spacchi come la merda
