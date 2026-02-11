@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trentino Forecast - Ambito Analytics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* --- DESIGN TOKENS --- */
+            --primary: #4f46e5;       
+            --primary-glow: rgba(79, 70, 229, 0.15);
+            --secondary: #0ea5e9;     
+            --accent: #ec4899;        
+            
+            --forecast-color: #8b5cf6; /* Viola per previsioni */
+
+            --bg-body: #f8fafc;       
+            --bg-surface: #ffffff;
+            --bg-surface-glass: rgba(255, 255, 255, 0.9);
+            --bg-element: #f1f5f9;    
+            
+            --text-primary: #0f172a;  
+            --text-secondary: #64748b;
+            --text-tertiary: #94a3b8; 
+            
+            --border: #e2e8f0;        
+            
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            
+            --sidebar-width: 320px;
+            --sidebar-right-width: 280px;
+            --header-height: 70px;
+            
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --bg-body: #0f172a;       
+            --bg-surface: #1e293b;    
+            --bg-surface-glass: rgba(30, 41, 59, 0.9);
+            --bg-element: #334155;    
+            
+            --text-primary: #f8fafc;  
+            --text-secondary: #94a3b8;
+            --text-tertiary: #64748b; 
+            
+            --border: #334155;        
+            
+            --primary: #818cf8;       
+            --primary-glow: rgba(129, 140, 248, 0.2);
+        }
+
+        * { box-sizing: border-box; outline: none; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+            font-size: 14px;
+            transition: background-color var(--transition), color var(--transition);
+        }
+
+        .app-container { display: flex; width: 100%; height: 100%; }
+
+        /* --- SIDEBAR --- */
+        .sidebar-left {
+            width: var(--sidebar-width); min-width: var(--sidebar-width);
+            background: var(--bg-surface); border-right: 1px solid var(--border);
+            display: flex; flex-direction: column; z-index: 30;
+            transition: transform var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        .sidebar-left.collapsed { transform: translateX(-100%); margin-right: calc(var(--sidebar-width) * -1); }
+
+        .sidebar-header {
+            height: var(--header-height); padding: 0 24px; border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
+        }
+
+        .brand-title { font-size: 1rem; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 10px; }
+        .brand-icon { width: 28px; height: 28px; background: var(--primary); color: white; border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+        
+        .reset-btn { background: transparent; border: none; color: var(--text-tertiary); cursor: pointer; display: flex; align-items: center; gap: 5px; font-weight: 600; font-size: 0.8rem; transition: color 0.2s; }
+        .reset-btn:hover { color: #ef4444; }
+        .reset-icon { transition: transform 0.5s ease; }
+
+        .sidebar-content { padding: 24px; overflow-y: auto; flex: 1; }
+        
+        .filter-section { margin-bottom: 24px; }
+        .filter-title { 
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; 
+            color: var(--text-secondary); font-weight: 700; margin-bottom: 10px;
+        }
+
+        /* Form Elements */
+        .select-box {
+            width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius-md);
+            background: var(--bg-element); color: var(--text-primary); font-family: inherit; font-size: 0.9rem;
+            cursor: pointer; appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center; background-repeat: no-repeat; background-size: 1.5em 1.5em;
+        }
+        .select-box:focus { border-color: var(--primary); box-shadow: 0 0 0 2px var(--primary-glow); }
+
+        .checkbox-group { display: flex; flex-direction: column; gap: 8px; }
+        .checkbox-item { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; cursor: pointer; user-select: none; }
+        .checkbox-item input { accent-color: var(--primary); width: 16px; height: 16px; cursor: pointer; }
+
+        /* Period Selectors */
+        .period-row { display: flex; gap: 8px; align-items: center; }
+        .period-label { font-size: 0.8rem; color: var(--text-secondary); width: 25px; }
+
+        /* --- MAIN CONTENT --- */
+        .main-content {
+            flex: 1; display: flex; flex-direction: column; position: relative; min-width: 0;
+            background-color: var(--bg-body);
+            background-image: radial-gradient(var(--border) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .top-bar {
+            height: var(--header-height); background: var(--bg-surface-glass); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 30px;
+            position: sticky; top: 0; z-index: 20;
+        }
+
+        .toggle-btn {
+            width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--border);
+            background: var(--bg-surface); color: var(--text-secondary); display: flex; align-items: center; justify-content: center; cursor: pointer;
+        }
+        .toggle-btn:hover { border-color: var(--primary); color: var(--primary); }
+        .toggle-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+        .header-title { font-size: 1.1rem; font-weight: 800; color: var(--text-primary); text-transform: uppercase; }
+
+        .content-scrollable { flex: 1; overflow-y: auto; padding: 40px; display: flex; flex-direction: column; align-items: center; }
+
+        /* Chart Card */
+        .chart-card {
+            background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md); padding: 30px; width: 100%; max-width: 1100px;
+            flex: 1; display: flex; flex-direction: column; margin-bottom: 20px; min-height: 400px;
+        }
+
+        .chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
+        .chart-title h2 { margin: 0; font-size: 1.4rem; color: var(--text-primary); }
+        .chart-title p { margin: 4px 0 0; color: var(--text-secondary); font-size: 0.9rem; }
+
+        .chart-wrapper { flex: 1; position: relative; width: 100%; }
+
+        .chart-placeholder {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            text-align: center; color: var(--text-tertiary);
+        }
+        .chart-placeholder svg { width: 60px; height: 60px; margin-bottom: 10px; opacity: 0.5; }
+
+        /* Controls */
+        .mode-controls {
+            background: var(--bg-surface); padding: 5px; border-radius: 50px; border: 1px solid var(--border);
+            display: flex; gap: 5px; box-shadow: var(--shadow-sm);
+        }
+        .mode-btn {
+            padding: 8px 20px; border-radius: 40px; border: none; background: transparent;
+            font-weight: 600; font-size: 0.9rem; color: var(--text-secondary); cursor: pointer; transition: all 0.2s;
+        }
+        .mode-btn:hover { color: var(--text-primary); }
+        .mode-btn.active { background: var(--bg-element); color: var(--text-primary); }
+        .mode-btn.generate.active { background: var(--primary); color: white; }
+
+        /* Right Sidebar */
+        .sidebar-right {
+            width: var(--sidebar-right-width); min-width: var(--sidebar-right-width);
+            background: var(--bg-surface); border-left: 1px solid var(--border);
+            display: flex; flex-direction: column; z-index: 30; transition: transform var(--transition);
+        }
+        .sidebar-right.collapsed { transform: translateX(100%); margin-right: calc(var(--sidebar-right-width) * -1); }
+
+        .info-card { background: var(--bg-surface); border: 1px solid var(--border); border-left: 4px solid #f59e0b; border-radius: var(--radius-md); padding: 20px; margin: 24px; }
+        .info-title { font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+        .step-list { margin: 0; padding: 0; list-style: none; }
+        .step-list li { padding-left: 12px; margin-bottom: 10px; font-size: 0.9rem; color: var(--text-secondary); border-left: 2px solid var(--border); }
+        .step-list strong { color: var(--text-primary); }
+
+        /* Icon Utility */
+        .icon { width: 20px; height: 20px; stroke-width: 2; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+
+        /* Theme Switch */
+        .theme-switch { cursor: pointer; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border); color: var(--text-secondary); }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+
+        <!-- SIDEBAR FILTRI -->
+        <aside class="sidebar-left" id="sidebarLeft">
+            <div class="sidebar-header">
+                <div class="brand-title">
+                    <div class="brand-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg></div>
+                    TRENTINO DATA
+                </div>
+                <button class="reset-btn" onclick="resetFilters()">
+                    <svg class="icon reset-icon" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                    Reset
+                </button>
+            </div>
+            
+            <div class="sidebar-content" id="filtersContainer">
+                <!-- I filtri verranno generati qui -->
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <header class="top-bar">
+                <button class="toggle-btn active" id="btnToggleLeft" onclick="toggleSidebar('left')"><svg class="icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+                <div class="header-title">Analisi per Ambito</div>
+                <div style="display:flex; gap:10px;">
+                    <div class="theme-switch" onclick="toggleTheme()"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div>
+                    <button class="toggle-btn active" id="btnToggleRight" onclick="toggleSidebar('right')"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></button>
+                </div>
+            </header>
+
+            <div class="content-scrollable">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title">
+                            <h2 id="chartMainTitle">Seleziona un Ambito</h2>
+                            <p id="chartSubTitle">Filtra per target e periodo</p>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="mainChart"></canvas>
+                        <div id="chartPlaceholder" class="chart-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                            <p>Non immaginare il futuro, prevedilo!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mode-controls">
+                    <button class="mode-btn active" id="btnHistory" onclick="setMode('history')">Storico</button>
+                    <button class="mode-btn generate" id="btnForecast" onclick="setMode('forecast')">Genera AI ✨</button>
+                    <button class="mode-btn" id="btnAll" onclick="setMode('all')">Completo</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- SIDEBAR DESTRA -->
+        <aside class="sidebar-right" id="sidebarRight">
+            <div class="sidebar-header" style="justify-content: center;">
+                <span class="brand-title">GUIDA RAPIDA</span>
+            </div>
+            <div class="info-card">
+                <div class="info-title"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> How To Use</div>
+                <ul class="step-list">
+                    <li><strong>Ambito:</strong> Seleziona una valle specifica dal menu a tendina. Il grafico si aggiornerà per mostrare i dati di quell'ambito.</li>
+                    <li><strong>Target:</strong> Filtra per tipologia (Alberghieri/Extra) e origine (Italiani/Stranieri).</li>
+                    <li><strong>Metrica:</strong> Scegli se visualizzare Arrivi, Presenze o entrambi.</li>
+                    <li><strong>Periodo:</strong> Definisci l'arco temporale (Mese/Anno) di interesse.</li>
+                    <li><strong>Modalità:</strong>
+                        <br>- <em>Storico:</em> Dati reali fino al 2024.
+                        <br>- <em>Genera AI:</em> Proiezione futura basata sui dati dell'ambito selezionato.
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+    </div>
+
+    <script>
+        // --- CONFIGURAZIONE ---
+        const configFilters = {
+            "filters": {
+                "ambito_mensile": [
+                    "Esercizi alberghieri", "Esercizi extralberghieri", 
+                    "Trento, Monte Bondone e Altopiano di Pinè", 
+                    "Altopiano della Paganella, Piana della Rotaliana e San Lorenzo Dorsino", 
+                    "Val di Fiemme e Val di Cembra", "Val di Fassa", 
+                    "San Martino di Castrozza, Primiero e Vanoi", 
+                    "Valsugana, Tesino e Valle dei Mocheni", "Altipiani cimbri e Vigolana", 
+                    "Rovereto, Vallagarina e Monte Baldo", 
+                    "Garda trentino, Valle di Ledro, Terme di Comano e Valle dei Laghi", 
+                    "Madonna di Campiglio, Pinzolo, Val Rendena, Giudicarie centrali e Valle del Chiese", 
+                    "Val di Sole", "Val di Non"
+                ],
+                "target": ["Esercizi alberghieri", "Esercizi extralberghieri", "Italiani", "Stranieri"], // Note: JSON in prompt had ambiguity, mapping logically
+                "metrica": ["Presenze", "Arrivi"],
+                "periodo": ["2013-01", "2024-12"]
+            }
+        };
+
+        // --- DATA MOCK GENERATOR (Simula data.json completo) ---
+        // Struttura: { "Arrivi": { "2013-01": [ {ambito: "...", italiani: 100, stranieri: 50}, ... ] }, "Presenze": ... }
+        const rawData = { "Arrivi": {}, "Presenze": {} };
+        const years = []; 
+        for(let y=2013; y<=2024; y++) years.push(y);
+        const months = ["01","02","03","04","05","06","07","08","09","10","11","12"];
+
+        // Genera dati casuali coerenti per la demo
+        years.forEach(y => {
+            months.forEach(m => {
+                const key = `${y}-${m}`;
+                const baseVal = (m === "08" || m === "12" || m === "07") ? 5000 : 1000; // Picchi stagionali
+                
+                rawData["Arrivi"][key] = [];
+                rawData["Presenze"][key] = [];
+
+                configFilters.filters.ambito_mensile.forEach(ambito => {
+                    // Randomizza leggermente per ogni ambito
+                    const variance = Math.random() * 0.5 + 0.8;
+                    const itArr = Math.floor(baseVal * variance * 10);
+                    const stArr = Math.floor(baseVal * variance * 8);
+                    
+                    rawData["Arrivi"][key].push({
+                        ambito: ambito,
+                        italiani: itArr,
+                        stranieri: stArr
+                    });
+
+                    rawData["Presenze"][key].push({
+                        ambito: ambito,
+                        italiani: itArr * 3.5, // Permanenza media simulata
+                        stranieri: stArr * 4.2
+                    });
+                });
+            });
+        });
+
+        // --- STATE MANAGEMENT ---
+        let currentMode = 'history';
+        let chartInstance = null;
+
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFilters();
+            // Select default ambito to show empty state correctly or first chart
+            document.getElementById('selAmbito').value = ""; 
+            updateChart();
+        });
+
+        // --- UI RENDERING ---
+        function renderFilters() {
+            const container = document.getElementById('filtersContainer');
+            
+            // 1. AMBITO (Select - Single Choice)
+            const secAmbito = createFilterSection('Ambito Turistico');
+            const select = document.createElement('select');
+            select.className = 'select-box';
+            select.id = 'selAmbito';
+            select.onchange = updateChart;
+            
+            // Placeholder option
+            const defaultOpt = document.createElement('option');
+            defaultOpt.value = "";
+            defaultOpt.text = "Seleziona un ambito...";
+            defaultOpt.disabled = true;
+            defaultOpt.selected = true;
+            select.appendChild(defaultOpt);
+
+            configFilters.filters.ambito_mensile.forEach(opt => {
+                const o = document.createElement('option');
+                o.value = opt;
+                o.text = opt;
+                select.appendChild(o);
+            });
+            secAmbito.appendChild(select);
+            container.appendChild(secAmbito);
+
+            // 2. TARGET (Checkbox)
+            // Splitting Target logic: Tipologia vs Origine logic from data structure
+            const secTarget = createFilterSection('Target');
+            const grpTarget = document.createElement('div');
+            grpTarget.className = 'checkbox-group';
+            // Hardcoded mapping for UI clarity based on typical usage
+            const targets = ["Italiani", "Stranieri"];
+            targets.forEach(t => {
+                grpTarget.appendChild(createCheckbox(t, t.toLowerCase(), true));
+            });
+            secTarget.appendChild(grpTarget);
+            container.appendChild(secTarget);
+
+            // 3. METRICA (Checkbox)
+            const secMetrica = createFilterSection('Metrica');
+            const grpMetrica = document.createElement('div');
+            grpMetrica.className = 'checkbox-group';
+            configFilters.filters.metrica.forEach(m => {
+                grpMetrica.appendChild(createCheckbox(m, m.toLowerCase(), true));
+            });
+            secMetrica.appendChild(grpMetrica);
+            container.appendChild(secMetrica);
+
+            // 4. PERIODO (Date Inputs)
+            const secPeriodo = createFilterSection('Periodo (Mese/Anno)');
+            const rowStart = document.createElement('div');
+            rowStart.className = 'period-row';
+            rowStart.innerHTML = `<span class="period-label">Dal</span> 
+                <select id="startMonth" class="select-box" style="padding:6px">${getMonthOptions()}</select>
+                <select id="startYear" class="select-box" style="padding:6px">${getYearOptions()}</select>`;
+            
+            const rowEnd = document.createElement('div');
+            rowEnd.className = 'period-row';
+            rowEnd.style.marginTop = "8px";
+            rowEnd.innerHTML = `<span class="period-label">Al</span> 
+                <select id="endMonth" class="select-box" style="padding:6px">${getMonthOptions(11)}</select>
+                <select id="endYear" class="select-box" style="padding:6px">${getYearOptions(2024)}</select>`;
+            
+            secPeriodo.appendChild(rowStart);
+            secPeriodo.appendChild(rowEnd);
+            container.appendChild(secPeriodo);
+
+            // Listeners for date
+            ['startMonth','startYear','endMonth','endYear'].forEach(id => {
+                document.getElementById(id).addEventListener('change', updateChart);
+            });
+        }
+
+        function createFilterSection(title) {
+            const div = document.createElement('div');
+            div.className = 'filter-section';
+            div.innerHTML = `<div class="filter-title">${title}</div>`;
+            return div;
+        }
+
+        function createCheckbox(label, value, checked) {
+            const lbl = document.createElement('label');
+            lbl.className = 'checkbox-item';
+            lbl.innerHTML = `<input type="checkbox" value="${value}" ${checked ? 'checked' : ''} onchange="updateChart()"> ${label}`;
+            return lbl;
+        }
+
+        function getYearOptions(selected = 2013) {
+            let opts = '';
+            for(let y=2013; y<=2100; y++) { // Allow future for forecast
+                opts += `<option value="${y}" ${y === selected ? 'selected' : ''}>${y}</option>`;
+            }
+            return opts;
+        }
+
+        function getMonthOptions(selectedIdx = 0) {
+            const mNames = ["Gen", "Feb", "Mar", "Apr", "Mag", "Giu", "Lug", "Ago", "Set", "Ott", "Nov", "Dic"];
+            let opts = '';
+            mNames.forEach((m, i) => {
+                const val = (i+1).toString().padStart(2, '0');
+                opts += `<option value="${val}" ${i === selectedIdx ? 'selected' : ''}>${m}</option>`;
+            });
+            return opts;
+        }
+
+        // --- DATA PROCESSING ENGINE ---
+        function processData() {
+            const ambito = document.getElementById('selAmbito').value;
+            if (!ambito) return null;
+
+            const showIt = document.querySelector('input[value="italiani"]').checked;
+            const showStr = document.querySelector('input[value="stranieri"]').checked;
+            const showArr = document.querySelector('input[value="arrivi"]').checked;
+            const showPres = document.querySelector('input[value="presenze"]').checked;
+
+            const sM = document.getElementById('startMonth').value;
+            const sY = document.getElementById('startYear').value;
+            const eM = document.getElementById('endMonth').value;
+            const eY = document.getElementById('endYear').value;
+            const startDate = `${sY}-${sM}`;
+            const endDate = `${eY}-${eM}`;
+
+            const labels = [];
+            const dataArrivi = [];
+            const dataPresenze = [];
+
+            // 1. Traverse Data
+            // We iterate through year/months to keep order
+            // If mode is 'history', limit to 2024-12. If 'forecast', extend logic.
+            
+            let currentY = parseInt(sY);
+            let currentM = parseInt(sM);
+            const stopY = parseInt(eY);
+            const stopM = parseInt(eM);
+
+            while (currentY < stopY || (currentY === stopY && currentM <= stopM)) {
+                const mStr = currentM.toString().padStart(2, '0');
+                const key = `${currentY}-${mStr}`;
+                labels.push(key);
+
+                // Check if we have real data (up to 2024)
+                const hasData = rawData["Arrivi"][key] !== undefined;
+
+                if (hasData) {
+                    // --- HISTORICAL DATA ---
+                    let valArr = 0;
+                    let valPres = 0;
+
+                    // Helper to sum based on filters
+                    const sumValues = (datasetKey) => {
+                        const records = rawData[datasetKey][key];
+                        const record = records.find(r => r.ambito === ambito);
+                        if (record) {
+                            let total = 0;
+                            if (showIt) total += record.italiani;
+                            if (showStr) total += record.stranieri;
+                            return total;
+                        }
+                        return 0;
+                    };
+
+                    if (showArr) valArr = sumValues("Arrivi");
+                    if (showPres) valPres = sumValues("Presenze");
+
+                    dataArrivi.push(valArr);
+                    dataPresenze.push(valPres);
+
+                } else if (currentMode !== 'history' && currentY >= 2025) {
+                    // --- FORECAST LOGIC (AI Simulation) ---
+                    // Simple growth based on same month previous year
+                    // Look back 1 year
+                    const prevY = currentY - 1;
+                    const prevKey = `${prevY}-${mStr}`;
+                    
+                    // Simple fallback if lookback fails (e.g. very first projected point)
+                    const lastArr = dataArrivi.length > 12 ? dataArrivi[dataArrivi.length - 12] : (dataArrivi[dataArrivi.length-1] || 1000);
+                    const lastPres = dataPresenze.length > 12 ? dataPresenze[dataPresenze.length - 12] : (dataPresenze[dataPresenze.length-1] || 5000);
+
+                    // Growth factor + Noise
+                    const growth = 1.02; // 2% growth
+                    dataArrivi.push(Math.round(lastArr * growth));
+                    dataPresenze.push(Math.round(lastPres * growth));
+                } else {
+                    // Gap or out of mode
+                    dataArrivi.push(null);
+                    dataPresenze.push(null);
+                }
+
+                // Increment Month
+                currentM++;
+                if (currentM > 12) { currentM = 1; currentY++; }
+            }
+
+            return { labels, dataArrivi, dataPresenze };
+        }
+
+        // --- CHART RENDER ---
+        function updateChart() {
+            const data = processData();
+            const placeholder = document.getElementById('chartPlaceholder');
+            const canvas = document.getElementById('mainChart');
+            const titleEl = document.getElementById('chartMainTitle');
+            const subTitleEl = document.getElementById('chartSubTitle');
+
+            if (!data) {
+                placeholder.style.display = 'block';
+                canvas.style.display = 'none';
+                titleEl.innerText = "Seleziona un Ambito";
+                subTitleEl.innerText = "Scegli una valle per visualizzare i dati";
+                return;
+            }
+
+            placeholder.style.display = 'none';
+            canvas.style.display = 'block';
+            
+            // Set Titles
+            const ambito = document.getElementById('selAmbito').value;
+            titleEl.innerText = ambito;
+            subTitleEl.innerText = currentMode === 'history' ? "Dati Storici Consolidati" : "Analisi Predittiva (AI)";
+
+            const ctx = canvas.getContext('2d');
+            if (chartInstance) chartInstance.destroy();
+
+            // Colors
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const colorGrid = isDark ? '#334155' : '#e2e8f0';
+            const colorText = isDark ? '#94a3b8' : '#64748b';
+
+            // Dataset Config
+            const datasets = [];
+            const showArr = document.querySelector('input[value="arrivi"]').checked;
+            const showPres = document.querySelector('input[value="presenze"]').checked;
+
+            // Helper for forecast segment styling
+            const segmentConfig = {
+                borderColor: ctx => {
+                    // Check if date > 2024-12
+                    const label = data.labels[ctx.p1DataIndex]; // "YYYY-MM"
+                    if(label && label >= "2025-01") return 'var(--forecast-color)';
+                    return undefined; // default color
+                },
+                borderDash: ctx => {
+                    const label = data.labels[ctx.p1DataIndex];
+                    if(label && label >= "2025-01") return [5, 5];
+                    return undefined;
+                }
+            };
+
+            if (showPres) {
+                datasets.push({
+                    label: 'Presenze',
+                    data: data.dataPresenze,
+                    borderColor: '#ec4899', // Pink
+                    backgroundColor: 'rgba(236, 72, 153, 0.1)',
+                    borderWidth: 2,
+                    tension: 0.4,
+                    fill: true,
+                    segment: segmentConfig
+                });
+            }
+            if (showArr) {
+                datasets.push({
+                    label: 'Arrivi',
+                    data: data.dataArrivi,
+                    borderColor: '#0ea5e9', // Blue
+                    backgroundColor: 'rgba(14, 165, 233, 0.1)',
+                    borderWidth: 2,
+                    tension: 0.4,
+                    fill: true,
+                    segment: segmentConfig
+                });
+            }
+
+            chartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: data.labels,
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            mode: 'index', intersect: false,
+                            backgroundColor: isDark ? '#1e293b' : '#ffffff',
+                            titleColor: isDark ? '#fff' : '#0f172a',
+                            bodyColor: isDark ? '#cbd5e1' : '#64748b',
+                            borderColor: isDark ? '#334155' : '#e2e8f0',
+                            borderWidth: 1
+                        }
+                    },
+                    scales: {
+                        x: { grid: { display: false }, ticks: { color: colorText, maxTicksLimit: 12 } },
+                        y: { border: { display: false }, grid: { color: colorGrid, borderDash: [4, 4] }, ticks: { color: colorText } }
+                    },
+                    interaction: { mode: 'nearest', axis: 'x', intersect: false }
+                }
+            });
+        }
+
+        // --- UTILS ---
+        function setMode(mode) {
+            currentMode = mode;
+            document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+            if(mode === 'history') {
+                document.getElementById('btnHistory').classList.add('active');
+                // Force date range to history
+                document.getElementById('startYear').value = 2013;
+                document.getElementById('endYear').value = 2024;
+            } else if (mode === 'forecast' || mode === 'all') {
+                document.getElementById(mode === 'forecast' ? 'btnForecast' : 'btnAll').classList.add('active');
+                // Extend date range
+                document.getElementById('endYear').value = 2026; // Example forecast range
+            }
+            updateChart();
+        }
+
+        function resetFilters() {
+            document.getElementById('selAmbito').value = "";
+            document.querySelectorAll('input[type="checkbox"]').forEach(c => c.checked = true);
+            document.getElementById('startYear').value = 2013;
+            document.getElementById('endYear').value = 2024;
+            document.getElementById('startMonth').value = "01";
+            document.getElementById('endMonth').value = "12";
+            setMode('history');
+            updateChart();
+            
+            const icon = document.querySelector('.reset-icon');
+            icon.style.transform = "rotate(-360deg)";
+            setTimeout(() => icon.style.transform = "rotate(0deg)", 500);
+        }
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            updateChart();
+        }
+
+        function toggleSidebar(side) {
+            const el = document.getElementById(side === 'left' ? 'sidebarLeft' : 'sidebarRight');
+            const btn = document.getElementById(side === 'left' ? 'btnToggleLeft' : 'btnToggleRight');
+            el.classList.toggle('collapsed');
+            btn.classList.toggle('active');
+            setTimeout(() => { if (chartInstance) chartInstance.resize(); }, 350);
+        }
+    </script>
+</body>
+</html>
