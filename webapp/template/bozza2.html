@@ -55,9 +55,6 @@
             --border: #334155;        
             --divider: #1e293b;
             
-            --chart-grid: #334155;
-            --chart-text: #94a3b8;
-            
             --primary: #818cf8;       
             --primary-glow: rgba(129, 140, 248, 0.2);
         }
@@ -226,35 +223,7 @@
             justify-content: space-between;
             gap: 8px;
         }
-        /* Rimosso linea after per permettere il toggle button a destra */
-        /* .filter-title::after { content: ''; flex: 1; height: 1px; background: var(--border); } */
-
-        /* Toggle Pills per Granularità */
-        .toggle-pill {
-            background: var(--bg-element);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 2px;
-            display: flex;
-        }
-        .pill-btn {
-            padding: 2px 8px;
-            font-size: 0.65rem;
-            border-radius: 16px;
-            border: none;
-            background: transparent;
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: all 0.2s;
-            font-weight: 500;
-        }
-        .pill-btn:hover { color: var(--text-primary); }
-        .pill-btn.active {
-            background: var(--bg-surface);
-            color: var(--primary);
-            box-shadow: var(--shadow-sm);
-            font-weight: 700;
-        }
+        .filter-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
         .select-wrapper { position: relative; }
         .select-box {
@@ -348,27 +317,6 @@
         .period-separator {
             color: var(--text-tertiary);
             font-weight: bold;
-        }
-
-        .range-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-        .range-item {
-            padding: 8px;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            background: var(--bg-body);
-            cursor: pointer;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-            text-align: center;
-            transition: all 0.2s;
-        }
-        .range-item:hover { border-color: var(--primary); }
-        .range-item.selected {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            box-shadow: 0 2px 6px var(--primary-glow);
         }
 
         /* --- MAIN CONTENT (CENTRALE) --- */
@@ -678,25 +626,11 @@
                     </div>
                 </details>
 
-                <!-- 4. PERIODO (Data Partenza - Data Arrivo) -->
+                <!-- 4. PERIODO (Data Partenza - Data Arrivo, Auto-detected as Monthly) -->
                 <div class="filter-section" style="margin-top:12px;">
-                    <div class="filter-title">
-                        Periodo
-                        <div class="toggle-pill">
-                            <button class="pill-btn active" id="btnPeriodYear" onclick="setPeriodType('year')">Anno</button>
-                            <button class="pill-btn" id="btnPeriodMonth" onclick="setPeriodType('month')">Mese</button>
-                        </div>
-                    </div>
+                    <div class="filter-title">Periodo (Mese - Anno)</div>
                     
-                    <!-- View ANNO -->
-                    <div class="periodo-row" id="periodYearRow">
-                        <select class="period-select" id="startYear" onchange="updateChart()"></select>
-                        <span class="period-separator">-</span>
-                        <select class="period-select" id="endYear" onchange="updateChart()"></select>
-                    </div>
-
-                    <!-- View MESE -->
-                    <div id="periodMonthRow" style="display:none; flex-direction:column; gap:8px;">
+                    <div id="dynamicPeriodSelector" style="display:flex; flex-direction:column; gap:8px;">
                         <div style="display:flex; align-items:center; gap:8px;">
                             <span style="font-size:0.75rem; color:var(--text-tertiary); width:20px;">Dal</span>
                             <select class="period-select" id="startMonthM" onchange="updateChart()"></select>
@@ -710,26 +644,11 @@
                     </div>
                 </div>
 
-                <!-- Range Rapidi per comodità (invisibili ma funzionali come "Anni" da JSON) -->
-                <!-- Utilizziamo i filtri sopra, gli anni rapidi li integriamo se richiesto esplicitamente -->
+                <!-- 5. ANNI STORICO (Checkbox Years - kept as granular selection option) -->
                 <details class="filter-accordion" open>
-                    <summary>ANNI STORICO (2013-2109)</summary>
+                    <summary>ANNI SINGOLI</summary>
                     <div class="accordion-content">
                         <div class="scrollable-filter" id="yearsFilterContainer"></div>
-                    </div>
-                </details>
-
-                <details class="filter-accordion" open>
-                    <summary>Range Storico (2013-2024)</summary>
-                    <div class="accordion-content">
-                        <div class="range-grid" id="historicRangeContainer"></div>
-                    </div>
-                </details>
-
-                <details class="filter-accordion">
-                    <summary>Range Previsione (2025-2109)</summary>
-                    <div class="accordion-content">
-                        <div class="range-grid" id="forecastRangeContainer"></div>
                     </div>
                 </details>
 
@@ -804,7 +723,7 @@
                     </div>
                     <ul class="step-list">
                         <li><strong>Filtra:</strong> Usa il pannello sinistro per selezionare ambito, target e metrica.</li>
-                        <li><strong>Periodo:</strong> Seleziona l'anno di partenza e arrivo.</li>
+                        <li><strong>Periodo:</strong> Seleziona l'anno di partenza e arrivo (inclusi mesi).</li>
                         <li><strong>Modalità:</strong>
                             <div style="margin-top:4px; padding-left:8px; font-size:0.85rem; color:var(--text-tertiary)">
                                 • Storico: Dati consolidati fino al 2024.<br>
@@ -903,20 +822,20 @@
         }
 
         function resetFilters() {
-            document.querySelectorAll('.year-checkbox').forEach(cb => cb.checked = false);
-            // Clear range visual selection
-            document.querySelectorAll('.range-item').forEach(btn => btn.classList.remove('selected'));
-            
+            // Reset Date Selects to default
+            const startYearM = document.getElementById('startYearM');
+            const endYearM = document.getElementById('endYearM');
+            if (startYearM.options.length > 0) startYearM.value = 2013;
+            if (endYearM.options.length > 0) endYearM.value = 2025;
+            document.getElementById('startMonthM').value = 0;
+            document.getElementById('endMonthM').value = 11;
+
             // Reset Ambiti
             document.querySelectorAll('.ambito-checkbox').forEach(cb => cb.checked = false);
             document.getElementById('chk-all-valli').checked = false;
-
-            // Reset Periodo
-            setPeriodType('year');
-            const startSel = document.getElementById('startYear');
-            const endSel = document.getElementById('endYear');
-            if(startSel.options.length > 0) startSel.value = 2013;
-            if(endSel.options.length > 0) endSel.value = 2025;
+            
+            // Reset Year Checkboxes
+            document.querySelectorAll('.year-checkbox').forEach(cb => cb.checked = false);
 
             // Uncheck other filters
             ['chkHotel', 'chkExtra', 'chkIta', 'chkStr', 'chkPresenze', 'chkArrivi'].forEach(id => {
@@ -948,7 +867,6 @@
         const rawData = { history: historyData, forecast: {} };
         let chartInstance = null;
         let currentMode = 'history';
-        let currentPeriodType = 'year'; // 'year' or 'month'
 
         function generateForecastData() {
             const startYear = 2026;
@@ -1008,15 +926,10 @@
         }
 
         function initDateSelectors() {
-            const startSel = document.getElementById('startYear');
-            const endSel = document.getElementById('endYear');
-            
             const startYearM = document.getElementById('startYearM');
             const endYearM = document.getElementById('endYearM');
             
             for (let y = 2013; y <= 2109; y++) {
-                startSel.add(new Option(y, y));
-                endSel.add(new Option(y, y));
                 startYearM.add(new Option(y, y));
                 endYearM.add(new Option(y, y));
             }
@@ -1030,34 +943,10 @@
             });
 
             // Default
-            startSel.value = 2013;
-            endSel.value = 2025;
-            
             startYearM.value = 2013;
             startMonthM.value = 0; // Gen
             endYearM.value = 2025;
             endMonthM.value = 11; // Dic
-        }
-
-        function setPeriodType(type) {
-            currentPeriodType = type;
-            const btnYear = document.getElementById('btnPeriodYear');
-            const btnMonth = document.getElementById('btnPeriodMonth');
-            const rowYear = document.getElementById('periodYearRow');
-            const rowMonth = document.getElementById('periodMonthRow');
-
-            if (type === 'year') {
-                btnYear.classList.add('active');
-                btnMonth.classList.remove('active');
-                rowYear.style.display = 'flex';
-                rowMonth.style.display = 'none';
-            } else {
-                btnYear.classList.remove('active');
-                btnMonth.classList.add('active');
-                rowYear.style.display = 'none';
-                rowMonth.style.display = 'flex';
-            }
-            updateChart();
         }
 
         function initYearsFilter() {
@@ -1073,7 +962,6 @@
                 input.className = 'year-checkbox';
                 input.checked = (year <= 2025);
                 input.addEventListener('change', () => {
-                    updateRangeButtonState();
                     updateChart();
                 });
                 label.appendChild(input);
@@ -1082,83 +970,23 @@
             }
         }
 
-        function initRangeFilters() {
-            createRangeButtons(2013, 2024, 5, 'historicRangeContainer');
-            createRangeButtons(2025, 2109, 5, 'forecastRangeContainer');
-        }
-
-        function createRangeButtons(startYear, endYear, step, containerId) {
-            const container = document.getElementById(containerId);
-            container.innerHTML = '';
-            for (let y = startYear; y <= endYear; y += step) {
-                let end = Math.min(y + step - 1, endYear);
-                if (end < y) break;
-                
-                const btn = document.createElement('button');
-                btn.className = 'range-item';
-                btn.textContent = `${y}-${end}`;
-                btn.dataset.start = y;
-                btn.dataset.end = end;
-                btn.onclick = () => { toggleYearsRange(y, end, btn); };
-                container.appendChild(btn);
-            }
-        }
-
-        // --- SELECTION LOGIC ---
-        function toggleYearsRange(start, end, btnElement) {
-            const checkboxes = document.querySelectorAll('.year-checkbox');
-            let allChecked = true;
-            for (let y = start; y <= end; y++) {
-                const cb = document.getElementById(`chk-year-${y}`);
-                if (cb && !cb.checked) { allChecked = false; break; }
-            }
-            const newState = !allChecked; 
-            for (let y = start; y <= end; y++) {
-                const cb = document.getElementById(`chk-year-${y}`);
-                if (cb) cb.checked = newState;
-            }
-            updateRangeButtonState();
-            updateChart();
-        }
-
-        function updateRangeButtonState() {
-            document.querySelectorAll('.range-item').forEach(btn => {
-                const start = parseInt(btn.dataset.start);
-                const end = parseInt(btn.dataset.end);
-                let allChecked = true;
-                for (let y = start; y <= end; y++) {
-                    const cb = document.getElementById(`chk-year-${y}`);
-                    if (cb && !cb.checked) { allChecked = false; break; }
-                }
-                if (allChecked) btn.classList.add('selected');
-                else btn.classList.remove('selected');
-            });
-        }
-
         function getDataBySelection() {
             let labels = [], arrivi = [], presenze = [];
             
-            // Logica ibrida: se uso il filtro "Periodo", ignoro i checkbox "ANNI STORICO"?
-            // O viceversa?
-            // Per semplicità, in questa suite "Periodo" ha la priorità se i checkbox "ANNI STORICO" sono tutti deselezionati o se vogliamo usare "Periodo" come filtro master.
-            // Tuttavia, la richiesta implicava che "Periodo" sostituisse la selezione granulare.
-            // Usiamo il Periodo Selectors come "Range Master".
+            // Priority: Date Range Selectors override Years checkbox if they define a valid range?
+            // Actually, usually app has one mode. Here we have "Periodo" selector and "Anni Singoli".
+            // We will use the Periodo Selectors as the primary driver for range.
             
-            let startY, endY, startM, endM;
-
-            if (currentPeriodType === 'year') {
-                startY = parseInt(document.getElementById('startYear').value);
-                endY = parseInt(document.getElementById('endYear').value);
-                startM = 0; endM = 11;
-            } else {
-                startY = parseInt(document.getElementById('startYearM').value);
-                endY = parseInt(document.getElementById('endYearM').value);
-                startM = parseInt(document.getElementById('startMonthM').value);
-                endM = parseInt(document.getElementById('endMonthM').value);
-            }
+            let startY = parseInt(document.getElementById('startYearM').value);
+            let endY = parseInt(document.getElementById('endYearM').value);
+            let startM = parseInt(document.getElementById('startMonthM').value);
+            let endM = parseInt(document.getElementById('endMonthM').value);
 
             // Swap if start > end
-            if (startY > endY) { let t = startY; startY = endY; endY = t; }
+            if (startY > endY || (startY === endY && startM > endM)) {
+                let tY = startY; startY = endY; endY = tY;
+                let tM = startM; startM = endM; endM = tM;
+            }
             
             // Loop range
             for (let y = startY; y <= endY; y++) {
@@ -1286,23 +1114,27 @@
             });
             document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
             
-            const startEl = document.getElementById('startYear');
-            const endEl = document.getElementById('endYear');
+            const startYearM = document.getElementById('startYearM');
+            const endYearM = document.getElementById('endYearM');
+            const startMonthM = document.getElementById('startMonthM');
+            const endMonthM = document.getElementById('endMonthM');
 
             if(mode==='history') { 
                 document.getElementById('btnHistory').classList.add('active'); 
-                startEl.value = 2013; endEl.value = 2024;
+                startYearM.value = 2013; endYearM.value = 2024;
             }
             else if(mode==='forecast') { 
                 document.getElementById('btnGenerate').classList.add('active'); 
-                startEl.value = 2025; endEl.value = 2109;
+                startYearM.value = 2025; endYearM.value = 2109;
             }
             else { 
                 document.getElementById('btnAll').classList.add('active'); 
-                startEl.value = 2013; endEl.value = 2109;
+                startYearM.value = 2013; endYearM.value = 2109;
             }
             
-            setPeriodType('year'); // Reset to year mode when preset clicked
+            startMonthM.value = 0;
+            endMonthM.value = 11;
+            
             updateChart();
         }
 
@@ -1311,11 +1143,7 @@
             generateForecastData();
             initAmbitiList();
             initDateSelectors();
-            initYearsFilter(); // Per compatibilità se usassimo i checkbox
-            initRangeFilters();
-            
-            // Sync initial state
-            updateRangeButtonState();
+            initYearsFilter();
             setMode('history');
         });
     </script>
